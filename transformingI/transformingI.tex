@@ -1,0 +1,76 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\title{Transforming I}
+\date{}
+
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+I is the moment of inertia tensor. A tensor is a matrix that obeys certain transformation rules; here we derive the rules for I.
+
+We know that the angular momentum $L$ can be written as $I\omega$. The only things we need to know to derive the transformation laws are that:
+
+\begin{enumerate}
+\item{L and $\omega$ are vectors and}
+\item{In any frame there exists a matrix (tensor) I such that $L = I\omega$}
+\end{enumerate}
+
+So if we have
+\begin{align}
+L = I\omega
+\end{align}
+
+then in another frame
+\begin{align}
+L' = I'\omega'
+\end{align}
+
+where, since L and $\omega$ are vectors,
+$L' = $A$L$ and likewise $\omega'$ = A$\omega$ for some transformation matrix A. Then I must transform as such
+
+\begin{align}
+I' = AIA^{-1}
+\end{align}
+
+and we note that this is a similarity transformation
+
+\section{Example}
+
+[diagram]
+
+First we write down I in a basis where it is diagonal; then we only need to calculate moment of principle moments of inertia.
+
+\begin{align}
+I
+=
+\begin{bmatrix} \frac{1}{4} &  & \\  & \frac{1}{2} &  \\  &  & \frac{1}{4}  \end{bmatrix} MR^{2}
+\end{align}
+
+then we write the transformation matrix we use
+
+\begin{align}
+R_{\theta}
+=
+\begin{bmatrix} \cos\theta & -\sin\theta & \\ \sin\theta & \cos\theta &  \\  &  & 1  \end{bmatrix}
+\end{align}
+
+We then apply the transformation
+
+\begin{align}
+I' = RIR^{-1}
+= [calculate]
+\begin{bmatrix} \frac{1}{4} &  & \\  & \frac{1}{2} &  \\  &  & \frac{1}{4}  \end{bmatrix}
+\end{align}
+
+and as desired, $I'_{x}$ = $\frac{1}{4}\sin^2\theta + \frac{1}{2}\cos^2\theta$.
+
+\end{document}

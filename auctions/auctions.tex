@@ -1,0 +1,117 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\title{First player sealed bid auctions}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Two-player, uniform valuation}
+
+Two players take part in this auction and bid for an item. Each player has a private valuation $v_i \in [0,1]$ of the item (how much utility he would get by winning the item) and bids $b_i$ for it. For this model, $v_i$ is uniformly distributed on [0,1]. If the bids are equal, a coin is tossed to determine the winner.
+
+The payoff for each player is 
+$
+u_i = \begin{cases} v_i - b_i &\mbox{if } b_i > b_j \\
+\frac{v_i - b_i}{2} &\mbox{if } b_i = b_j \\
+0 &\mbox{if } b_i < b_j. \end{cases}
+$
+
+Note that this is a function of $v_i, b_i$ and $b_j$.
+
+We want to find a function $b_i = b_i(v_i)$ (given how much I value the item, how much should I bid?) that maximises $P_i$.
+
+Let's calculate the expected payoff; the expected payoff is 
+
+\begin{eqnarray*}
+P_i = (v_i - b_i) Prob\{b_i > b_j\} + \frac{v_i - b_i}{2} Prob\{b_i = b_j\}
+\end{eqnarray*}
+
+We now \emph{guess} that $b_j = a_j + c_j v_j$ (b is a linear function of v). Of course this means we can't guarantee that we find all Nash Equilibria, but we are just trying to find one. Don't worry, later on we will strengthen our proof to avoid having to guess this.
+
+Then $Prob\{b_i = b_j\} = 0$ and since $v_i$ is uniformly distributed on [0,1],
+
+\begin{eqnarray*}
+Prob\{b_i > b_j\} &=& Prob\{b_i > a_j + c_j v_j\} \\
+&=& Prob\{\frac{b_i - a_j}{c_j} > v_j\} \\
+&=& \frac{b_i - a_j}{c_j}
+\end{eqnarray*}
+
+To be a Nash Equilibrium $b_i$ must maximise $P_i$ for all $v_i$.
+
+\begin{eqnarray*}
+P_i = \frac{(b_i - a_j)(v_i - b_i)}{c_j}
+\end{eqnarray*}
+
+and the maximum occurs when
+
+\begin{eqnarray*}
+b_i &=& \frac{v_i + a_j}{2} \\
+b_i &=& a_i + c_i v_i
+\end{eqnarray*}
+
+Since this must be true for all $v_i$ we compare coefficients of $v_i$ to conclude that
+
+\begin{eqnarray*}
+b_i &=& \frac{v_i}{2} \\
+\end{eqnarray*}
+
+Players will try to bid \emph{half} of what they think the item is worth.
+
+\section{Uniqeness of Nash Equilibria}
+
+Is the NE we just found unique? Yes, we can prove it is. Recall that we had to assume that $b_i$ was a linear function of $v_i$; now we relax this to require only that $b_i$ be a continuous, differentiable and increasing function of $v_i$.
+
+Because it's increasing we can define $b^{-1}$ such that $b(b^{-1}(v_i)) = v_i$. Then the optimality condition implies that
+
+\begin{eqnarray*}
+0 &=& \frac{\partial P_i}{\partial b_i} \\
+&=& \frac{\partial }{\partial b_i} (v_i - b_i) Prob\{b_i > b_j\} \\
+&=& \frac{\partial }{\partial b_i} (v_i - b_i) Prob\{v_i > v_j\} \\
+&=& -v_i + (v_i - b_i)\frac{d v_i}{d b_i} \\
+\end{eqnarray*}
+solving,
+\begin{eqnarray*}
+\frac{d b}{d v} v + b &=& v \\
+d(bv) &=& v dv \\
+bv &=& \frac{1}{2} v^2 + C
+\end{eqnarray*}
+
+together with the initial condition that b(0) = 0,
+
+\begin{eqnarray*}
+b_i &=& \frac{v_i}{2} \\
+\end{eqnarray*}
+
+As before.
+
+\section{n player, arbitrary valuation}
+
+Now we generalize further: now we do not know for sure that the competitor's valuations are uniformly distributed; instead let them be distributed such that
+
+\begin{eqnarray*}
+Prob\{b_j > b_i\} &=& F(b_i)
+\end{eqnarray*}
+
+with $n - 1$ other players, the probability you will be beaten is just $F^{n-1}(b_i)$
+
+applying the same procedure as before, the differential equation we obtain is
+
+\begin{eqnarray*}
+\frac{d b}{d v} = (v - b)(n - 1)\frac{f(v)}{F(v)}
+\end{eqnarray*}
+
+where $f(v) = \frac{d F(v)}{d v}$. As before we use the boundary conditions that b(0) = 0, and hence F(0) = 0. The solution to the differential equation is
+
+\begin{eqnarray*}
+b &=& s - \frac{\int_0^v F^{n-1}(v) \mathrm{d}v.}{F^{n-1}(v)}
+\end{eqnarray*}
+
+
+\end{document}

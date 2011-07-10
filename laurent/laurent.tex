@@ -1,0 +1,114 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\title{Contour Integration}
+\date{}
+
+
+\begin{document}
+\maketitle
+
+\section{Laurent expansion}
+
+A Laurant expansion is a generalization of a Taylor expansion to include negative terms, 
+
+\begin{align}
+f(z) = \displaystyle\sum\limits_{n=-\infty}^{\infty} a_n(z-c)^n
+\end{align}
+
+The terms where $n$ runs negative allow us to describe a singularity occuring at $z=c$. We say $f(z)$ has a \emph{pole} at $z=c$ if there are only a finite number of these terms and we say it has an \emph{essential singularity} if there are infinitely many of such terms. For example
+
+\begin{align}
+e^{(1/z)} = 1 + \frac{1}{z} + \frac{1}{2!}\frac{1}{z^2} + ...
+\end{align}
+
+has an essential singularity at $z=0$.
+
+The \emph{order} of a pole is the largest $n$ for which $a_{-n} \neq 0$. The \emph{residue} of $f(z)$ at $z=c$ is the coefficient $a_{-1}$ in the Laurent expansion about $z=c$. For example
+
+\begin{align}
+\frac{e^z}{z} &= \frac{1}{z}\left(1 + z + \frac{z^2}{2!} + \frac{z^3}{3!} + ...\right) \\
+                &= \frac{1}{z} + 1 + \frac{1}{2!}z + \frac{1}{3!}\frac{1}{z^2} + ...
+\end{align}
+
+has a pole of order 1 at $z=0$ with residue 1.
+
+\section{Contours}
+
+Given a contour $\gamma$ and a function $f(z)$ we define the contour integral of $f(z)$ around $\gamma$ as
+
+\begin{align}
+\int_\gamma f(z) dz = \lim_{dz \rightarrow 0}\sum f(z) dz
+\end{align}
+
+much the same way one would define real integration. In fact a real integral can be seen as a special case of this with the contour being intervals on $\mathbb{R}$.
+
+\section{Substitution}
+
+In fact we can actually use some function from $\mathbb{R}$ to $\mathbb{C}$ to parameterise the contour and then evaluate it like a real integral. For example let us evaluate (a rather important integral)
+
+\begin{align}
+\int_\gamma z^n dz
+\end{align}
+
+where $\gamma$ is the unit circle going clockwise once around the origin. We can parameterize it with $z=e^{it}$ where $0 \leq t \leq 2\pi$. Then
+
+\begin{align}
+\int_\gamma z^n dz &= \int_0^{2\pi} (e^{it})^nie^{it} dt \\
+                   &= i \int_0^{2\pi} e^{i(n+1)t} dt \\
+                   &= \left[\frac{e^{i(n+1)t}}{(n+1)}\right]_0^{2\pi} \\
+                   &= 0
+\end{align}
+
+if $n \neq -1$. If $n=-1$ then
+
+\begin{align}
+\int_\gamma z^n dz &= \int_\gamma \frac{dz}{z} \\
+                   &= i \int_0^{2\pi} dt \\
+                   &= 2\pi i
+\end{align}
+
+\section{Fundamental theorem of calculus}
+
+If the contour $\gamma$ has endpoints $a,b$ and goes from $a$ to $b$ then
+
+\begin{align}
+\int_\gamma f(z) dz &= F(b) - F(a)
+\end{align}
+
+where $F'(z) = f(z)$. Clearly if $a=b$,
+
+Theorem: The integral of a function which has an antiderivative around a closed contour is 0.
+
+The function $log(z)$ looks like an primitive of $1/z$ but it is not continuous on the unit circle because it is multi-valued and has branch points at irritating places. Indeed with a bit of hand-waving we can use the principal value of $\log z$ to evaluate
+
+\begin{align}
+\int_\gamma \frac{dz}{z} &= \left[ \log z \right]_\gamma \\
+                         &= \left[ \log |z| + i \arg z \right]_{e^0}^{e^{2\pi i}} \\
+                         &= 2\pi i
+\end{align}
+
+although the endpoints are the same we see that when going once around the unit circle $\arg z$ increase by $2\pi$.
+
+\section{Cauchy's theorem}
+
+\section{Residue theorem}
+
+The proof of this theorem is rather similar to that of Stoke's theorem (except you don't need to make infinite cuts) and uses the fact that a contour integral can be evaluated by cutting up the contour and integrating in the same direction around both because the integral on the common border cancels out.
+
+We cut the contour into smaller pieces. The pieces not surrounding a singularity of course evaluate to 0. We make sure that the ones surrounding a singularity is very small, then we can use the laurent expansion around the singularity.
+
+Then by the integration of $z^n$ we gave above, the ony terms which will contribute to something are the $n=-1$ terms. Since $\int_\gamma \frac{dz}{z} = 2\pi i$. Then clearly 
+
+\begin{align}
+\int_\gamma f(z) dz = 2\pi i \sum R_k
+\end{align}
+
+where $R_k$ is the residue at $z=k$
+
+\end{document}

@@ -1,0 +1,69 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\title{Jacobians}
+\date{}
+
+
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+To motivate the study of the Jacobian matrix and the Jacobian we begin by considering two operators that you should have learnt as a little child, the derivative and the gradient, and consider them as a way of answering this question: for a 'nice' function, how do you calculate a small change in the output given a small change in the input?
+
+\subsection{$f: \mathbb{R} \rightarrow \mathbb{R}$}
+
+Consider a function $f(x)$ from real numbers to real numbers.
+
+If the function is differentiable and continuous we have 
+
+\begin{align}
+dx = (\frac{df}{dx}) dx
+\end{align}
+
+At any given point $\frac{df}{dx}$ is a constant; hence small changes in $f$ are approximately linearly related to small changes in $f$.
+
+\subsection{$f: \mathbb{R}^n \rightarrow \mathbb{R}$}
+
+Consider a function $f(\vec{r})$ from a vector (for our purposes, $n$ real numbers) to real numbers.
+
+for instance, the scalar electric potential as a function of position. We wish to know $df$ as a linear function of $d\vec{r}$. We generalize the scalar derivitive to give a certain vector called the \emph{gradient} such that 
+
+\begin{align}
+df = \vec\nabla f \cdot d\vec{r}
+\end{align}
+
+In 3-D cartesian coordinates $\vec\nabla f = (\frac{df}{dx}, \frac{df}{dy}, \frac{df}{dz})$.
+
+\subsection{$y: \mathbb{R}^m \rightarrow \mathbb{R}^n$}
+
+Consider a function $\vec{y}(\vec{x})$. The most common use for this is to to study transformations in $\mathbb{R}^n$, where we set $m=n$. 
+
+Notice that if $x \in \mathbb{R}^n$ then $dx \in \mathbb{R}^n$. to find $dy$ as a function of $dx$ we need a linear mapping between {$\mathbb{R}^n$ and $\mathbb{R}^m$} that closely approximates the mapping at $x$. When $m=n=1$ this mapping was \emph{multiplication by a constant}; when $n=1$ the mapping was \emph{dot product with a constant vector}. In the general case we would probably need the mapping \emph{multiplication by a constant $m$ by $n$ matrix}.
+
+\section{Construction}
+
+We now explicitly write out $\vec{y}$ as $(y_1, ... y_n)$. $y_i$ is a function of $\vec{x}$, so can use our previous result to write $dy_i = \vec\nabla y_i \cdot dx$. Continuing we construct the Jacobian matrix $J$, a m by n matrix such that $d\vec{x} = J d\vec{y}$ and 
+\begin{align}
+\begin{bmatrix} dy_1 \\ \vdots \\ \vdots \\ dy_m \end{bmatrix} 
+=
+\begin{bmatrix} \dfrac{\partial y_1}{\partial x_1} & \cdots & \dfrac{\partial y_1}{\partial x_n} \\ \vdots & \ddots & \vdots \\ \dfrac{\partial y_m}{\partial x_1} & \cdots & \dfrac{\partial y_m}{\partial x_n}  \end{bmatrix}
+\begin{bmatrix} dx_1 \\ \vdots \\ \vdots \\ dx_m \end{bmatrix} 
+\end{align}
+
+\section{Geometrical meaning}
+
+linear approximation, stretching, determinant, volume, orientation of tangent plane
+
+\section{Application}
+
+Newton's method, stationary points in dynamical systems, classification of, change of variable
+
+\end{document}

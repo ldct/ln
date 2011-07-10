@@ -1,0 +1,58 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\title{Laplacian}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{$\nabla$}
+
+\newcommand{\dels}{$\nabla^2$}
+\newcommand{\delsm}{\nabla^2}
+
+We assume you are familiar with the humble $\nabla$ (del) vector and its physcal interpretation, including in the operator form $\nabla$ (scalar $\rightarrow$ vector), $\nabla\cdot$ (vector $\rightarrow$ scalar) and $\nabla\times$ (vector $\rightarrow$ vector).
+
+There are 9 (3 $\cdot$ 3) combinations of two del operators. Three of them have the correct type signature:
+
+\begin{enumerate}
+\item{$\nabla\times\nabla\times$}
+\item{$\nabla\times\nabla$}
+\item{$\nabla\cdot\nabla\times$}
+\item{$\nabla\cdot\nabla$}
+\item{$\nabla\nabla\cdot$}
+\end{enumerate}
+
+Items 2 and 3 are always zero.
+
+\section{\dels}
+
+The \dels operator, otherwise as the laplacian operator, is very important operator in physics. In cartesian coordinates it is
+
+\begin{eqnarray*}
+\delsm = \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} + \frac{\partial^2}{\partial z^2}
+\end{eqnarray*}
+
+Note that this value is necessarily a scalar, ie, independent of coordinates chosen. So what is its physical interpretation?
+
+\section{Concavity}
+
+In single-variable calculus the second derivative represents concavity, or the rate of change of the rate of change.
+
+A slightly more useful way to think about this is in terms of average values; the concavity of a function $f$ at a point $x_0$ measures much the average value of $f(x)$ about $x_0$ exceeds $f(x_0)$. [pics]
+
+This argument generalizes to higher dimensions too.
+
+\section{Poisonn's equation}
+
+\begin{eqnarray*}
+\delsm = 0
+\end{eqnarray*}
+
+\end{document}
