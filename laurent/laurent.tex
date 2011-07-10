@@ -33,7 +33,7 @@ The \emph{order} of a pole is the largest $n$ for which $a_{-n} \neq 0$. The \em
 
 \begin{align}
 \frac{e^z}{z} &= \frac{1}{z}\left(1 + z + \frac{z^2}{2!} + \frac{z^3}{3!} + ...\right) \\
-                &= \frac{1}{z} + 1 + \frac{1}{2!}z + \frac{1}{3!}\frac{1}{z^2} + ...
+                &= \frac{1}{z} + 1 + \frac{z}{2!} + \frac{z^2}{3!} + ...
 \end{align}
 
 has a pole of order 1 at $z=0$ with residue 1.
@@ -46,7 +46,7 @@ Given a contour $\gamma$ and a function $f(z)$ we define the contour integral of
 \int_\gamma f(z) dz = \lim_{dz \rightarrow 0}\sum f(z) dz
 \end{align}
 
-much the same way one would define real integration. In fact a real integral can be seen as a special case of this with the contour being intervals on $\mathbb{R}$.
+where $dz \in \gamma$ much the same way one would define real integration. In fact a real integral can be seen as a special case of this with the contour being an interval on $\mathbb{R}$.
 
 \section{Substitution}
 
@@ -56,7 +56,7 @@ In fact we can actually use some function from $\mathbb{R}$ to $\mathbb{C}$ to p
 \int_\gamma z^n dz
 \end{align}
 
-where $\gamma$ is the unit circle going clockwise once around the origin. We can parameterize it with $z=e^{it}$ where $0 \leq t \leq 2\pi$. Then
+where $\gamma$ is the unit circle going counterclockwise once around the origin. We can parameterize it with $z=e^{it}$ where $0 \leq t \leq 2\pi$. Then
 
 \begin{align}
 \int_\gamma z^n dz &= \int_0^{2\pi} (e^{it})^nie^{it} dt \\
