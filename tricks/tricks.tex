@@ -1,0 +1,43 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\title{Misc Tricks}
+\date{}
+
+
+\begin{document}
+\maketitle
+
+We wish to find
+
+\begin{align}
+\int_{-\infty}^{\infty} \frac{\sin(x)}{x} dx
+\end{align}
+
+this is $2f(0)$ where
+
+\begin{align}
+f(s)  &= \int_0^{+\infty} \frac{\sin(x)}{x} e^{-sx} dx \\
+\end{align}
+
+differentiating,
+
+\begin{align}
+f'(s) &=-\int_{0} ^\infty {\sin(x)}{e^{-sx}} dx \\
+      &=-\frac{1}{1+s^2}
+\end{align}
+
+solving with $f(\infty)=0$, 
+
+\begin{align}
+f(s)  &=\frac{\pi}{2}-\tan^{-1}(s)
+\end{align}
+\begin{align}
+\int_{-\infty} ^\infty \frac{\sin(x)}{x} dx ={\pi} 
+\end{align}
+\end{document}
