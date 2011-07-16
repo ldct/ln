@@ -1,0 +1,110 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\title{Cauchy-Riemann equations}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+Consider a function $f:\mathbb{C} \rightarrow \mathbb{C}$. If we consider a complex number to be a pair of real numbers we can say recast $f$ as $f_2:\mathbb{R} \times \mathbb{R} \rightarrow \mathbb{R} \times \mathbb{R}$.
+
+Obviously every $f$ corresponds to exactly one $f_2$, but what if we restrict $f$ to the class of functions that can be written as without using "complex operations"? For instance we allow $f(z)$ to be
+
+\begin{align}
+z^2 \\
+sin(z)/z \\
+log(z)
+\end{align}
+
+but not
+
+\begin{align}
+z^* \\
+|z|^2 &= zz^* \\
+\operatorname{Re}(z) &= \frac{1}{2}(z + z^*)
+\end{align}
+
+we will call such functions \emph{holomorphic} functions. What structure does this impose on $f_2$?
+
+\section{Complex differentiability}
+
+Surprisingly it turns out that the structure imposed is best phrased in terms of certain differential equations. To see this we define the complex derivative
+
+\begin{align}
+f'(z_0) = \lim_{z \rightarrow z_0} \frac{f(z) - f(z_0)}{z - z_0}
+\end{align}
+
+In general, the limit depends on which direction $z$ approaches $z_0$ from. There is a similar situation in real analysis where we have to consider left limits and right limits when defining a derivative. For complex functions there are an infinite number of directions, not just 2, and we say the limit exists only if it is independant of the direction. [take average of all directions?]
+
+For instance clearly if $f(z) = z^2$ then $f'(z) = 2z$ independant of the direction (which can be verified by binomial theorem or taking a directional derivative).
+
+We will now derive the abovementioned differential equations, known as the Cauchy-Riemann equations or CRE.
+
+\section{Derivation from chain rule}
+
+Let us first label $z=x+iy$ and $f(z) = u+iv$ for the real and imaginary coponents of the complex numbers. Then
+
+\begin{align}
+\frac{\partial f}{\partial x} = \frac{df}{dz}\frac{\partial f}{\partial x} = \frac{\partial u}{\partial x} + i\frac{\partial v}{\partial x} \\
+\frac{\partial f}{\partial y} = \frac{df}{dz}\frac{\partial f}{\partial y} = \frac{\partial u}{\partial y} + i\frac{\partial v}{\partial y} 
+\end{align}
+
+noting that $\frac{\partial z}{\partial x} = 1, \frac{\partial z}{\partial y} = 1$ we have
+
+\begin{align}
+\frac{df}{dz} &= \frac{\partial u}{\partial x} + i\frac{\partial v}{\partial x}\\
+              &= \frac{\partial v}{\partial y} - i\frac{\partial u}{\partial y}
+\end{align}
+
+or, equating real and imaginary parts to obtain an equation in $u,v,x,y,$
+
+\begin{align}
+\frac{\partial u}{\partial x} &= \frac{\partial v}{\partial y} \\
+\frac{\partial u}{\partial y} &=-\frac{\partial v}{\partial x}
+\end{align}
+
+(observe how the $i$ swaps the real and imaginary components)
+
+\section{Derivation from definition of derivative}
+
+Let us rewrite the derivative as
+
+\begin{align}
+f'(z) = \lim_{\underset{h\in\mathbb{C}}{h\to 0}} \frac{f(z+h) - f(z)}{h}
+\end{align}
+
+
+If this limit exists, then it may be computed by taking the limit as $h \rightarrow 0$ along the real axis or imaginary axis; in either case it should give the same result.  Approaching along the real axis, one finds
+
+\begin{align}
+\lim_{\underset{h\in\mathbb{R}}{h\to 0}} \frac{f(z_0+h)-f(z_0)}{h} = \frac{\partial f}{\partial x}(z)
+\end{align}
+
+On the other hand, approaching along the imaginary axis,
+
+\begin{align}
+\lim_{\underset{h\in \mathbb{R}}{h\to 0}} \frac{f(z+ih)-f(z)}{ih} =\frac{1}{i}\frac{\partial f}{\partial y}(z)
+\end{align}
+
+we can write the CRE in one single equation more suggestively (and rather non-rigorously) as
+
+\begin{align}
+\frac{d f}{d z} = \frac{d f}{d (x+yi)} = \frac{\partial f}{\partial x}=\frac{\partial f}{\partial iy}
+\end{align}
+
+\section{Wirtinger derivatives}
+\section{Conformal mapping, amplitwist}
+\section{Vector calculus}
+\section{Analytic function, Liouville's theorem}
+
+An analytic function is a function that is locally given by a convergent power series. There is an important theorem that holomorphic functions are analytic.
+
+\end{document}
