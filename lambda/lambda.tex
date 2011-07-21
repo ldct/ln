@@ -1,0 +1,114 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\setlength{\parindent}{0in}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+
+\title{Lambda Calculus}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+Let us describe imagine a function 
+
+\begin{align}
+f:\mathbb{Z}\rightarrow\mathbb{Z}\\
+f(x) = 3x
+\end{align}
+
+In various programming languages we may write this as
+
+\begin{verbatim}
+def triple(x):
+    return 3*x
+    
+triple::Integer->Integer
+triple x = 3*x
+
+int triple(int x):
+    return 3*x
+\end{verbatim}
+
+In general a function take one argument and returns one body. We write a function in lambda calculus as $\lambda[argument].[body]$; f will be written in the lambda calculus as $f = \lambda x.(3x)$. To apply this function we say that $f5 = (\lambda x.(3*x))5 = (3*5) = 15$.
+
+In lambda calculus, we don't have an arithmatic as axioms; the only thing we have is $\lambda$, a symbol that allows us to construct functions. But what do these functions take as arguments and return? Other functions, of course. Why would we do this? You will see.
+
+\section{Lambda terms}
+
+The syntax of lambda calculus is particularly simple. We define a lambda term as:
+
+\begin{enumerate}
+\item{a variable, $x$, is a lambda term}
+\item{if $t$ is a lambda term, and $x$ is a variable, then $\lambda x.t$ is a lambda term (called a lambda abstraction)}
+\item{if $t$ and $s$ are lambda terms, then $ts$ is a lambda term (called an application)}
+\end{enumerate}
+
+A lambda abstraction $\lambda x.t$ represents an anonymous function that takes a single input, evalutes $t$ with $x$ bound to the input, and then returns $t$. 
+
+An application $ts$ can be thought of as calling $t$ with $s$ as the input.
+
+As a final point, the "=" sign is not part of lambda calculus but we use it to say that two lambda terms are equivalent.
+
+\section{Simple examples}
+
+The Identity function, $Ix = x$, is defined as $I = \lambda x.x$
+
+The Constant function, $C_r$ that always returns r, is defined as $C_r = \lambda x.r$
+
+What does the function $T = \lambda a.\lambda b.a$ do?
+
+[Currying]
+
+\section{Church numerals}
+
+Functions in LC take other functions as arguments and return other functions. This by itself is not very fun, so we must begin embedding data into functions. Let's start by embedding numbers.
+
+The higher-order function that represents natural number n is a function that maps any function $f$ to its n-fold composition $f^n$. Let us derive it.
+
+\begin{align}
+nf &= f^n \\
+nfx &= f^nx \\
+n &= \lambda fx.f^n x
+\end{align}
+
+so
+
+\begin{align}
+0 &= \lambda fx. x \\
+1 &= \lambda fx. f x \\
+2 &= \lambda fx. f (f x) \\
+3 &= \lambda fx. f (f (f x)) \\
+\end{align}
+
+or $nfx = f^nx$.
+
+let us derive the $S$ or successor function. We observe that $Sn = \lambda fx.f^{(n+1)}x = \lambda fx.f(f^nx) = \lambda fx.f(nfx)$; doing an abstraction $S = \lambda nfx.f(nfx)$.
+
+the $+$ or addition function is $+ = \lambda mnfx.mf(nfx)$
+
+the $\times$ or multiplication function is $\times = \lambda mnfx. m(nf)x$
+
+\section{Boolean}
+
+\begin{align}
+  TRUE  &= \lambda ab.a \\
+  FALSE &= \lambda ab.b
+\end{align}
+
+\begin{align}
+NOT   &= \lambda pab. pba\\
+AND   &= \lambda pq. pqFALSE \\
+OR    &= \lambda pq. pTRUEq
+\end{align}
+
+\section{Recursion}
+\section{Reduction rules}
+\section{Completeness and Incompleteness theorems}
+
+\end{document}
