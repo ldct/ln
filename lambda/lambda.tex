@@ -35,7 +35,12 @@ int triple(int x):
     return 3*x
 \end{verbatim}
 
-In general a function take one argument and returns one body. We write a function in lambda calculus as $\lambda[argument].[body]$; f will be written in the lambda calculus as $f = \lambda x.(3x)$. To apply this function we say that $f5 = (\lambda x.(3*x))5 = (3*5) = 15$.
+In general a function take one argument and returns one body. We write a function in lambda calculus as 
+\begin{align}
+\lambda[argument].[body]
+\end{align}
+
+$f$ will be written in the lambda calculus as $f = \lambda x.(3x)$. To apply this function we say that $f5 = (\lambda x.(3*x))5 = (3*5) = 15$.
 
 In lambda calculus, we don't have an arithmatic as axioms; the only thing we have is $\lambda$, a symbol that allows us to construct functions. But what do these functions take as arguments and return? Other functions, of course. Why would we do this? You will see.
 
@@ -90,24 +95,125 @@ or $nfx = f^nx$.
 
 let us derive the $S$ or successor function. We observe that $Sn = \lambda fx.f^{(n+1)}x = \lambda fx.f(f^nx) = \lambda fx.f(nfx)$; doing an abstraction $S = \lambda nfx.f(nfx)$.
 
-the $+$ or addition function is $+ = \lambda mnfx.mf(nfx)$
-
-the $\times$ or multiplication function is $\times = \lambda mnfx. m(nf)x$
-
-\section{Boolean}
+the $+$ or addition function and $\times$ or multiplication function is 
 
 \begin{align}
-  TRUE  &= \lambda ab.a \\
-  FALSE &= \lambda ab.b
++ &= \lambda mnfx.mf(nfx) \\
+\times &= \lambda mnfx. m(nf)x
 \end{align}
+
+we have the amazing result that
+
+\begin{align}
+exp(m,n) = \lambda mn. nm
+\end{align}
+
+Interesting observation: in Peano arithmetic we would have axiomatically defined "zero" and "successor", and let zero = z, one = sz, two = ssz etc. We don't have s and z but we have the really powerful $\lambda$ that allows us to abstract over z and s. Cool eh?
+
+\section{Booleans}
+
+The construction of booleans is a little unusual but not illogical. We use booleans to make control flow decisions, the most important of which is the $ITE$ or if-then-else control structure that you are all familiar with. Hence if $b$ is a boolean we declare it to have the property that
+
+\begin{align}
+b x y
+\end{align}
+
+evaluates to $x$ if b is true and $y$ otherwise. Then
+
+\begin{align}
+  T &= \lambda ab.a \\
+  F &= \lambda ab.b
+\end{align}
+
+ITE is trivial to define as:
+
+\begin{align}
+ITE &= \lambda bpq.bpq
+\end{align}
+
+it is also obvious that
 
 \begin{align}
 NOT   &= \lambda pab. pba\\
-AND   &= \lambda pq. pqFALSE \\
-OR    &= \lambda pq. pTRUEq
+AND   &= \lambda pq. pqF \\
+OR    &= \lambda pq. pTq
 \end{align}
 
+for example $(OR p q) = (p T q)$ which is "T if p else q", which is a correct definition of OR.
+
 \section{Recursion}
+
+As it stands lambda expressions cannot refer to themselves, hence we cannot write recursive functions. Or can we not?
+
+I shall write this section in Lisp syntax to make it clearer. We will use the good old function fac.
+
+\begin{verbatim}
+fac = 
+(lambda (n)
+    (if (= n 0)
+        1
+        (* n (fac (- n 1)))))
+\end{verbatim}
+
+Well fib is a recursive function so we can't define it as it is in the lambda calculus. To define it we first define 
+
+\begin{verbatim}
+F = 
+(lambda (f n)
+    (if (= n 0)
+        1
+        (* n (f (- n 1)))))
+\end{verbatim}
+
+what is (F fac)? it is a function of one variable,
+
+\begin{verbatim}
+(F fac) = 
+(lambda (n)
+    (if (= n 0)
+        1
+        (* n (fac (- n 1)))))
+\end{verbatim}
+
+We see that (F fac) = fac. fac is the fixed point of F.
+
+The Y combinator takes F and returns the fixed point of F, YF, such that FYF = YF. Egad! We use lambda abstraction (on YF) to write $Y = \lambda F. FYF$ but shit it uses recursion...
+
+\section{Fixed point combinator}
+
+Recall we wish to find a combinator Y such that YF = FYF, in other words YF is the fixed point of F.
+
+The solution to this is one of the most beautiful results of LC. To get a glimpse of it we take a little detour.
+
+I want to introduce the terminology $\rightarrow$ to mean "reduces to"; we will define it more carefully later but for now it means "apply the substitution", so $(\lambda x. xx) y \rightarrow yy$. We have $a \rightarrow b \implies a = b$.
+
+Consider
+
+\begin{align}
+\omega = (\lambda x. xx) (\lambda x. xx)
+\end{align}
+
+Obviously $\omega = \omega$ but we have the rather curious property that $\omega \rightarrow \omega$. A small modification leads to
+
+\begin{align}
+YA &= (\lambda x. xx) (\lambda x. Axx)    \\
+   &\rightarrow (\lambda x. Axx) (\lambda x. Axx)   \\
+   &\rightarrow A (\lambda x. Axx) (\lambda x. Axx) \\
+   &= AYA
+\end{align}
+
+so
+
+\begin{align}
+Y = \lambda A.(\lambda x. Axx) (\lambda x. Axx) 
+\end{align}
+
+\begin{align}
+Z &= \lambda f. (\lambda x. f (\lambda y. x x y)) (\lambda x. f (\lambda y. x x y)) \\
+Y_k &= (L L L L L L L L L L L L L L L L L L L L L L L L L L) \\
+L &= \lambda abcdefghijklmnopqstuvwxyzr.(r(thisisafixedpointcombinator)) 
+\end{align}
+
 \section{Reduction rules}
 \section{Completeness and Incompleteness theorems}
 
