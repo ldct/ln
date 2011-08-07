@@ -1,0 +1,81 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\title{Schrodinger}
+\date{}
+
+\begin{document}
+\maketitle
+
+A mix of experimental and mathematical whacking
+
+\section{Starting assumptions}
+
+Mostly experimental
+
+\begin{align}
+p = \hbar k
+\end{align}
+
+\section{Schrodinger's equation is linear}
+
+Wave packet
+
+\section{Photons}
+
+For a monochromatic wave in vacuum, with no currents or charges present,
+Maxwell’s wave equation,
+
+\begin{align}
+\nabla^2 E - \frac{1}{c^2} \partial_t{E} = 0
+\end{align}
+
+admits the plane wave solution, 
+\begin{align}
+\mathbf{E} &= \mathbf{E_0} e^{i(\mathbf{k \cdot r} - \omega t)} \\
+           &= \mathbf{E_0} e^{i(\mathbf{p \cdot r} - E t) / \hbar}
+\end{align}
+
+where the second equation, expressed in terms of $p$ and $E$, allow us to connect more readily with particles.
+
+\section{TDSE}
+
+Treating a particle as a wave, we write the "phase"
+
+\begin{align}
+\psi &= A e^{i(\mathbf{p \cdot r} - E t) / \hbar} \\
+\partial_t{\psi} &= i E / \hbar \\
+\partial^2_\mathbf{r}{\psi} &= - p^2 / \hbar^2
+\end{align}
+
+Using the classical relation that $E = p^2/2m + V$, we get
+
+\begin{align}
+i \hbar \partial_t{\psi} = -\frac{\hbar^2}{2m} \partial^2_\mathbf{r}{\psi} + V\psi
+\end{align}
+
+\begin{align}
+i \hbar \frac{\partial{\psi}}{{\partial t}} = -\frac{\hbar^2}{2m} \frac{\partial^2 \psi}{\partial \mathbf{r}} + V\psi
+\end{align}
+
+If we instead use $E^2 = (cp)^2 + m^2c^4$ and do some other stuff we end up with the Klein-Gordon equation
+
+\section{TISE}
+
+If we separate the time dependance to write (can we always do this? it turns out yes) $\psi(x,t) = e^{iEt}\psi(x)$ and V s independent of time then
+
+\begin{align}
+-\frac{\hbar^2}{2m} \partial^2_x{\psi} + V\psi = E\psi
+\end{align}
+
+for some constants $E$. Various ways to derive this, including from the heuristic, a formal definition to prove that any state can be written as a sum of stationary states, etc.
+
+\section{Particle flux}
+???
+
+\end{document}
