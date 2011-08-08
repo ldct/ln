@@ -1,0 +1,82 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\title{Strings}
+\date{}
+
+
+\begin{document}
+
+Consider a string fixed at both ends we write the verticle displacement $u = u(x,t)$; applying $F=ma$ yields
+
+\begin{align}
+\frac{\partial^2 u}{\partial x^2} - \frac{1}{c^2} \frac{\partial^2 u}{\partial t^2} = 0
+\end{align}
+
+where $c^2 = T/\rho$
+
+Subject to the boundary condition that $u(0,t) = u(L,t) = 0$. We want to solve the initial value problem; given $u(x,0)$ and $u_t(x,0)$ to find $u$. We will use two methods.
+
+\section{D'alembert's solution}
+
+We change variables to $\xi = x - ct$ and $\eta = x + ct$. 
+
+\begin{align}
+x &= \xi + \eta \\
+ct &= \eta - \xi
+\end{align}
+
+using the chain rule,
+
+\begin{align}
+\frac{\partial}{\partial x} &= \frac{\partial}{\partial \xi} + \frac{\partial}{\partial \eta} \\
+\frac{1}{c}\frac{\partial}{\partial t} &= \frac{\partial}{\partial \eta} - \frac{\partial}{\partial \xi}
+\end{align}
+
+Doing some manipulation we realise that
+
+\begin{align}
+\frac{\partial^2 u}{\partial\xi\partial\eta} = 0
+\end{align}
+
+so obviously
+
+\begin{align}
+u = f(x - ct) + g(x + ct)
+\end{align}
+
+where $f$ and $g$ are any nice (single-argument) functions. This corresponds to a wave propagating to the left and one propagating to the right.
+
+\section{Separation of variables}
+
+We assume that 
+
+\begin{align}
+u(x,t) = X(x)T(t)
+\end{align}
+
+We see that they satisfy ODEs
+
+\begin{align}
+\frac{d^2 X}{d x^2} + k^2X &= 0 \\
+\frac{d^2 T}{d t^2} + (kc)^2T &= 0
+\end{align}
+
+the general solution for $X(x)$ is a sum of sines and cosines, but due to the boundary condition the only solutions are
+
+\begin{align}
+X(x) = A \sin(k_nx)
+\end{align}
+
+where $k_n = \frac{n\pi}{L}, n = 1,2,3...$
+
+There are no restrictions on $T(t)$ so a solution is $u = A\sin(\frac{n\pi x}{L})\sin(\frac{n\pi vt}{L} + \phi)$
+
+These are the familiar standing waves, with $n=1$ being the fundamental, $n=2$ first overtone (one octave higher), etc. The general solution is a sum of normal modes with their amplitudes and phases adjusted to match the initial conditions.
+
+\end{document}
