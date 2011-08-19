@@ -1,0 +1,38 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[a4paper,margin=1in]{geometry}
+ \newcommand{\sgn}{\operatorname{sgn}}
+
+\title{Determinant}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Row operations}
+
+\section{Volume}
+
+We can interpret $\det(M)$ to measure the volume of the volume element with edges defined by the row vectors of $M$.
+
+\section{Axioms}
+
+\textbf{Shear axiom}: Volume is invariant under shearing \\
+\textbf{Scale axiom}: Scaling is multiplicative \\
+\textbf{Identity axiom}: $\det(I)$ = 1
+
+\section{Construction}
+
+Gaussian elimination
+
+\section{Explicit form}
+
+\begin{align}
+\det(X) = \sum_{\pi \in S_n} \sgn(n) \prod x_{i,\pi(i)}
+\end{align}
+
+\end{document}
