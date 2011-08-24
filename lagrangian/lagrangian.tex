@@ -1,0 +1,53 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[a4paper,margin=1in]{geometry}
+ \newcommand{\sgn}{\operatorname{sgn}}
+
+\title{Lagrangian}
+\date{}
+
+\begin{document}
+\maketitle
+
+source: http://physics.stackexchange.com/questions/885/why-does-calculus-of-variations-work
+
+\section{Independence}
+
+Why is the Lagrangian a function of two variables? Put differently, you can choose position and velocity independently as initial conditions, that's why the Lagrangian function treats them as independent; but the calculus of variation does not vary them independently, a variation in position induces a fitting variation in velocity.
+
+\begin{align}
+S &= \int L(q,\dot{q},t) dt \\
+\delta S &= \int \frac{\partial L}{\partial q} \delta q + \frac{\partial L}{\partial \dot{q}} dt = 0
+\end{align}
+
+the second step seems suspect; why are $q$ and $\dot{q}$ varied independently?
+
+now 
+
+\begin{align}
+\delta \dot{q} = \frac{d}{dt}\delta q
+\end{align}
+
+the independence of $q$ and $\dot{q}$ is removed by this identity.
+
+\begin{align}
+S &= \int L(q,\dot{q},t) dt \\
+\delta S &= \int \frac{\partial L}{\partial q} \delta q + \frac{\partial L}{\partial \dot{q}} dt = 0
+\end{align}
+
+\begin{align} \delta S = \lbrack {\partial L \over \partial \dot q}\delta q\rbrack_{t_1}^{t_2} + \int_{t_1}^{t_2} ({\partial L \over \partial q} - {d \over dt}{\partial L \over \partial \dot q})\delta q dt = 0
+\end{align}
+
+and the bracketed expression is zero because the endpoints are held fixed. And then we can pull out the Euler-Lagrange equation:
+
+\begin{align} {\partial L \over \partial q} - {d \over dt}{\partial L \over \partial \dot q} = 0. \end{align}
+
+Now it makes more sense to me. You start by treating the variables as independent but then remove the independence by imposing a condition *during* the derivation.
+
+
+
+\end{document}

@@ -1,0 +1,93 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[a4paper,margin=1in]{geometry}
+ \newcommand{\sgn}{\operatorname{sgn}}
+
+\title{Determinant}
+\date{}
+
+\begin{document}
+\maketitle
+
+f(z) = u(z) + iv(z)
+
+u,v real functions
+
+[z^2 picture]
+
+one-dimensional real functions map a number line to a number line
+
+complex functions map planes to planes
+
+draw a curve on the z plane and see where it maps to on the w plane
+
+[convergence diagram]
+
+if it converges at a, all numbers smaller than a will converge
+if it diverges at b, all numbers larger than b will diverge
+
+\begin{align}
+\frac{1}{1+x^2}
+\end{align}
+
+only converges from -1 to 1
+
+1/1-x^2 function is undefined at -1 and 1, so naturally it doesn't converge, no explanation for 1/1+x^2
+
+in the complex plane, undefined at i and -i.
+
+[real graph of 1/1+x^2]
+
+[disc of convergence centered at 0 radius 1]
+
+\section{exponential}
+
+e^z = e^x+iy = e^xe^iy
+
+it maps x into the magnitude and y into the angle
+
+[z-w graph for exp]
+
+straight verticle lines to circles of radius Re[z]
+y-axis maps to unit circle
+
+horizontal lines map to lines approaching the origin
+
+excercise: what does
+ the diagonal line map to?
+uniqueness theorem: given f(x), f(z) is the only function that will agree on f(x) on R and can be written as a power series
+
+\section{trigonometric functions}
+
+a is a real number (for now)
+
+e^ia = cosa + i sina
+e^-ia = cos a - i sina
+
+cos a = \frac{e^ia + e^-ia}{2}
+sin a = \frac{e^ia - e^-ia}{2}
+
+cosh a = \frac{e^a + e^-a}{2}
+sinh a = \frac{e^a - e^-a}{2}
+
+cosh(ia) = cos a
+
+\subsection*{extension to complex numbers}
+
+cos(x+iy) = \frac{1}{4} (e^y + e^{-y}) - \frac{1}{4}(e^y - e^{-y})...
+
+\section{cos map}
+
+[horizontal lines] ==(iz)==> [vertical lines] 
+===(1/2 e^z)===> [circles] (in opposite directions)
+
+R = 1/2 e^a
+r = 1/2 e^-a
+
+adding up forms an ellipse
+
+\end{document}
