@@ -1,0 +1,49 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\mb}{\mathbf}
+
+
+\title{Basics}
+\date{}
+
+\begin{document}
+\maketitle
+
+write Newton's law for the $i$th particle.
+
+\begin{align}
+\mb{F}_i &= \dot{\mb{p}}_i
+\end{align}
+
+expanding out $F_i$ as $\sum{\mb{F}_{ji}} + \mb{F}^e_i$, where $\mb{F}_{ji}$ is the constraint force of particle $j$ on $i$,
+
+\begin{align}
+\sum_j{\mb{F}_{ji}} + \mb{F}^e_i &= \dot{\mb{p}}_i
+\end{align}
+
+sum this over i,
+
+\begin{align}
+\sum_{i,j}{\mb{F}_{ji}} + \sum_i\mb{F}^e_i &= \sum_i\dot{\mb{p}}_i
+\end{align}
+
+due to the law of action and reaction, $\mb{F_{ji} = -F{ij}}$, the sum over pairs of reaction forces cancel out, so the first term is 0. The second term we write as $\mb{F^e}$, or total external force. To interpret the third term we define the center-of-mass vector $\mb{R}$ as the mass-weighted sum of the $r_i$,
+
+\begin{align}
+\mb{R} &= \frac{\sum{m_i \mb{r}_i}}{\sum{m_i}}
+\end{align}
+
+to obtain
+
+\begin{align}
+\mb{F}^e = M\mb{\ddot{R}}
+\end{align}
+
+
+\end{document}

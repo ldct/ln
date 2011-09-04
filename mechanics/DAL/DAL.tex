@@ -1,0 +1,133 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\mb}{\mathbf}
+
+
+\title{Basics}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Statics}
+
+D'Alembert's principle states that for a body in static equillibrium,
+
+\begin{align}
+\sum_i\mb{F}_i \cdot \delta\mb{r}_i = 0
+\end{align}
+
+where the $\delta\mb{r}$ are virtual displacements, that is, displacements that satisfy the equations of constraint. D'Alembert's principle can be explained by noting that the LHS is a sum of virtual work, and if it were non-zero there would be a state of lower energy.
+
+We now restrict to constraint forces that do no virtual work; this is satisfied by 1) rigid body constraints and 2) surface constraints.
+
+For dynamics, the appropriate modification is
+
+\begin{align}
+\sum_i(\mb{F}_i - \mb{\dot{p}}_i) \cdot \delta\mb{r}_i = 0
+\end{align}
+
+
+Although the sum of the virtual work is 0, we cannot say anything about the individual terms because the $\delta\mb{r}$ are not independent. Here's what's so special about using generalized coordinates: {\bf We can vary the $q_j$ independantly}.
+
+\section{Generalized velocity}
+
+\begin{align}
+\mb{r_i} &= \mb{r_i}(q_1,...q_n, t)
+\end{align}
+
+If generalized coordinates are the $q_j$ that describe the system, generalized velocities are the $\dot{q}_j$. If we change one of the $q_j$ the change in the real position, $\mb{r}_i$ is
+
+\begin{align}
+\dot{\mb{r}}_i &= \frac{d \mb{r}_i}{d t} \\
+&= \sum_j \frac{\partial \mb{r}_i}{\partial q_j} \dot{q}_j + \frac{\partial \mb{r}_i}{\partial t}
+\end{align}
+
+taking partial derivatives wrt $\dot{q}_j$ we can "cancel the dots"
+
+\begin{align}
+\frac{\partial \dot{\mb{r}}_i}{\partial \dot{q}_j} = \frac{\partial \mb{r}_i}{\partial q_j}
+\end{align}
+
+Note that this is only true if the constraints are independent of the generalized velocities.
+
+\section{Derivation}
+
+Recalling
+
+\begin{align}
+\mb{r_i} &= \mb{r_i}(q_1,...q_n, t)
+\end{align}
+
+first basic step of varying $\mb{r}_i$ and using chain rule:
+
+\begin{align}
+\delta\mb{r_i} &= \sum_j \frac{\partial \mb{r}_i}{\partial q_j} \delta q_j
+\end{align}
+
+Let's consider the first term in DAL,
+
+\begin{align}
+\sum_i\mb{F}_i \cdot \delta{r}_i &= \sum_i\mb{F}_i \cdot(\sum_j\frac{\partial\mb{r}_i}{\partial q_j}\delta q_j) \\
+&= \sum_{i,j}\mb{F}_i \cdot \frac{\partial \mb{r}_i}{\partial q_j} \delta q_j \\
+&= \sum_j Q_j \delta q_j
+\end{align}
+
+where $Q_j = \sum_i \mb{F}_i \cdot \frac{\partial \mb{r}_i}{\partial q_j}$ is the generalized force.
+
+\section{Generalized force}
+
+If we write $F_{i,x} = -\frac{\partial V}{\partial x}$, then clearly 
+
+\begin{align}
+Q_j = -\frac{\partial V}{\partial q_j}
+\end{align}
+
+which is another way to derive that the virtual work done by varying the $j$th generalized cordinate is $Q_j \delta q_j$
+
+Incidentally this is one very good reason to write
+
+\begin{align}
+\mb{F} = -\mb{\nabla}V = -\frac{\partial V}{\partial \mb{r}_i}
+\end{align}
+
+\section{Momentum, Work, Kinetic Energy}
+
+Consider now the second term
+
+\begin{align}
+\sum_i \mb{\dot{p}}_i \cdot \delta \mb{r}_i &= \sum_i m_i\mb{\ddot{r}}_i \cdot \delta \mb{r}_i \\
+&= \sum_{i,j} m_i\mb{\ddot{r}}_i \cdot \frac{\partial \mb{r}_i}{\partial q_j} \delta q_j
+\end{align}
+
+the $\mb{\ddot{r}}_i \delta \mb{r}_i$ looks like it could be obtained from differentiating the kinetic energy.
+
+\begin{align}
+T &= \frac{1}{2}\sum_i m_i\dot{r}_i^2 \\
+\end{align}
+
+there we differentiate wrt $q_j$ and $\dot{q}_j$
+
+\begin{align}
+\frac{\partial T}{\partial q_j} &= \sum_i m_i\mb{\dot{r}}_i \cdot \frac{\partial \mb{\dot{r}}_i}{\partial q_j} \\
+\frac{\partial T}{\partial \dot{q}_j} &= \sum_i m_i\mb{\dot{r}}_i \cdot \frac{\partial \mb{\dot{r}}_i}{\partial \dot{q}_j} \\
+&= \sum_i m_i\mb{\dot{r}}_i \cdot \frac{\partial \mb{r}_i}{\partial q_j}
+\end{align}
+
+by dot-cancelling rule. Now take
+
+\begin{align}
+\frac{d}{dt} \left(\frac{\partial T}{\partial \dot{q}_j}\right) &= \sum_i m_i\mb{\ddot{r}}_i \cdot \frac{\partial \mb{r}_i}{\partial q_j} + \sum_i m_i\mb{\dot{r}}_i \cdot \frac{\partial \mb{\dot{r}}_i}{\partial q_j} \\
+&= Q_j + \frac{\partial T}{\partial q_j} \\
+Q_j &= \frac{d}{dt} \left(\frac{\partial \mb{\dot{r}}_i}{\partial \dot{q}_j}\right) - \frac{\partial T}{\partial q_j}
+\end{align}
+
+from here the ELE are trivial.
+
+\end{document}
