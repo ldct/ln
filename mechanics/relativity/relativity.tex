@@ -1,0 +1,160 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\mb}{\mathbf}
+
+
+\title{Basics}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Special Relativity}
+
+===Introduction===
+Recall the Principle of Least Action, which states that a mechanical system should have a quantity called the action $S$.  Such quantity is minimised (in other words, $\delta S = 0$) for the actual motion of the system.
+
+The action of a relativistic system should be:
+* a scalar: that means Lorentz transformations will not affect this quantity
+* an integral of which the integrand is a first-order differential
+
+The only quantity that satisfies the two criteria above is the space-time interval $ds$, or a scalar multiple thereof.  In short, we can conclude that the action must have the following form:
+
+$S = \kappa\int ds$
+
+Recall the definition of the space-time interval $ds$:
+
+$ds = \sqrt{c^2 dt^2 - dx^2 - dy^2 - dz^2}$
+
+After pulling out $cdt$ from the square root, and noting that $\frac{dx^2+dy^2+dz^2}{dt^2} = v^2$, we have:
+
+$ds = cdt\sqrt{1 - v^2/c^2}$
+
+Hence:
+
+$S = c\kappa\int\sqrt{1-v^2/c^2}dt$
+
+Now, the action integral can be expressed as a time integral of the Lagrangian between two fixed time:
+
+$S = \int L dt$
+
+Then we can just read off the Lagrangian: 
+
+$L = c\kappa\sqrt{1-v^2/c^2}$
+
+What is remaining now is determining the expression for $\kappa$.  At this point we should note that for low velocity $v$, this relativistic expression for the Lagrangian should resemble that of the classical free Lagrangian, $L = \frac{1}{2}mv^2$.  To compare the two Lagrangian, we perform a Taylor expansion on the square root:
+
+$L = c\kappa\left(1-\frac{v^2}{2c^2}+O(v^4)\right)$
+
+The first term, $c\kappa$, is a constant.  That will not affect the equations of motion (see Euler-Lagrange Equation, for example).  The second term, after expanding out, is $-\kappa\frac{v^2}{2c}$.  To reduce to the classical limit, we can put $\kappa=-mc$.
+
+Therefore, the relativistic Lagrangian is:
+
+$L = -mc^2\sqrt{1-v^2/c^2}$
+
+===Momentum and Energy===
+Recall that the canonical momentum is given by $p_i = \frac{\partial L}{\partial v_i}$, and rewriting $v^2 = v_i v^i$ (Einstein summation notation employed), we have:
+
+$p_i = \frac{1}{2}\frac{2mv_i}{\sqrt{1-v^2/c^2}} = \gamma mv_i$
+
+where $\gamma=\frac{1}{\sqrt{1-v^2/c^2}}$.
+
+With the canonical momenta defined, we can now construct the Hamiltonian:
+
+$H = \Sigma p_i v_i - L = \gamma mv^2 + mc^2\sqrt{1-v^2/c^2}$
+
+Since the Hamiltonian is invariant with time, it represents the energy.
+
+After some algebra, we obtain:
+
+$H = \gamma mc^2$
+
+For an object at rest, $\gamma = 1$, and the equation above reduces to the famous mass-energy equivalence relation:
+
+$E = mc^2$
+
+Two additional expressions relating momentum and energy can be derived from the expressions above:
+
+$E^2 = p^2c^2 + m^2c^4$
+
+$\vec{p} = E\frac{\vec{v}}{c^2}$
+
+====Another approach to momentum and energy====
+
+Classically, momentum is velocity multiplied by mass. We can use the same definition in relativity, and see where it takes us.
+
+:$\underline{p}=m_0 \underline{u}= m_0 \gamma (\mathbf{v}, c)$
+
+The mass, $m_0$ is generally called the ''rest mass'', to distinguish it from the relativistic mass.
+
+The spatial component of the four-momemntum is clearly the classical momentum, scaled by a factor of $\gamma$;. At speeds much less than $c$ this will be approximately 1.
+
+The temporal component is $m_0\gamma c$. To see what this means we can look at its value when ''v''/''c'' is small.
+
+:$m_0 \gamma c = \frac{m_0 c}{\sqrt{1-v^2/c^2}}= 
+m_0 c \left( 1 + \frac{1}{2}\frac{v^2}{c^2} + \frac{3}{8}\frac{v^4}{c^4} + \cdots
+\right) $
+
+The first term in this expansion is a constant.
+
+The second term is 
+:$\frac{m_0 v^2}{2c}$
+which we recognise as being the classical kinetic energy, divided by ''c''.
+
+Now, adding a constant to the definition of kinetic energy makes no real difference, since all that matters are changes in energy, so we can identify this temporal component of relativistic momentum with the energy over ''c''.
+
+:$\underline{p}= (\gamma \mathbf{p}, E/c)$
+
+We then have
+
+:$E = m_0 c^2 + \frac{1}{2}m_0 v^2 + \frac{3}{8}\frac{m_0 v^4}{c^2} 
++ \cdots  $
+
+Even at rest, the particle has a kinetic energy,
+
+<div style="border-left: thick solid blue;">
+:$E=m_0 c^2, \,$
+</div>
+
+the most famous relativistic equation.
+
+
+
+===Mass===
+At the original version of Special Theory of Relativity as proposed by Einstein, the relativistic mass is given as follows:
+
+$m = \gamma m_0$
+
+However, for more contemporary interpretations of Special Relativity, mass, $m_0$
+is considered an invariant quantity for all reference frames and $\gamma m_0$ is used instead of $m$.  This convention allows the physicist to keep track of whether it is inertial mass or gravitational mass that is being considered.
+
+
+==Force==
+
+Classically, we have
+
+$\mathbf{F}= \frac{d\mathbf{p}}{dt} $
+
+We can get the equivalent relativistic equation simply by replacing 3-vectors with 4-vectors and $t$ with $\tau$, giving
+
+:$\underline{F} = \frac{d\underline{p}}{d\tau}$
+
+Provided the rest mass is constant, as it is for all simple systems, we can rewrite this as  
+
+:$\underline{F} = m \underline{a}$
+
+We already know about <u>''a''</u> so we can now write
+
+:$\underline{F} = \gamma^4 \left( \mathbf{F}, 
+\frac{ \mathbf{F} \cdot \mathbf{v} }{c} \right) $
+
+The temporal component of this is essentially the ''power'', the rate of change of energy with time, as might be expected from energy being the temporal component of momentum.
+
+
+\end{document}

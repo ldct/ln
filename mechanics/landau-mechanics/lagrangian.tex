@@ -1,0 +1,179 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\mb}{\mathbf}
+
+
+\title{Lagrangian Mechanics}
+\date{}
+
+\begin{document}
+\maketitle
+
+Definition of particle - internal motion disregarded.
+
+$q$ and $\dot{q}$ - generalized coordinates and velocities.
+
+If $q$ and $\dot{q}$ are given at one time - motion for subsequent time determined. Mathematically, $\ddot{q} = \ddot{q}(q,\dot{q})$ these are the \emph{equations of motion}.
+
+\section{Principle of Least Action}
+
+Motion of a system is completely characterised by a function $L(q, \dot{q}, t)$. 
+
+\begin{align}
+S = \int L(q,\dot{q},t)\,dt
+\end{align}
+
+action is minimized. Derive! Replace $q(t)$ by 
+
+\begin{align}
+q(t) + \delta q(t)
+\end{align}
+
+such that $\delta q(t) = 0$ at endpoints.
+
+\begin{align}
+\delta S &= \delta \int L(q,\dot{q},t)\,dt\\
+&= \int \left(\frac{\partial L}{\partial q} \delta q + \frac{\partial L}{\partial \dot{q}} \delta \dot{q}\right)\,dt
+\end{align}
+
+since $\delta{\dot{q}} = \frac{d \delta q}{d t}$, 
+
+\begin{align}
+dS = \left[\frac{\partial L}{\partial \dot{q}}\right]_a^b + \int_a^b \left(\frac{\partial L}{\partial q} - \frac{d}{dt} \frac{\partial L}{\partial \dot{q}}\right)\,dt = 0
+\end{align}
+
+Hence 
+
+\begin{align}
+\frac{\partial L}{\partial q} - \frac{d}{dt} \frac{\partial L}{\partial \dot{q}} = 0 
+\end{align}
+
+\section{Properties of L}
+
+Two non-interacting systems $A$ and $B$ have langrangian
+
+\begin{align}
+L = L_A + L_B 
+\end{align}
+
+multiplication of a lagrangian by arbitrary factor doesn't change equations of motion.
+
+Let
+
+\begin{align}
+L' = L + \frac{d}{dt} f(q,t)
+\end{align}
+
+Then
+
+\begin{align}
+S' &= S + \int \frac{df}{dt} dt \\
+dS' &= dS
+\end{align}
+
+\section{Galilean relativity}
+
+Random frames of reference are bad. Experimentally, however, there exist a set of inertial reference frames; space is homogenous, anisotropic. In such a frame $L$ cannot depend explicity on $\mb{r}$ or $t$, but only on $\mb{v} = \dot{\mb{r}}$. Anisotropy implies that $L = L(v^2)$ Lagrange's equation reads
+
+\begin{align}
+\frac{d}{dt} \frac{\partial L}{\partial \mb{v}} &= 0 \\
+\frac{\partial L}{\partial \mb{v}} &= const.
+\end{align}
+
+since $\frac{\partial L}{\partial \mb{v}}$ is a function of only $v$, $\mb{v}$ is constant.
+
+Galilean relativity. Physical principle, cannot be derived.
+
+\section{Lagrangian for a free particle}
+
+We know that $L$ depends only on $v^2$. Derive! Consider two frames $K$ and $K'$ with velocities $\mb{v}$ and 
+
+\begin{align}
+\mb{v'} = \mb{v} + \mb{\epsilon}
+\end{align}
+
+They must differ by only a total derivative of a function of coordinates and time.
+
+\begin{align}
+L(v'^2) &= L(v^2 + 2 \mb{v} \cdot \mb{\epsilon}) \\
+&= L(v^2) + \frac{\partial L}{\partial v^2} 2 \mb{v} \cdot \mb{\epsilon} \\
+&= L(v^2) + 2 \frac{\partial L}{\partial v^2} \frac{d}{d t}\left(\mb{r} \cdot \mb{\epsilon}\right)
+\end{align}
+
+hence $\frac{\partial L}{\partial v^2}$ is independent of $v$ and 
+
+\begin{align}
+L = \frac{1}{2} m v^2
+\end{align}
+
+now we see that this holds true for finite $\epsilon$; 
+
+\begin{align}
+L' = L + \frac{d}{dt}\left(m\mb{r} \cdot {V} + \frac{1}{2} m V^2 t\right)
+\end{align}
+
+\section{Field}
+
+Consider a free particle with lagrangian $L = \frac{1}{2} m v^2$ interacting with another system. In general the interaction adds another term we call $-U$. Now writing the eqns,
+
+\begin{align}
+L &= \frac{1}{2} m v^2 - U \\
+m \frac{d\mb{v}}{dt} &= -\frac{\partial U}{\partial \mb{r}} - \frac{d}{dt}\left(\frac{\partial U}{\partial \mb{v}}\right)
+\end{align}
+
+we define the LHS as the force $m\mb{a}$. Introduce the idea of conservative force, 
+
+\begin{align}
+U = U(\mb{r}_a, \mb{r}_b, \mb{r}_c ...)
+\end{align}
+
+Now switch to generalized coordinates q; 
+
+\begin{align}
+L = \frac{1}{2} \sum a_{ik} \dot{q}_i \dot{q}_k - U  
+\end{align}
+
+where $a_{ik} = a_{ik}(q)$
+
+\section{Conservation Laws}
+
+With $s$ generalized coordinates there are $2s$ variables that define the state of the system. Howerever there are some functions of these variables that remain constant through the motion of the system known as \emph{integrals} of motion. Some of them are additive.
+
+Lagrangian of a closed system does not depend explicitly on time
+
+\begin{align}
+\frac{dL}{dt} &= \sum\frac{\partial L}{\partial q} \dot{q} + \sum \frac{\partial L}{\partial \dot{q}} \ddot{q} \\
+&= \sum\dot{q}_i \frac{d}{dt} \left(\frac{\partial L}{\partial \dot{q}}\right) + \sum \frac{\partial L}{\partial \dot{q}} \ddot{q} \\
+&= \sum \frac{d}{dt}\left(\dot{q}_i \frac{\partial L}{\partial \dot{q}}\right) \\
+E &= \sum\dot{q}\frac{\partial L}{\partial \dot{q}} - L
+\end{align}
+
+$E$ is conserved for closed and conservative systems.
+
+\begin{align}
+\sum\dot{q}\frac{\partial L}{\partial \dot{q}} &= \sum\dot{q}\frac{\partial T}{\partial \dot{q}} \\
+&= 2T
+\end{align}
+
+evidently $E = T+V$
+
+\section{Momentum}
+
+Homogenity of space; translate space by $\delta \mb{r}$. Then
+
+\begin{align}
+\delta L &= \sum\frac{\partial L}{\partial \mb{r}} \cdot \delta\mb{r}
+\end{align}
+
+so [use LE once] $\sum\frac{\partial L}{\partial \mb{r}} = m\mb{v}$ is conserved. $\sum F = 0$.
+
+[generalized momenta and force, COM, p43]
+[angular momentum]
+[mechanical similarity]
+\end{document}
