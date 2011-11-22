@@ -31,8 +31,9 @@ def triple(x):
 triple::Integer->Integer
 triple x = 3*x
 
-int triple(int x):
-    return 3*x
+int triple(int x) {
+    return 3*x;
+}
 \end{verbatim}
 
 In general a function take one argument and returns one body. We write a function in lambda calculus as 
@@ -58,17 +59,19 @@ A lambda abstraction $\lambda x.t$ represents an anonymous function that takes a
 
 An application $ts$ can be thought of as calling $t$ with $s$ as the input.
 
-As a final point, the "=" sign is not part of lambda calculus but we use it to say that two lambda terms are equivalent.
+As a final point, the `=' sign is not strictly part of lambda calculus but we use it to say that two lambda terms are equivalent.
 
 \section{Simple examples}
 
 The Identity function, $Ix = x$, is defined as $I = \lambda x.x$
 
-The Constant function, $C_r$ that always returns r, is defined as $C_r = \lambda x.r$
+The Constant function, $C_r$ that always returns r, is defined as $C_x = \lambda y.x$
 
-What does the function $T = \lambda a.\lambda b.a$ do?
+What does the function $K = \lambda x.(\lambda y.x)$ do?
 
-[Currying]
+We see that $Kx = C_x$, so $K$ returns the constant function of its argument. We can also describe $K$ by the equation $(Kx)y = x$. By convention brackets associate to the left so we can write that as $Kxy = x$. Dually, lambdas associate to the right (and $.\lambda$ can be unambiguously dropped), so $K = \lambda xy.x$ is valid.
+
+In this form seems as though $K$ is taking two arguments and returning the first one; this is a so-called ``curried function" and is how lambda caluclus simulates multiple-argument functions.
 
 \section{Church numerals}
 
@@ -99,16 +102,20 @@ the $+$ or addition function and $\times$ or multiplication function is
 
 \begin{align}
 + &= \lambda mnfx.mf(nfx) \\
-\times &= \lambda mnfx. m(nf)x
+\times &= \lambda mnf. m(nf)
 \end{align}
 
 we have the amazing result that
 
 \begin{align}
-exp(m,n) = \lambda mn. nm
+exp = \lambda mn. nm
 \end{align}
 
 Interesting observation: in Peano arithmetic we would have axiomatically defined "zero" and "successor", and let zero = z, one = sz, two = ssz etc. We don't have s and z but we have the really powerful $\lambda$ that allows us to abstract over z and s. Cool eh?
+
+\section{cons, car, cdr}
+
+[tbd]
 
 \section{Booleans}
 
@@ -159,11 +166,14 @@ Well fib is a recursive function so we can't define it as it is in the lambda ca
 
 \begin{verbatim}
 F = 
-(lambda (f n)
-    (if (= n 0)
-        1
-        (* n (f (- n 1)))))
+(lambda (f)
+    (lambda (n)
+        (if (= n 0)
+            1
+            (* n (f (- n 1))))))
 \end{verbatim}
+
+you will notice that we have simply added a $\lambda f.$ above the definition of fac and replaced fac by f in the body.
 
 what is (F fac)? it is a function of one variable,
 
@@ -177,11 +187,11 @@ what is (F fac)? it is a function of one variable,
 
 We see that (F fac) = fac. fac is the fixed point of F.
 
-The Y combinator takes F and returns the fixed point of F, YF, such that FYF = YF. Egad! We use lambda abstraction (on YF) to write $Y = \lambda F. FYF$ but shit it uses recursion...
+The Y combinator takes F and returns the fixed point of F, YF, such that F(YF) = YF. Egad! We use lambda abstraction (on YF) to write $Y = \lambda F. F(YF)$ but shit it uses recursion...
 
 \section{Fixed point combinator}
 
-Recall we wish to find a combinator Y such that YF = FYF, in other words YF is the fixed point of F.
+Recall we wish to find a combinator Y such that YF = F(YF), in other words YF is the fixed point of F.
 
 The solution to this is one of the most beautiful results of LC. To get a glimpse of it we take a little detour.
 
@@ -196,16 +206,15 @@ Consider
 Obviously $\omega = \omega$ but we have the rather curious property that $\omega \rightarrow \omega$. A small modification leads to
 
 \begin{align}
-YA &= (\lambda x. xx) (\lambda x. Axx)    \\
-   &\rightarrow (\lambda x. Axx) (\lambda x. Axx)   \\
-   &\rightarrow A (\lambda x. Axx) (\lambda x. Axx) \\
-   &= AYA
+YF &\rightarrow (\lambda x. F(xx)) (\lambda x. F(xx))   \\
+   &\rightarrow F (\lambda x. F(xx)) (\lambda x. F(xx)) \\
+   &= F(YF)
 \end{align}
 
 so
 
 \begin{align}
-Y = \lambda A.(\lambda x. Axx) (\lambda x. Axx) 
+Y = \lambda F.(\lambda x. F(xx)) (\lambda x. F(xx)) 
 \end{align}
 
 \begin{align}

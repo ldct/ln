@@ -1,0 +1,102 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\title{18.014 pset 1}
+\date{}
+
+\begin{document}
+\maketitle
+
+A is Dedekind-infinite: $\exists$ $A' \subset A$ such that $A \leftrightarrow A'$
+
+
+Given $A' \subseteq A$
+
+* Show that $A$ is D-finite $\implies A'$ is D-finite
+
+It suffices to show that $A'$ is D-infinite $\implies A$ is D-infinite
+
+Since $A'$ is D-infinite $\exists A'' \subset A'$ and $A'' \leftrightarrow A'$
+
+Call the bijection between $A'$ and $A''$ $f$
+
+Construct a bijection g such that
+
+$g(x) = f(x)$ when $x \in A'$
+
+$g(x) = x$ otherwise
+
+g bijects $A$ to $(A - A') \cup A'' $
+
+hence $A$ is D-infinite
+
+* Show that the following are equivalent
+
+1) Any injection $A \rightarrow A$ is a surjection
+
+2) A is D-finite
+
+3) There is no injection $i: N \rightarrow A$
+
+First, $\lnot 2 \implies \lnot 1$. Also $\lnot 1 \implies \lnot 2$. 
+
+Proof: By definition
+
+Next, $\lnot 3 \implies \lnot 2$
+
+Let $R(N) \subseteq S$ be the range of i on N. i is now a bijection $N \leftrightarrow R(N)$
+
+Since the given $i$ is an injection, it has an inverse $i^{-1}$
+
+Consider the injection: $x \in R(N) \rightarrow i(2 i^{-1}(x))$
+
+This injects $R(N)$ to $R(2N)$
+
+And because $2N \subset N, R == N, R(2N) \subset R(N)$
+
+Hence $R$ is D-infinite and so is its parent set S.
+
+Lastly, $\lnot 2 \implies \lnot 3$`
+
+Call the bijection $p$
+
+Lemma: if $X$ is D-infinite $p(X)$ is also D-infinite.
+
+Proof: $p(X)$ bijects with $p(X') \subset p(X)$
+
+So $p^n(A)$ is D-infinite for all n
+
+Furthermore $p^n(A) - p^{n+1}(A)$ is nonempty because $p(p^n(A)) \subset p^n(A)$
+
+Then map $n$ to an element in $p^n(A) - p^{n+1}(A)$. Done!
+
+* Show that the union of two D-finite sets is D-finite
+
+$A$ finite and $B$ finite $\implies A \cup B$ D-finite
+
+We'll show $A \cup B$ D-infinite $\implies A$ D-infinite or $B$ D-infinite
+
+There is an injection $i$ from $N \rightarrow A \cup B$
+
+Consider the sets $N_A = i^{-1}(A)$ and $N_B = i^{-1}(B)$.
+
+$N_A \cup N_B = N$
+
+We will show that one of them must be bounded.
+
+If $N_A$ is bounded by $m_A$ and $N_B$ is bounded by $m_B$, $N$ is bounded by $\max(m_A, m_B)$. Clearly wrong.
+
+So $S$, which is $A$ or $B$, is unbounded.
+
+Consider the injection $j$ defined by $0 \rightarrow$ smallest element of $S$
+
+And $n \rightarrow$ smallest element of $S$ larger than $j(n-1)$; this exists because S is unbounded
+
+Hence $N \rightarrow S$, so S is infinite.
+
+\end{document}

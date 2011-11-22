@@ -1,0 +1,75 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\setlength{\parindent}{0in}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\mb}{\mathbf}
+
+\title{ESN and Cartesian-Tensors}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+Consider vectors $\mb{a} = a_x\mb{x} + a_y\mb{y} + a_z\mb{z}$ and $\mb{b} = b_x\mb{x} + b_y\mb{y} + b_z\mb{z}$. If we wish to prove a simple theorem like the fact that $\frac{d}{dt} (\mb{a} \cdot \mb{b}) = \mb{a} \cdot \frac{d\mb{b}}{dt} + \mb{b} \cdot \frac{d\mb{a}}{dt}$ we'll have to write the following long proof
+
+\begin{align}
+\mb{a} \cdot \mb{b} &= a_x b_x + a_y b_y + a_z b_z \\
+\frac{d}{dt} (\mb{a} \cdot \mb{b}) &= \frac{d}{dt}(a_x b_x + a_y b_y + a_z b_z) \\
+&= \frac{d}{dt}(a_x b_x) + \frac{d}{dt}(a_y b_y) + \frac{d}{dt}(a_z b_z) \\
+&= (\frac{d}{dt}a_x) b_x + a_x (\frac{d}{dt}b_x) + (\frac{d}{dt}a_y) b_y + a_y (\frac{d}{dt}b_y) + ... \\
+&= a_x (\frac{d}{dt}b_x) + a_y (\frac{d}{dt}b_y) + ... \\
+&\ + (\frac{d}{dt}a_x) b_x + (\frac{d}{dt}a_y) b_y + ... \\
+&= \mb{a} \cdot \frac{d\mb{b}}{dt} + \mb{b} \cdot \frac{d\mb{a}}{dt}
+\end{align}
+
+a tedious manipulation of components. We introduce ESN by the two rules:
+
+\begin{enumerate}
+\item{indiced run over all possible values they can take}
+\item{repeated indices are implicitly summed over}
+\end{enumerate}
+
+so in ESN
+
+\begin{align}
+\mb{a} \cdot \mb{b} &= a_i b_i \\
+&= \sum_{i=1,2,3} a_i b_i
+\end{align}
+
+Normally we index our vectors by numbers instead of letters. 
+
+\section{Orthogonal transformations preserve length}
+
+\begin{align}
+a_i &= M_{ij}b_j \\
+a_i a_i &= M_{ij}b_j M_{ij'}b_{j'} \\
+&= M_{ij}M_{ij'} b_jb_{j'} \\
+&= \delta_{jj'} b_jb_{j'} \\
+&= b_jb_j
+\end{align}
+
+The first line may be writwen as $a = M_{\_j} b_j$, showing that $a$ is a linear combination of columns of $M (M_{\_j})$ with the entries of $b (b_j)$ as coefficients.
+
+\section{Cartesian-tensors}
+
+\begin{align}
+T' &= aTa^{-1} \\
+[aT]_{il} &= a_{ik}T_{kl} \\
+[aTa^{-1}]_{ij} &= [aT]_{il} a^{-1}_{lj} \\
+&= a_{ik}T_{kl}a_{jl}
+\end{align}
+
+$a_{ik}T_{kl} = a_{i\_} T_{\_l}$
+
+\section{Very useful identity}
+$\epsilon_{ijk}\epsilon_{klm} = \delta_{il}\delta_{jm} - \delta_{jl}\delta_{im}$
+
+\end{document}
