@@ -1,0 +1,111 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\title{Eigenvectors}
+\date{}
+
+\begin{document}
+\maketitle
+
+We have a matrix A. Sometimes A behaves very specially on a special kind of vector; it simply lengthens or shortens it. $x$ is parallel to $Ax$. In equations
+
+\begin{align}
+Ax = \lambda x
+\end{align}
+
+$x$ is the eigenvector and $\lambda$ is the eigenvalue.
+
+We can see that $x=0$ always satisfies the equation for any $\lambda$. That's not nice, so we don't consider $0$ to be an eigenvector.
+
+Notice that if $x$ is an eigenvector, so is $kx$ for any $k$. Eigenvectors lie on (at least) a line.
+
+For example, if $P$ is the projection matrix, we can find its eigenvectors by observation: everything that lies on the projection plane will get projected to itself.
+
+\section{Finding eigenvectors}
+
+There is a special case we can consider: $\lambda = 0$, zero eigenvalues. Then the equation becomes
+
+\begin{align}
+Ax = 0
+\end{align}
+
+so $\{x\} = Null(A)$
+
+What about in general? The equation $Ax = \lambda x$ has two unknowns. Let us fix $\lambda$ and rewrite
+
+\begin{align}
+Ax &= \lambda x \\
+&= \lambda I x \\
+(A-\lambda I) x &= 0
+\end{align}
+
+so $\{x\} = Null(A-\lambda I)$. We see that eigenvectors belonging to the same eigenvalue form a vector space (eigenspace), which explains the $kx$ observation above.
+
+\section{Permutation matrix}
+\begin{align}
+A =
+\begin{bmatrix} 
+0 & 1 \\ 
+1 & 0
+\end{bmatrix}
+\end{align}
+
+A permutes two elements by swapping. We can see one eigenvector by observation: $x = [1,1] \lambda = 1$. The other one is harder to spot; $x = [1,-1] \lambda = -1$. Notice that $\lambda_1 \lambda_2 = -1$ is the determinant of A while $\lambda_1 + \lambda_2 = 0$ is the trace.
+
+\section{Finding $\lambda$}
+Now that we know how to find $x$ given $\lambda$, how do we find $\lambda$? Remember that $\{x\} = Null(A-\lambda I)$ and $x \neq 0$, we see that $A-\lambda I$ must be singular. So we have to solve the characteristic equation, a polynomial in $\lambda$, $det(A-\lambda I) = 0$. In general it is an n-th order equation for an n-dimensional matrix.
+
+Another way to derive this is to see that if $A \rightarrow A + 3I$ the eigenvalues increase by 3 and the eigenvectors remain unchanged. Since we know how to find eigenvectors of a singular matrix we bring $A$ to a singular matrix in order to find their eigenvectors.
+
+\section{Good Example}
+
+\begin{align}
+A &=
+\begin{bmatrix} 
+3 & 1 \\ 
+1 & 3
+\end{bmatrix} \\
+A - \lambda I &=
+\begin{bmatrix} 
+3-\lambda & 1 \\ 
+1 & 3-\lambda
+\end{bmatrix} \\
+det &= \lambda^2 - 6\lambda + 8 \\
+&= (\lambda-4)(\lambda-2)
+\end{align}
+
+Notice that $Tr(A) = 6$, $det(A) = 8$ both appear in the characteristic polynomial.
+
+\begin{align}
+A - 2I &=
+\begin{bmatrix} 
+1 & 1 \\ 
+1 & 1
+\end{bmatrix} \\
+x &= 
+\begin{bmatrix} 
+1\\ 
+-1
+\end{bmatrix} 
+\end{align}
+
+\begin{align}
+A - 4I &=
+\begin{bmatrix} 
+-1 & 1 \\ 
+1 & -1
+\end{bmatrix} \\
+x &= 
+\begin{bmatrix} 
+1\\ 
+1
+\end{bmatrix} 
+\end{align}
+
+\end{document}

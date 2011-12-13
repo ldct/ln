@@ -1,0 +1,194 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\title{Why matrix multiplication?}
+\date{}
+
+\begin{document}
+\maketitle
+
+It seems a bit strange the way we multiply two matrices. So let's see why it isn't.
+
+\section{Vectors and linear transformations}
+
+Let's assume column vectors.
+
+\begin{align}
+x
+=
+\begin{bmatrix}
+a \\
+b \\
+c
+\end{bmatrix} 
+\end{align}
+
+There's a special kind of transformation (function) on these vectors, linear transformations. They're special because it's easy to analyze linear systems, their kernels are vector spaces (physically speaking, we can superimpose solutions to $Ax = 0$), lots of things in physics behave linearly, and composition and addition of linear transformations are linear too.
+
+How do we represent this abstract concept? Well, how do we represent vectors in the first place? By choosing a nice basis. So $x$ really is
+
+\begin{align}
+x
+= a
+\begin{bmatrix}
+1 \\
+0 \\
+0
+\end{bmatrix}
++ b
+\begin{bmatrix}
+0 \\
+1 \\
+0
+\end{bmatrix}
++ c
+\begin{bmatrix}
+0 \\
+0 \\
+1
+\end{bmatrix}
+\end{align}
+
+where we have called our (orthonormal) basis $[1,0,0], [0,1,0], [0,0,1]$. Defining a representation for vectors in terms of coordinates (ie choosing an orthornormal basis) is almost arbitrary; we want to try and do as much as we can without it. Physically, we are born into a world where vectors seem to live in $\mathbb{R}^3$, but we aren't born with triplet of basis vectors, and it shouldn't matter which three we choose. Now observe what a linear transformation $T$ does to x:
+
+\begin{align}
+Tx &=
+T\left(a
+\begin{bmatrix}
+1 \\
+0 \\
+0
+\end{bmatrix}
++ b
+\begin{bmatrix}
+0 \\
+1 \\
+0
+\end{bmatrix}
++ c
+\begin{bmatrix}
+0 \\
+0 \\
+1
+\end{bmatrix}
+\right) \\
+&=
+aT
+\begin{bmatrix}
+1 \\
+0 \\
+0
+\end{bmatrix}
++ bT
+\begin{bmatrix}
+0 \\
+1 \\
+0
+\end{bmatrix}
++ cT
+\begin{bmatrix}
+0 \\
+0 \\
+1
+\end{bmatrix}
+\end{align}
+
+which means to write down $T$ we just need to write down $Tb_1, Tb_2...$ or its effect on the basis vectors. Let's just write them down next to each other.
+
+\begin{align}
+T =
+\begin{bmatrix}
+\vert  & \vert & \vert \\
+T(e_1) & T(e_2) & T(e_3) \\
+\vert & \vert & \vert
+\end{bmatrix}
+\end{align}
+
+Then $Tx$ is a linear combination of the columns of $T$ where the coefficients are the entries of $x$. This is of course the same as the normal rule for matrix multiplication in the special case where $x$ is a column vector, but this way of interpreting $Ax$ is, I think, more intuitive and meaningful.
+
+In that case, let $S$ be another matrix. What is $ST$? We don't really know, but we do know that $S(T(x))$ is a linear transformation of $x$. So let's say $ST = S \circ T$ because we would like to have $(ST)x = S(Tx)$. How do we represent $ST$? Clearly we must transform the columns of T.
+
+\begin{align}
+ST &= S
+\begin{bmatrix}
+\vert  & \vert & \vert \\
+T_1 & T_2 & T_3 \\
+\vert & \vert & \vert
+\end{bmatrix} \\
+&=
+\begin{bmatrix}
+\vert  & \vert & \vert \\
+ST_1 & ST_2 & ST_3 \\
+\vert & \vert & \vert
+\end{bmatrix}
+\end{align}
+
+and with a bit of fiddling we see that this is exactly the same as normal matrix multiplication. This also explains why matrix multiplication is associative; because function composition is associative.
+
+\section{Duality; inner and outer product}
+
+Instead of what we have been using so far, let
+
+\begin{align}
+x
+=
+\begin{bmatrix}
+a & b & c
+\end{bmatrix} 
+\end{align}
+
+and $T$ be a $3 \times 3$ matrix. $Tx$ is dimensionally wrong, but $xT$ isn't. In our framework so far we would consider $x$ to be a linear transformation, but let's call it a row vector instead. Then $T$ is indeed a linear transformation.
+
+\begin{align}
+\begin{bmatrix}
+a & b & c
+\end{bmatrix}
+\begin{bmatrix}
+\mbox{---}  & T_1 & \mbox{---} \\
+\mbox{---}  & T_2 & \mbox{---} \\
+\mbox{---}  & T_3 & \mbox{---} 
+\end{bmatrix}
+= xT& \\
+= a&
+\begin{bmatrix}
+\mbox{---}  & T_1 & \mbox{---}
+\end{bmatrix} \\
++ b&
+\begin{bmatrix}
+\mbox{---}  & T_2 & \mbox{---}
+\end{bmatrix} \\
++ c&
+\begin{bmatrix}
+\mbox{---}  & T_3 & \mbox{---}
+\end{bmatrix}
+\end{align}
+
+so $xT$ is a linear combination of the rows of $T$ where the coefficients are the entries of $x$. 
+
+Why do we choose to use column vectors instead of row vectors, since neither are "special"? Column vectors make application of linear transformations prefix rather than postfix operators. Also, with row vectors $S \circ T = TS$, a consequence of the postfix notation.
+
+Any column of $ST$ is a linear combination of columns of $S$, where the coefficients are entries from a column of $T$. Any row of $ST$ is a linear combination of rows of $T$, where the coefficients are entries from a row of $S$. 
+
+\begin{align}
+\begin{bmatrix}
+\\
+\mbox{------------}\\
+\\
+\end{bmatrix}
+\begin{bmatrix}
+\ \ & \big| &\ \ \\
+\ \ & \big| &\ \ \\
+\ \ & \big| &\ \ 
+\end{bmatrix}
+\end{align}
+
+If you think about it long enough, then, the entries of $ST$ must be the products of the rows of $S$ and the columns of $T$. The diagram above neatly summarizes all this duality stuff.
+
+In fact, in more abstract treatments of vector spaces, one defines axiomatically the concept of a vector space over a field $F$, . Then the dual vector space $F^*$ is the space of all continuous linear functions from $V \rightarrow F$. If we have the idea of a (positive-definite) inner product $\left<u,v\right> = \left<v,u\right>^*$ we see that $\left<u,\cdot\right>$ is an element of $F^*$, and there is a theorem that any element of $F^*$ is uniquely represented in this form. We see that inner products lead naturally to the idea of taking the conjugate transpose of a vector; likewise if we let $A$ be a linear operator (in the finite case, represented by a matrix) and define $A^\dagger$ to be the operator such that $\left<A^\dagger u, v\right>= \left<u, Av\right>$ we are led to the idea of conjugate-transposing a matrix.
+\end{document}
