@@ -1,0 +1,96 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\title{Differential Equations and exp(At)}
+\date{}
+
+\begin{document}
+\maketitle
+
+Consider $\frac{du}{dt} = Au$
+
+$A = \begin{bmatrix}
+-1 & 1 \\
+1 & -2
+\end{bmatrix}$
+
+$\lambda = 0,-3$
+
+so for certain eigenvectors the equation becomes $\frac{du}{dt} = 0u$ and $\frac{du}{dt} = -3u$. The $0$ solution is the steady state, the $-3$ one dies out.
+
+$u(t) = c_1 e^{\lambda_1 t}x_1 + c_2 e^{\lambda_2 t}$
+
+compare to the formula for difference equations
+
+\section{Cases}
+
+Stability, $u(\infty) = 0$ when all $Re \lambda < 0$
+
+Steady state, $\lambda_1 = 0$ and other eigenvectors have $Re \lambda < 0$
+
+Blowup if any $Re \lambda > 0$
+
+\section{Special case}
+
+For $2 \times 2$ matrix:
+
+$a + d = \lambda_1 + \lambda_2 < 0$
+$det > 0$
+
+positive determinant, negative trace.
+
+\section{S}
+
+Let's write the solution down in terms of $S$ and $\Lambda$. Eigenvalues uncouple them.
+
+$\frac{du}{dt} = Au$
+
+set $u = Av$
+
+$S \frac{dv}{dt} = ASv$ \\
+$\frac{dv}{dt} = \Lambda v$
+
+no coupling! Just a diagonal matrix.
+
+$v(t) = e^{\Lambda t v(0)}$ \\
+$u(t) = S e^{\Lambda t} S^{-1} u(0) = e^{At} u(0)$
+
+what do the matrix exponentials mean?
+
+\section{Power series}
+
+$e^{At} = I + At + \frac{(At)^2}{2!} + ...$ \\
+$(I-At)^{-1} = I + At + (At)^2 + ...$
+
+the exponential always converges but if $A$ is too big (eigenvalue > 1) the second series will blow up.
+
+now just write $A = S\Lambda S^{-1}$, we get $e^{At} = S e^{\Lambda t} S^{-1}$
+
+\section{Exponential of a diagonal matrix}
+
+$e^{\Lambda t} = \begin{bmatrix}
+e^{\lambda_1 t} \\
+& e^{\lambda_2 t} \\
+& & ...
+\end{bmatrix}$
+
+this goes to zero when all $Re \lambda < 0$
+
+stability for differential equation: $\lambda$ in left half plane. Powers of the matrix go to zero if $\lambda$ is contained in the unit disc.
+
+\section{Cheapskate trick}
+
+$y'' + by' + ky = 0$
+$u = [y' y], u' = \begin{bmatrix}
+-b & -k \\
+1 & 0
+\end{bmatrix} u$
+
+in general, coefficients in he first row, and other rows have just one $1$ among $0$'s.
+\end{document}

@@ -1,0 +1,129 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\title{Diagonalization and Powers of A}
+\date{}
+
+\begin{document}
+\maketitle
+
+Let $A$ be a $n \times n$ matrix with $n$ linearly independent eigenvectors. I put the eigenvectors in the columns of a matrix $S$, the eigenvector matrix. What is $S^{-1} A S$?
+
+\section{First way}
+First, what is $AS$? Remember that $S_i = x_i$, the columns of $S$, are eigenvectors.
+
+\begin{align}
+AS &= A
+\begin{bmatrix}
+\vert  & \vert & \vert \\
+x_1 & x_2 & x_3 & ... \\
+\vert & \vert & \vert
+\end{bmatrix} \\
+&= 
+\begin{bmatrix}
+\vert  & \vert & \vert \\
+Ax_1 & Ax_2 & Ax_3 & ... \\
+\vert & \vert & \vert
+\end{bmatrix} \\
+&=
+\begin{bmatrix}
+\vert  & \vert & \vert \\
+\lambda_1x_1 & \lambda_2x_2 & \lambda_3x_3 & ... \\
+\vert & \vert & \vert
+\end{bmatrix}
+\end{align}
+
+Let's factor it out
+
+\begin{align}
+AS &=
+\begin{bmatrix}
+\vert  & \vert & \vert \\
+x_1 & x_2 & x_3 & ... \\
+\vert & \vert & \vert
+\end{bmatrix}
+\begin{bmatrix}
+\lambda_1 \\
+ & \lambda_2 \\
+& & ...
+\end{bmatrix}
+\end{align}
+
+So
+
+\begin{align}
+AS &= S\Lambda \\
+S^{-1}AS &= \Lambda
+\end{align}
+
+\section{Second way}
+$S$ is a similarity transformation into the eigenbasis, so $\Lambda$ is $A$ in a new basis. This tells us something important: in the eigenbasis, $A$ is diagonal, very simple. $A \sim \Lambda$. If we are given a vector in the eigenbasis it is very easy to apply $\Lambda$; just multiply each basis vector by the appropriate $\lambda$.
+
+\section{Example}
+
+If
+
+\begin{align}
+Ax &= \lambda x \\
+A^2 x &= \lambda Ax \\
+&= \lambda^2 x
+\end{align}
+
+\begin{align}
+A &= S \lambda S^{-1} \\
+A^2 &= S \lambda S^{-1} S \lambda S^{-1} \\
+&= S \lambda^2 S^{-1} \\
+A^k &= S \lambda^k S^{-1}
+\end{align}
+
+This representation gives us a great way to calculate and understand the powers of a matrix.
+
+For any $A$ defined as above,
+
+\begin{align}
+k \rightarrow \infty \implies A^k \rightarrow 0 \\
+iif all \\
+\|\lambda_i\| < 1
+\end{align}
+
+\section{Niceness}
+
+$A$ is sure to have $n$ independent eigenvectors (and be diagonalizable) if the $\lambda's$ are all different (no repeated eigenvalues)
+
+If there are repeated eigenvectors, I have to look more closely. For instance for $I$ we have only one eigenvalue, $1$, but every nonzero vector is an eigenvector.
+
+\begin{align}
+A = 
+\begin{bmatrix}
+2 & 1 \\
+0 & 2
+\end{bmatrix}
+\end{align}
+
+$\lambda = 2,2$. However there is only one line of eigenvectors (the nullspace of $A - 2I$ has dimension 1).
+
+Algebraic multiplicity = $2$, but geometric multiplicity = $1$.
+
+\section{$u_{k+1} = A u_k$}
+
+$u_{k+1} = A u_k$, start with $u_0$. $u_k = A^k u_0$.
+
+Solution: decompose $u_0$ into eigenbasis, then go!
+
+Example: fibonacci. 
+
+$u_k = [F_{k+1}, F_k]$
+$u_{k+1} = \begin{bmatrix}
+1 & 1 \\
+1 & 0
+\end{bmatrix} u_k$
+
+$\lambda_1 = \frac{1}{2} (1 + \sqrt{5})$ dominates as $k$ increases. We see the Fibonacci series grows as $1.618^ k$
+
+\end{document}
