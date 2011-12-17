@@ -1,0 +1,78 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\title{Symmetric matrices}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{align}
+A = A^T
+\end{align}
+
+Eigenvalues are real. Eigenvectors can be chosen to be perpendicular.
+
+What does ``chosen to be perpendicular" mean? Take the identity matrix, where every vector is an eigenvector. Then I can choose $n$ of those who are mutually orthogonal. I can also make the orthonormal simply by scaling them.
+
+In the usual case,
+
+\begin{align}
+A = Q \Lambda Q^{-1}
+\end{align}
+
+where we use $Q$ in place of $S$ because the eigenvector matrix is orthogonal. Then $Q^{-1} = Q^T$ and so
+
+\begin{align}
+A = Q \Lambda Q^T
+\end{align}
+
+Written in this form, $A$ is clearly symmetric, and the fact that every symmetric matrix can be written in this form is an important theorem of linear algebra. This factorization completely displays the eigenvalues and eigenvectors and symmetry of $A$. It's a special case of the spectral theorem; spectrum is the set of eigenvalues of a matrix. In mechanics it's called the principle axis theorem.
+
+\begin{align}
+\left< x | Q x\right> &= \left<Q x | x\right> \\
+\left< x | \lambda x\right> &= \left<\lambda x | x\right> \\
+\lambda \left< x | x\right> &= \lambda^* \left< x | x\right> \\
+\lambda &= \lambda^*
+\end{align}
+
+since $\left< x | x\right> \neq 0$.
+
+We have actually proved something else for complex matrices; that if $Q = Q^{H}$ (conjugate transpose, sometimes writtes as $Q = Q^{\dagger}$) then the eigenvalues are real. They also have $n$ perpendicular eigenvectors. These are called Hermitian matrices. 
+
+\begin{align}
+A &= Q \lambda Q^{-1} \\
+&=
+\begin{bmatrix}
+\vert  & \vert & \vert \\
+q_1 & q_2 & q_3 \\
+\vert & \vert & \vert
+\end{bmatrix}
+\begin{bmatrix}
+\lambda_1 \\
+& \lambda_2 \\
+& & ...
+\end{bmatrix}
+\begin{bmatrix}
+ & q_1 & \\
+ & q_2 & \\
+& ...
+\end{bmatrix} \\
+&= \lambda_1 q_1 q_1^T + \lambda_2 q_2 q_2^T
+\end{align}
+
+Every symmetric matrix is a sum of mutually perpendicular projection matrices.
+
+One more fact. Say I want to know whether the eigenvalues are positive or negative. Number of positive pivots = Number of positive eigenvalues. Then you could shift the matrix by $7I$, which would shift the eigenvalues by 7, and continue.
+
+nb: product of pivots = product of eigenvalues = determinant
+
+For positive definite matrices, all eigenvalues real. subclass of symmetric matrices. We can use the sign property to devise another test: all sub-determinants must be positive.
+
+\end{document}

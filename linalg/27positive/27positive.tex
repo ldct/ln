@@ -1,0 +1,80 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\title{Positive-definite matrices}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Tests}
+
+Eigenvalues $> 0$
+
+Leading submatrices test
+
+Pivots positive
+
+\begin{align}
+\begin{bmatrix}
+a & b \\
+b & c
+\end{bmatrix}
+\end{align}
+
+$\lambda_1 > 0, \lambda_2 > 0$ kk work out what this means
+
+$a > 0, ac - b^2 > 0$
+
+$a > 0, \frac{ac - b^2}{a} > 0$
+
+But probably the most important test / definition is
+
+$\left<x | A x\right> > 0$
+
+\begin{align}
+\begin{bmatrix}
+2 & 6 \\
+6 & 18
+\end{bmatrix}
+\end{align}
+
+positive semi-definite
+
+$\lambda = 0, 20$
+
+pivots = 2
+
+Now let's look at $x^T Ax = 2x_1^2 + 12 x_1x_2 + 18 x_2^2 = 2(x+3y)^2$
+
+the coefficients are $a, 2b, c$
+
+quadratic form
+
+The form will be positive-definite if we can factor it into a sum of squares. This shows the connection between positive-definiteness and pivots. The things that go outside the squares are the pivots. Then we have a "bowl". Otherwise we could have a saddle point, minimum in one direction and maximum in another. The important directions to look turns out to be the eigenvector directions.
+
+For a function $f$, the matrix of second derivatives at a point is positive-definite implies it is a true minimum. The matrix of second derivatives is obviously symmetric.
+
+If I cut the bowl at a constant, it's obviously an ellipse.
+
+\begin{align}
+\begin{bmatrix}
+2 & -1 & 0 \\
+-1 & 2 & -1 \\
+0 & -1 & 2
+\end{bmatrix}
+\end{align}
+
+dets 2,3,4
+pivots 2,3/2,4/3
+eigenvalues $2-\sqrt 2, 2, 2+\sqrt 2$
+
+ellipsoid, axes in the directions of the eigenvectors
+
+\end{document}
