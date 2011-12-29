@@ -1,0 +1,63 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\newcommand{\mb}{\mathbf}
+
+\title{Centre of Mass}
+\date{}
+
+\begin{document}
+\maketitle
+
+The COM frame is useful when systems have translational symmetry. This happens when $V$ is a function of $\mb{r_1 - r_2}$ (relative position) instead of on the absolute position of the particles.
+
+\section{Classical}
+
+\begin{align}
+m_1 \frac{d^2 \mb r_1}{d t^2} + \frac{\partial V}{\partial \mb r_1} &= 0 \\
+m_2 \frac{d^2 \mb r_2}{d t^2} + \frac{\partial V}{\partial \mb r_2} &= 0
+\end{align}
+
+The problem with this is that the equations are coupled, because $V = V(\mb r_1 - \mb r_2)$.
+
+Introduce $\mb r = \mb{r_1 - r_2}$ so that $V = V(\mb r)$, and $(m_1 + m_2) \mb R = m_1\mb r_1 + m_2\mb r_2$
+
+\begin{align}
+\frac{\partial V}{\partial \mb r_1} &= \frac{\partial V}{\partial \mb r} \frac{\partial \mb r}{\partial \mb r_1} \\
+&= \frac{\partial V}{\partial \mb r} \\
+\frac{\partial V}{\partial \mb r_2} &= -\frac{\partial V}{\partial \mb r}
+\end{align}
+
+our equations are now
+
+\begin{align}
+m_1 \frac{d^2 \mb r_1}{d t^2} + \frac{\partial V}{\partial \mb r} &= 0 \\
+m_2 \frac{d^2 \mb r_2}{d t^2} - \frac{\partial V}{\partial \mb r} &= 0
+\end{align}
+
+adding the equations, $M \frac{d^2 \mb R}{d t^2} = 0$. Momentum is conserved if there are no external forces (or, by noether's theorem, if the system has translational symmetry)
+
+now
+
+
+\begin{align}
+m_1 m_2 \frac{d^2 \mb r_1}{d t^2} + m_2 \frac{\partial V}{\partial \mb r} &= 0 \\
+m_2 m_1 \frac{d^2 \mb r_2}{d t^2} - m_1 \frac{\partial V}{\partial \mb r} &= 0
+\end{align}
+
+subtract,
+
+\begin{align}
+m_1 m_2 \frac{d^2 \mb r}{d t^2} + (m_1 + m_2) \frac{\partial V}{\partial \mb r} &= 0 \\
+\mu \frac{d^2 \mb r}{d t^2} + \frac{\partial V}{\partial \mb r} &= 0
+\end{align}
+
+I should probably do this with matrices, change of basis, etc
+
+\section{Quantum}
+
+\end{document}

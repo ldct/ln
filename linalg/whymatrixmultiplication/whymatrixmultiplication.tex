@@ -191,4 +191,41 @@ Any column of $ST$ is a linear combination of columns of $S$, where the coeffici
 If you think about it long enough, then, the entries of $ST$ must be the products of the rows of $S$ and the columns of $T$. The diagram above neatly summarizes all this duality stuff. Mentally imagine the rows/columns transposing itself, grabbing rows/columns from the other matrix, and adding them up.
 
 In fact, in more abstract treatments of vector spaces, one defines axiomatically the concept of a vector space over a field $F$, . Then the dual vector space $F^*$ is the space of all continuous linear functions from $V \rightarrow F$. If we have the idea of a (positive-definite) inner product $\left<u,v\right> = \left<v,u\right>^*$ we see that $\left<u,\cdot\right>$ is an element of $F^*$, and there is a theorem that any element of $F^*$ is uniquely represented in this form. We see that inner products lead naturally to the idea of taking the conjugate transpose of a vector; likewise if we let $A$ be a linear operator (in the finite case, represented by a matrix) and define $A^\dagger$ to be the operator such that $\left<A^\dagger u, v\right>= \left<u, Av\right>$ we are led to the idea of conjugate-transposing a matrix.
+
+\section{lecture 30}
+
+Projection matrix. Choose a basis to be on the projection line and off.
+
+\begin{align}
+\begin{bmatrix}
+1 & 0 \\
+0 & 0
+\end{bmatrix}
+\end{align}
+
+In the standard basis
+
+\begin{align}
+\begin{bmatrix}
+\frac{1}{2} & \frac{1}{2} \\
+\frac{1}{2} & \frac{1}{2}
+\end{bmatrix}
+\end{align}
+
+What if
+
+$D = \frac{d}{dx}$? Input: $c_0 + c_1x^1 + c_2x^2$
+
+Output = $c_1 + 2c_2$
+
+The reason we can take derivatives quickly is that the derivative is a linear transformation, otherwise it would take forever.
+
+\begin{align}
+D = 
+\begin{bmatrix}
+0 & 1 & 0 \\
+0 & 0 & 2
+\end{bmatrix}
+\end{align}
+
 \end{document}
