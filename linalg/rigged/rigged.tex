@@ -1,0 +1,40 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\title{Rigged Hilbert Space}
+\date{}
+
+\begin{document}
+\maketitle
+
+What interesting subsets of function space can we identify?
+
+Let's start with a basis for this space $\{\phi_i\}$. We can define $V$, the linear combination of a finite number of $\phi_i$'s:
+
+\begin{align}
+\psi = \sum_{i=1}^n c_i \phi_i
+\end{align}
+
+\section{Conjugate space}
+
+Let $V^\times$ = set of all $f$ such that $\left< f,\psi \right> < \infty$. $V^\times$ is any linear combination of $\phi_i$'s, even very funny ones which don't converge, because $\left< f,\psi \right> < \infty$ always consists of a finite number of terms.
+
+\section{Competeness}
+
+One problem with $V$ is that this space isn't complete, that a series $\{\psi_i\}$ of could converge to a function that is not in $V$. If we use mean convergence and complete $V$ (find the smallest space that is complete and contains $V$) we get Hilbert space. Some other definitions of Hilbert space:
+
+$\sum |c_n|^2 < \infty$
+
+$h$ is square-integrable
+
+$H \sim H^\times$
+
+$c_n \sim n^{-1/2}$
+
+\end{document}

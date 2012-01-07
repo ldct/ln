@@ -1,0 +1,112 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\title{Fourier series}
+\date{}
+
+\begin{document}
+\maketitle
+
+Suppose
+
+\begin{align}
+f(t) = \sum_{k=-n}^n c_k e^{2\pi i kt}
+\end{align}
+
+is a function of period 1 and we want to find $c_m$.
+
+\begin{align}
+c_m e^{2\pi i mt} = f(t) - \sum_{k\neq m} c_k e^{2\pi i kt}
+\end{align}
+
+multiply by $e^{-2\pi i mt}$
+
+\begin{align}
+c_m = f(t)e^{-2\pi i mt}  - \sum_{k\neq m} c_k e^{2\pi i (k-m)t}
+\end{align}
+
+integrating from 0 to 1,
+
+\begin{align}
+c_m = \int_0^1 f(t)e^{-2\pi i mt} dt
+\end{align}
+
+this trick works because the complex exponentials form an orthonormal set under the inner product of $\int_0^1$.
+
+So given any $f(t)$, define
+
+\begin{align}
+\hat f(k) = \int_0^1 f(t)e^{-2\pi i kt}
+\end{align}
+
+Any discontinuity in any derivative precludes writing 
+
+\begin{align}
+f(t) = \sum_k \hat f(k) e^{2\pi i kt}
+\end{align}
+
+for a finite sum.
+
+It takes high frequencies to make sharp corners.
+
+\section{Results}
+
+Continuous case: converges! $\sum_k \hat f(k) e^{2\pi i kt}$ converges to $f(t)$ for each $t$.
+
+Pointwise convergence
+
+Smooth case: uniform convergence
+
+Jump discontinuity: converges to the point in the middle of the jump.
+
+General case: finite energy (square-integrable) mean convergence
+
+\section{Heated ring}
+
+\begin{align}
+u_t = \frac{1}{2}u_{xx}
+\end{align}
+
+write $u$ as a fourier series and put the time dependence on the fourier exponents.
+
+\begin{align}
+u(x,t) &= \sum c_n(t)e^{2\pi i n x} \\
+u_t &= \sum c'_n(t)e^{2\pi i n x} \\
+u_{xx} &= \sum (-4\pi^2n^2)c_n(t)e^{2\pi i n x}
+\end{align}
+
+comparing coefficients,
+
+\begin{align}
+c'(t) = -2\pi^2n^2c(t)
+\end{align}
+
+with solution
+
+\begin{align}
+c_n(t) = c_n(0)e^{-2\pi^2n^2t}
+\end{align}
+
+\section{Convolution}
+
+\begin{align}
+c_n(0) = \hat f(n) = \int_0^1 f(y) e^{-2\pi iny} dy
+\end{align}
+
+\begin{align}
+u(x,t) &= \sum e^{-2\pi^2n^2t} e^{2\pi i n x} \int_0^1 f(y) e^{-2\pi iny} dy \\
+&= \int_0^1 \sum e^{-2\pi^2n^2t} e^{2\pi i n (x-y)}  f(y) dy
+\end{align}
+
+convolution with a function $g$ puts $g$'s fourier coefficients onto $f$'s.
+
+\section{pointwise, uniform, etc}
+
+pointwise does not imply mean!!
+
+\end{document}
