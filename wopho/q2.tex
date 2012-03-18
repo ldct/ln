@@ -1,0 +1,53 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\newcommand{\half}{\frac{1}{2}}
+
+\title{Loaded Hoop on a conveyer belt}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{align*}
+v_{m,r} = R \dot\theta
+\end{align*}
+
+\begin{align*}
+v_{m,x} &= \dot X + R \dot\theta\sin\theta \\
+v_{m,y} &= R \dot\theta\cos\theta
+\end{align*}
+
+\begin{align*}
+K_m &= \half m (R \dot\theta\cos\theta)^2 + \half m (\dot X + R\dot\theta\sin\theta)^2 \\
+&= ...
+\end{align*}
+
+\begin{align*}
+L &= \half (M+m) R^2 \dot{\theta}^2 + \half (M+m) \dot{X}^2 \\
+&+ mR\dot\theta \dot X\cos\theta + mgR\sin\theta
+\end{align*}
+
+\begin{align*}
+\frac{\partial L}{\partial \theta} &= mgR\cos\theta - mR\dot\theta\dot X \sin\theta
+\end{align*}
+
+\begin{align*}
+\frac{\partial L}{\partial \dot\theta} &= (M+m) R^2 \dot{\theta} + mR \dot X\cos\theta
+\end{align*}
+
+\begin{align*}
+\frac{d}{dt}\frac{\partial L}{\partial \dot\theta} &= (M+m) R^2 \ddot{\theta} + mR \ddot X\cos\theta - mR\dot X \dot\theta\sin\theta
+\end{align*}
+
+\begin{align*}
+gR\cos\theta  = (M+m) R^2 \ddot{\theta} + mR \ddot X\cos\theta
+\end{align*}
+
+
+\end{document}
