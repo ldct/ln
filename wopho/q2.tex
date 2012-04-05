@@ -1,6 +1,7 @@
 \listfiles
 \documentclass{article}
 
+\usepackage[pdftex]{graphicx}
 \usepackage{amsmath}
 \usepackage{amssymb}
 
@@ -352,7 +353,10 @@ K(\sin\beta - 2\beta) + g(1 - \cos\beta) = 0
 &= 0.244837712
 \end{align*}
 
-with $\beta = \frac{\pi}{6}$
+with $\beta = \frac{\pi}{6}$. Now we plot $V(\theta)$ up to multiplicative constants for $\frac{K}{g} = \gamma$
+
+\includegraphics[width=\textwidth]{4A1.png}
+We see that the particle will exhibit Type A motion, oscillating between the two roots of $V(\theta)$
 
 \subsection{Type B motion}
 
@@ -363,13 +367,17 @@ If we try $\beta = \pi$,
 &= 0.318
 \end{align*}
 
-we see that there is a hump where $V > 0$ as $0 < \theta < \pi$. Hence the condition that $\dot\theta = 0$ is insufficient; we must also make sure that $V < 0$ as $0 < \theta < \beta$. Since $2 - \cos\theta > 0$, this is equivalent to making $Z < 0$ where
+Now we plot $V(\theta)$ up to multiplicative constants for $\frac{K}{g} = 0.318$. 
+
+\includegraphics[width=\textwidth]{fail.png}
+
+Although $V = 0$ at $\theta = \pi$, there is a positive-energy barrier (hump) where $V > 0$ as $0 < \theta < \pi$, preventing the particle from reaching $\theta = \pi$.
+
+Hence the condition that $\dot\theta = 0$ is insufficient; we must also make sure that $V < 0$ as $0 < \theta < \pi$. Since $\cos\theta - 2 < 0$, this is equivalent to making $Z < 0$ where
 
 \begin{align*}
-Z = K(2\theta - \sin\theta)+ g(\cos\theta - 1)
+Z = -K(2\theta - \sin\theta) - g(\cos\theta - 1)
 \end{align*}
-
-$K/g = 0.47$
 
 the local maximum occurs when
 
@@ -381,9 +389,25 @@ K(2 - \cos\theta) - g\sin\theta &= 0 \\
 \sin(\theta + \tan^{-1}\frac{K}{g}) &= \frac{2K}{\sqrt{K^2 + g^2}}
 \end{align*}
 
+Let $\theta_{Zmax}$ be the positive $\theta$ such that $Z$ is maximized. Then $\theta_{Zmax}$ is the second root because as seen from the graph, the first root corresponds to a local minimum while the second root corresponds to a local maximum. 
+
 \begin{align*}
-\theta &= \sin^{-1}(\frac{2K}{\sqrt{K^2 + g^2}}) - \tan^{-1}\frac{K}{g}
+\theta_{Zmax} &= \pi - \sin^{-1}(\frac{2K}{\sqrt{K^2 + g^2}}) - \tan^{-1}\frac{K}{g}\\
 \end{align*}
+
+We want to find $\frac{K}{g}$ such that $Z(\theta_{Zmax}) < 0$, so we must find the root of
+
+\begin{align*}
+-1 - \cos\left(\sin^{-1}\frac{2x}{(\sqrt{1+x^2})} + \tan^{-1}x\right) + x\left(2\pi - 2\sin^{-1}\frac{2x}{\sqrt{1+x^2}} - 2\tan^{-1}x - \sin(\sin^{-1}\frac{2x}{\sqrt{1+x^2}} + \tan^{-1}x)\right)
+\end{align*}
+
+where $x = \frac{K}{g}$. Solving numerically, $x = 0.4687$. Hence $\gamma = 0.47$ (2 s.f.)
+
+We now plot $V(\theta)$ up to multiplicative constants for two values of $\frac{K}{g} > \gamma$
+
+\includegraphics[width=\textwidth]{4A2.png}
+
+Indeed, there are no longer any barriers.
 
 \subsection{Sliding motion}
 
