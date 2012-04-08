@@ -128,9 +128,11 @@ we now make the approximation that $\theta << 1$, so $\sin\theta = \theta$, $\do
 
 \begin{align*}
 mg\theta + (M+m) R \ddot{\theta} - \frac{m^2}{M+m}R\ddot\theta &= 0 \\
-\ddot\theta + \frac{m^2 + Mm}{M^2 + 2Mm}\frac{g}{R} + \ddot\theta &= 0 \\
+\ddot\theta + \frac{m^2 + Mm}{M^2 + 2Mm}\frac{g}{R}\theta &= 0 \\
 \omega^2 = \frac{m^2 + Mm}{M^2 + 2Mm}\frac{g}{R}
 \end{align*}
+
+where $\omega$ is the angular velocity. Hence the period $T = \frac{2\pi}{\omega} = 2\pi \sqrt{\frac{M^2 + 2Mm}{m^2 + Mm}\frac{R}{g}}$
 
 \subsection{Period when the hoop does not slip}
 
@@ -162,7 +164,7 @@ notice that horizontal momentum is not conserved since there is an external fric
 
 \begin{align*}
 2MR\ddot\theta + mg\theta &= 0 \\
-\ddot\theta + \frac{m}{2M}\frac{g}{R} &= 0
+\ddot\theta + \frac{m}{2M}\frac{g}{R}\theta &= 0
 \end{align*}
 
 Alternatively, we can also introduce $f$ as the friction force.
@@ -183,6 +185,14 @@ this makes sense as for small $\theta$ the load is close to the point of contact
 \begin{align*}
 2MR\ddot\theta + mg\sin\theta = 0
 \end{align*}
+
+hence,
+
+\begin{align*}
+\omega^2 = \frac{m}{2M}\frac{g}{R}
+\end{align*}
+
+and the period $T = 2\pi\sqrt{\frac{2M}{m}\frac{R}{g}}$
 
 \section{Stable Angular Orientations on an Accelerating Conveyer Belt}
 
@@ -235,7 +245,7 @@ or, in terms of $\gamma = \frac{m}{M}$,
 
 \subsection{$\mu_s = 1.0$}
 
-There are two cases we have to consider, static and kinetic friction. For static friction, 
+There are two cases we have to consider; either the friction is kinetic or static in nature. For static friction, 
 
 \begin{align*}
 a = K = \sqrt{3}g
@@ -274,10 +284,8 @@ and
 and since $\frac{a}{g} = \frac{\sqrt 3}{3}$ and $\tan^{-1} \frac{\sqrt 3}{3} = \frac{\pi}{6}$, hence
 
 \begin{align*}
-\alpha_1 &= \sin^{-1}((1 + \frac{1}{\gamma}) \half) - \frac{\pi}{6}
+\alpha_1 &= \sin^{-1}((1 + (\frac{m}{M})^{-1}) \half) - \frac{\pi}{6}
 \end{align*}
-
-where $\gamma = \frac{m}{M}$
 
 \subsection{$\mu_s = 2.0$}
 
@@ -297,19 +305,17 @@ but now $f < \mu_s N$ because $\sqrt 3 < 2$. Hence $a = \sqrt{3}g$ and
 and since $\frac{a}{g} = \sqrt{3}$ and $\tan^{-1} \sqrt 3 = \frac{\pi}{3}$, hence
 
 \begin{align*}
-\alpha_2 &= \sin^{-1}((1 + \frac{1}{\gamma}) \frac{\sqrt{3}}{2}) - \frac{\pi}{3}
+\alpha_2 &= \sin^{-1}((1 + (\frac{m}{M})^{-1}) \frac{\sqrt{3}}{2}) - \frac{\pi}{3}
 \end{align*}
-
-where $\gamma = \frac{m}{M}$
 
 \section{Oscillation, Rotation, and Sliding on an Accelerating Conveyor Belt}
 
 \subsection{Type A motion}
 
-Let $x$ be the position of the center of the hoop relative to the point on the belt it was first placed on in a frame of reference moving at acceleration $K$ (thus $X = \half Kt^2 + x$). Then in this frame, the conveyor belt is stationary; hence friction does no work. The fictitious force does work on the system
+Let $x$ be the position of the center of the hoop relative to the point on the belt it was first placed on in a frame of reference moving at acceleration $K$ (thus $X = \half Kt^2 + x$). Then in this frame, the conveyor belt is stationary; hence friction does no work. The fictitious force does work $W_{fic}$on the system
 
 \begin{align*}
-W_f &= MKx + mK(X + R\sin\theta)
+W_{fic} &= MKx + mK(x + R\sin\theta)
 \end{align*}
 
 by the work-energy theorem,
@@ -353,7 +359,7 @@ K(\sin\beta - 2\beta) + g(1 - \cos\beta) = 0
 &= 0.244837712
 \end{align*}
 
-with $\beta = \frac{\pi}{6}$. Now we plot $V(\theta)$ up to multiplicative constants for $\frac{K}{g} = \gamma$
+with $\beta = \frac{\pi}{6}$. Now we plot $V(\theta)$ up to multiplicative constants for $\frac{K}{g} = 0.245$
 
 \includegraphics[width=\textwidth]{4A1.png}
 We see that the particle will exhibit Type A motion, oscillating between the two roots of $V(\theta)$
@@ -395,13 +401,13 @@ Let $\theta_{Zmax}$ be the positive $\theta$ such that $Z$ is maximized. Then $\
 \theta_{Zmax} &= \pi - \sin^{-1}(\frac{2K}{\sqrt{K^2 + g^2}}) - \tan^{-1}\frac{K}{g}\\
 \end{align*}
 
-We want to find $\frac{K}{g}$ such that $Z(\theta_{Zmax}) < 0$, so we must find the root of
+We want to find $\frac{K}{g}$ such that $Z(\theta_{Zmax}) < 0$, so (substituting the expression for $\theta_{Zmax}$ into $Z(\theta)$) we must find the root of
 
 \begin{align*}
--1 - \cos\left(\sin^{-1}\frac{2x}{(\sqrt{1+x^2})} + \tan^{-1}x\right) + x\left(2\pi - 2\sin^{-1}\frac{2x}{\sqrt{1+x^2}} - 2\tan^{-1}x - \sin(\sin^{-1}\frac{2x}{\sqrt{1+x^2}} + \tan^{-1}x)\right)
+-1 - \cos\left(\sin^{-1}\frac{2\gamma}{(\sqrt{1+\gamma^2})} + \tan^{-1}\gamma\right) + \gamma\left(2\pi - 2\sin^{-1}\frac{2\gamma}{\sqrt{1+\gamma^2}} - 2\tan^{-1}\gamma - \sin(\sin^{-1}\frac{2\gamma}{\sqrt{1+\gamma^2}} + \tan^{-1}\gamma)\right)
 \end{align*}
 
-where $x = \frac{K}{g}$. Solving numerically, $x = 0.4687$. Hence $\gamma = 0.47$ (2 s.f.)
+with $\gamma = \frac{K}{g}$. Solving numerically, $\gamma = 0.4687 = 0.47$ (2 s.f.)
 
 We now plot $V(\theta)$ up to multiplicative constants for two values of $\frac{K}{g} > \gamma$
 
@@ -410,5 +416,86 @@ We now plot $V(\theta)$ up to multiplicative constants for two values of $\frac{
 Indeed, there are no longer any barriers.
 
 \subsection{Sliding motion}
+
+By force analysis in the horizontal direction,
+
+\begin{align*}
+f - (M+m)K &= M\ddot{x} + ma_x \\
+&= - MR\ddot\theta - mR\ddot\theta(1 - \cos\theta) - mR\dot\theta^2\sin\theta
+\end{align*}
+
+\begin{align*}
+f = (M+m)K - MR\ddot\theta - mR\ddot\theta(1 - \cos\theta) - mR\dot\theta^2\sin\theta
+\end{align*}
+
+with $M = m$,
+
+\begin{align*}
+f = 2MK - MR\ddot\theta(2 - \cos\theta) - MR\dot\theta^2\sin\theta
+\end{align*}
+
+Recall that 
+
+\begin{align*}
+\half MR^2 \dot{\theta}^2 &= \half MR \frac{K(2\theta - \sin\theta)+ g(\cos\theta - 1)}{(2 - \cos\theta)}
+\end{align*}
+
+differentiating with respect to $\theta$,
+
+\begin{align*}
+MR^2 \dot\theta \frac{d\dot\theta}{d\theta} &= \half MR \left(\frac{K(2\theta - \sin\theta)+ g(\cos\theta - 1)}{(2 - \cos\theta)}\right)'
+\end{align*}
+
+but since
+
+\begin{align*}
+\dot\theta \frac{d\dot\theta}{d\theta} &= \frac{d\theta}{dt} \frac{d\dot\theta}{d\theta} \\
+&= \ddot\theta
+\end{align*}
+
+hence
+
+\begin{align*}
+R \ddot\theta &= \half \left(\frac{K(2\theta - \sin\theta)+ g(\cos\theta - 1)}{(2 - \cos\theta)}\right)'
+\end{align*}
+
+also
+
+\begin{align*}
+R \dot\theta^2 &= \frac{K(2\theta - \sin\theta)+ g(\cos\theta - 1)}{(2 - \cos\theta)}
+\end{align*}
+
+substituting,
+
+\begin{align*}
+f = 2MK - \half M \left(\frac{K(2\theta - \sin\theta)+ g(\cos\theta - 1)}{(2 - \cos\theta)}\right)'(2 - \cos\theta) - M\frac{K(2\theta - \sin\theta)+ g(\cos\theta - 1)}{(2 - \cos\theta)}\sin\theta
+\end{align*}
+
+by a similar procedure but analyzing forces in the vertical direction,
+
+\begin{align*}
+N = 2Mg + \half M\left(\frac{K(2\theta - \sin\theta)+ g(\cos\theta - 1)}{(2 - \cos\theta)}\right)'\sin\theta + M\frac{K(2\theta - \sin\theta)+ g(\cos\theta - 1)}{(2 - \cos\theta)}\cos\theta
+\end{align*}
+
+Let $\mu_e = \frac{f}{N}$. $\mu_{s,0}$ will be the maximum value of $\mu_e$ for $0 \le \theta \le \frac{\pi}{6}$ because if $\mu_s$ is less than that, then at some point in the system's motion (ie, for some $\theta$) we will have $f > \mu_s N$.
+
+\begin{align*}
+\mu_{e} = \frac{2K - \half \left(\frac{K(2\theta - \sin\theta)+ g(\cos\theta - 1)}{(2 - \cos\theta)}\right)'(2 - \cos\theta) - \frac{K(2\theta - \sin\theta)+ g(\cos\theta - 1)}{(2 - \cos\theta)}\sin\theta}{2g + \half \left(\frac{K(2\theta - \sin\theta)+ g(\cos\theta - 1)}{(2 - \cos\theta)}\right)'\sin\theta + \frac{K(2\theta - \sin\theta)+ g(\cos\theta - 1)}{(2 - \cos\theta)}\cos\theta}
+\end{align*}
+
+\begin{align*}
+\left(\frac{K(2\theta - \sin\theta)+ g(\cos\theta - 1)}{(2 - \cos\theta)}\right)' = \frac{5K - g\sin\theta - 4K\cos\theta - 2K\theta\sin\theta}{(2-\cos\theta)^2}
+\end{align*}
+
+\begin{align*}
+\mu_{e} = \frac{2K - \frac{5K - g\sin\theta - 4K\cos\theta - 2K\theta\sin\theta}{4-2\cos\theta} - \frac{K(2\theta - \sin\theta)+ g(\cos\theta - 1)}{(2 - \cos\theta)}\sin\theta}{2g + \half  \frac{5K - g\sin\theta - 4K\cos\theta - 2K\theta\sin\theta}{(2-\cos\theta)^2}\sin\theta + \frac{K(2\theta - \sin\theta)+ g(\cos\theta - 1)}{(2 - \cos\theta)}\cos\theta}
+\end{align*}
+
+plotting this
+
+\includegraphics[width=\textwidth]{mu.png}
+
+we see that the maximum value of $\mu_e$ for $0 \le \theta \le \frac{\pi}{6}$ is at $\theta = \frac{\pi}{6}$. Plugging in, $\mu_{s,0} = 0.307955 = 0.31$ (2 s.f.)
+
 
 \end{document}
