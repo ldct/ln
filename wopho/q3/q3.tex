@@ -1,0 +1,158 @@
+\listfiles
+\documentclass{article}
+
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\newcommand{\half}{\frac{1}{2}}
+
+\title{The Bohr's Molecule}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{$\mathrm{H_2}$ molecule in equillibrium}
+
+\subsection{$r/R$ and $\rho/R$}
+
+Let $\theta$ be the angle subtended by the proton-electron line from the proton-proton line, i.e. the angle between the lines with length $R$ and $r$ respectively. Then, balancing the repulsive and attractive forces,
+
+\begin{align*}
+\frac{ke^2}{R^2} &= 2 \frac{ke^2}{r^2} \cos\theta
+\end{align*}
+
+noting that $\cos\theta = \frac{r}{2R}$,
+
+\begin{align*}
+\frac{1}{R^2} &= \frac{r/R}{r^2} \\
+\frac{1}{R^2} &= \frac{r}{R} \\
+R &= r
+\end{align*}
+
+hence the two protons and one electron form the vertices of an equilateral triangle. This makes sense as now the forces are of equal magnitude and all are $120^\circ$ from each other. Hence $\theta = \frac{\pi}{3}$ and
+
+\begin{align*}
+\frac{r}{R} = 1
+\end{align*}
+
+\begin{align*}
+\frac{\rho}{R} &= \sin\frac{\pi}{3} \\
+&= \frac{\sqrt 3}{2}
+\end{align*}
+
+\subsection{$E_p$}
+
+Let $E_{pp}$ be the electric potential energy between a pair of protons in the configuration, $E_{pe}$ be the electric potential energy between a proton and an electron, and $E_{ee}$ be that between two electrons. Then
+
+\begin{align*}
+E_{pp} &= \frac{ke^2}{R} \\
+E_{pe} &= -\frac{ke^2}{r} \\
+&= -\frac{ke^2}{R} \\
+E_{ee} &= \frac{ke^2}{2\rho} \\
+&= \frac{ke^2}{2R} \frac{2}{\sqrt 3} \\
+&= \frac{ke^2}{R} \frac{\sqrt 3}{3}
+\end{align*}
+
+since there is one pair of protons, one of electrons and 4 proton-electron pairs,
+
+\begin{align*}
+E_p &= E_{pp} + E_{ee} + 4 E_{pe} \\
+&= \frac{ke^2}{R} \left(\frac{\sqrt 3}{3} - 3\right)
+\end{align*}
+
+\subsection{$E_p/E_k$}
+
+Let $F_c$ be the centripetal force pulling the electron down. Then
+
+\begin{align*}
+F_c &= 2 \cos \frac{\pi}{6} \frac{ke^2}{\rho^2} \\
+&= m_e \frac{v^2}{\rho} \\
+\end{align*}
+
+Hence
+
+\begin{align*}
+E_k &= \frac{1}{2} m_e v^2 \\
+&= \cos \frac{\pi}{6} \frac{ke^2}{\rho} \\
+&= \frac{ke^2}{R}
+\end{align*}
+
+So
+
+\begin{align*}
+\frac{E_k}{E_p} &= \frac{\frac{ke^2}{R}}{\frac{ke^2}{R} \left(\frac{\sqrt 3}{3} - 3\right)} \\
+&= -\frac{\sqrt 3 + 3}{26}
+\end{align*}
+
+\subsection{$R_0$}
+
+Now
+
+\begin{align*}
+\frac{1}{2} m_e v^2 = \frac{ke^2}{R}
+\end{align*}
+
+and so
+
+\begin{align*}
+v = e\sqrt{\frac{2k}{m_e R}}
+\end{align*}
+
+the momentum $p$ is
+
+\begin{align*}
+p &= m_e v \\
+&= e\sqrt{\frac{2km_e}{R}}
+\end{align*}
+
+since the momentum of the electron about the center of the molecule is perpenducal to the radial vector to the electron, $L = rp$ and
+
+\begin{align*}
+L &= R p \\
+&= e\sqrt{2km_eR} \\
+&= n\hbar
+\end{align*}
+
+$R$ will be minimized when $n$ is the smallest, which occurs when $n=1$
+
+\begin{align*}
+e\sqrt{2km_eR_0} &= \hbar \\
+R_0 &= \frac{\hbar^2}{2km_e e^2}
+\end{align*}
+
+\subsection{$E_b$}
+
+The total energy of the molecule is
+
+\begin{align*}
+E &= E_k + E_p \\
+&= \frac{ke^2}{R} \left(1 + \frac{\sqrt 3}{3} - 3\right) \\
+&= \frac{ke^2}{R} \left(\frac{\sqrt 3}{3} - 2\right)
+\end{align*}
+
+wheares the energy of the hydrogen atom is $E_I$. Hence the binding energy, which is the difference between the energy of a $\mathrm{H_2}$ molecule and two $H$ atoms, is
+
+\begin{align*}
+E_b &= E - 2 E_I \\
+&= \frac{ke^2}{R} \left(\frac{\sqrt 3}{3} - 2\right) - 2 E_I
+\end{align*}
+
+\section{Vibrating $\mathrm{H_2}$ molecule}
+
+\subsection{Morse potential}
+\subsection{$D$ and $E_b$}
+
+\begin{align*}
+\mathrm{When}\ R = R_0&, E = -D \\
+\mathrm{As}\ R \rightarrow \infty&, E \rightarrow 0
+\end{align*}
+
+Hence the bonding energy $E_b = D$.
+
+\subsection{Linear frequency of vibration}
+
+\end{document}

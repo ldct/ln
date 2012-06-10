@@ -1,0 +1,307 @@
+\listfiles
+\documentclass{article}
+
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\mb}{\mathbf}
+
+\title{Electrostatic Balloon}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Preliminary calculations}
+
+\subsection{Surface charge}
+
+The surface charge is the total charge divided by the surface area,
+
+\begin{align*}
+\sigma &= \frac{Q}{4\pi R^2}
+\end{align*}
+
+\subsection{Electric field}
+
+Inside the balloon, it is a well-known result that the electric field is zero. Outside the balloon we can treat the balloon as a point source because it has spherical symmetry. Hence
+
+\begin{align*}
+E(\mb r) = \begin{cases} 
+0 &\mbox{if } r < R \\
+\frac{1}{4\pi\epsilon_0} \frac{Q}{r^2} & \mbox{if } r > R \end{cases}
+\end{align*}
+
+the direction is always radially outward away from the center of the balloon.
+
+for the case $r = R$, look at question 2(a).
+
+\subsection{Potential}
+
+To calculate the potential, imagine assembling the balloon by bringing charges $dq$ together. The charges will have potential
+
+\begin{align*}
+\frac{q dq}{4\pi\epsilon_0R}
+\end{align*}
+
+hence the total potential is
+
+\begin{align*}
+U &= \int_0^Q \frac{q dq}{4\pi\epsilon_0R} \\
+&= \frac{Q^2}{8\pi\epsilon_0R}
+\end{align*}
+
+so
+
+\begin{align*}
+V &= U / Q \\
+&= \frac{Q}{8\pi\epsilon_0R}
+\end{align*}
+
+Alternatively we can use part 2(a),
+
+\begin{align*}
+E_{effective} &= \frac{1}{8\pi\epsilon_0} \frac{Q}{R^2}
+\end{align*}
+
+Now the electrostatic potential energy $U$ of the sphere is the work required to bring all the charges to infinity; this is 
+
+\begin{align*}
+U &= \int_R^\infty Q E_{effective} dr \\
+&= \int_R^\infty Q \frac{1}{8\pi\epsilon_0}\frac{Q}{r^2} dr \\
+&= \frac{Q^2}{8\pi\epsilon_0R}
+\end{align*}
+
+and so
+
+\begin{align*}
+V = \frac{Q}{8\pi\epsilon_0R}
+\end{align*}
+
+\subsection{Energy}
+
+The energy required to charge the sphere is the energy required to assemble all the charges from infinity,
+
+\begin{align*}
+W &= \frac{Q^2}{8\pi\epsilon_0R}
+\end{align*}
+
+as above.
+
+\section{Balancing atmospheric pressure}
+
+\subsection{$\mb{E}_{effective}$}
+
+The electric field produced by the patch is roughly the field produced by an infinite sheet because we are considering points very close to the patch. Hence the field is of uniform strength and points away from the patch; the field $\mb{E}_{patch} = E_{patch}\mb{\hat{r}}$ above and $-E_{patch}\mb{\hat{r}}$ below where the field strength be $E_{patch}$. Let $\mb{E}_{effective}$ be the effective field produced by all other charges. This field is approximately constant around the patch.
+
+Now
+
+\begin{align*}
+\mb{E}_+ &= \mb{E}_{effective} + E_{patch}\mb{\hat{r}} \\
+\mb{E}_- &= \mb{E}_{effective} - E_{patch}\mb{\hat{r}}
+\end{align*}
+
+Hence
+
+\begin{align*}
+\mb{E}_{effective} = \half (\mb{E}_+ + \mb{E}_-)
+\end{align*}
+
+\subsection{$\sigma$}
+
+Since
+
+\begin{align*}
+\mb{E}_+ &= \frac{1}{4\pi\epsilon_0} \frac{Q}{R^2} \\
+\mb{E}_- &= 0
+\end{align*}
+
+Hence
+
+\begin{align*}
+E_{effective} &= \frac{1}{8\pi\epsilon_0} \frac{Q}{R^2} \\
+&= \frac{1}{8\pi\epsilon_0} \frac{4\pi R^2\sigma}{R^2} \\
+&= \frac{\sigma}{2\epsilon_0}
+\end{align*}
+
+Now consider a patch of area $dA$. The atmospheric force is $PdA$, and the electric force is $\sigma dA \frac{\sigma}{2\epsilon_0} = \frac{\sigma^2}{2\epsilon_0} dA$. Hence
+
+\begin{align*}
+P &= \frac{\sigma^2}{2\epsilon_0} \\
+\sigma &= \sqrt{2\epsilon_0 P}
+\end{align*}
+
+\section{Discharge}
+
+\subsection{Discharge}
+
+First, we calculate the total resistance of the air. Consider a thin shell of air at radius $r$ of thickness $dr$. Then the resistance $dT$ is
+
+\begin{align*}
+dT = \rho \frac{dr}{4\pi r^2}
+\end{align*}
+
+since the shells are connected in series, the total resistance is $T = \int_R^\infty dT$
+
+\begin{align*}
+T &= \rho \int_R^\infty \frac{dr}{4\pi r^2} \\
+&= \frac{\rho}{4\pi R}
+\end{align*}
+
+Now the electrostatic potential energy $U$ of the sphere is the work required to bring all the charges to infinity; this is 
+
+\begin{align*}
+U &= \int_R^\infty Q E_{effective} dr \\
+&= \int_R^\infty Q \frac{1}{8\pi\epsilon_0}\frac{Q}{r^2} dr \\
+&= \frac{Q^2}{8\pi\epsilon_0R}
+\end{align*}
+
+hence the voltage $V = \frac{U}{Q} = \frac{Q}{8\pi\epsilon_0R}$
+
+Now
+
+\begin{align*}
+V &= TI \\
+\frac{Q}{8\pi\epsilon_0R} &= -\frac{\rho}{4\pi R} \frac{dQ}{dt} \\
+\frac{dt}{2\epsilon_0\rho} &= -\frac{dQ}{Q} \\
+\frac{t}{2\epsilon_0\rho} &= -\ln{Q} + C \\
+Q &= Q_0 e^{-\frac{t}{2\epsilon_0\rho}}
+\end{align*}
+
+finally
+
+\begin{align*}
+Q(t) &= Q_0 e^{-\frac{st}{2\epsilon_0}}
+\end{align*}
+
+\subsection{Power}
+
+The power $\Pi$ is
+
+\begin{align*}
+\Pi &= \frac{V^2}{T} \\
+&= (\frac{Q_0}{8\pi\epsilon_0R})^2 \frac{4\pi R}{\rho} \\
+&= (\frac{4\pi R^2 \sigma}{8\pi\epsilon_0R})^2  \frac{4\pi R}{\rho} \\
+&= (\frac{ R \sigma}{2\epsilon_0})^2  \frac{4\pi R}{\rho} \\
+&= \frac{\pi R^3 \sigma^2}{\epsilon_0^2 \rho}
+\end{align*}
+
+\section{Mass}
+
+\subsection{Total charge $Q$}
+
+Let the air have density $\rho_{air}$. Then, balancing the buoyant force and weight,
+
+\begin{align*}
+Mg &= \rho_{air} \frac{4}{3}\pi R^3 g \\
+M &= \rho_{air} \frac{4}{3}\pi R^3 \\
+M &\sim R^3
+\end{align*}
+
+where $a \sim b$ means $a = kb$ for some constant $k$, or a is proportional to b.
+
+Also, from above calculations we know that
+
+\begin{align*}
+\sigma = \frac{Q}{4\pi R^2} = \sqrt{2\epsilon_0 P}
+\end{align*}
+
+and since $\sqrt{2\epsilon_0 P}$ is a constant,
+
+\begin{align*}
+Q &\sim R^{-2} \\
+Q^{-1} &\sim R^2
+\end{align*}
+
+Hence,
+
+\begin{align*}
+M \sim Q^{-\frac{3}{2}}
+\end{align*}
+
+\subsection{Energy $W$}
+
+We know according to 1(d) that $W \sim Q^2 R^{-1}$. Since (as above) $Q \sim R^{-2}$, $R^{-1} \sim Q^{\frac{1}{2}}$ and
+
+\begin{align*}
+W \sim Q^\frac{5}{2}
+\end{align*}
+
+\subsection{Power $\Pi$}
+
+Since (as in 3(b)) $\Pi \sim R^{3}$ and we know that $M \sim R^3$,
+
+\begin{align*}
+\Pi \sim M
+\end{align*}
+
+\section{Conventional hot-air balloon}
+
+For a conventional hot-air balloon in steady state, we can assume that heat loss is due to conduction. Then the rate of heat loss $\Pi_c \sim R^2$ because it is proportional to the surface area of the balloon, whearas for the electrostatic balloon $\Pi \sim R^3$. Hence the relevant dependencies on $M$ are
+
+\begin{align*}
+\Pi &\sim M \\
+\Pi_c &\sim M^{\frac{2}{3}}
+\end{align*}
+
+Hence, the conventional hot-air balloon is better suited for flying.
+
+\section{Tiny holes}
+
+\subsection{Velocity}
+
+Bernoulli's equation for compressible adiabatic flow states that
+
+\begin{align*}
+\frac{v^2}{2} + \left(\frac{\gamma}{\gamma - 1}\right)\frac{P}{\rho} = constant
+\end{align*}
+
+assuming that $v_1 = 0$,
+
+\begin{align*}
+\frac{v^2}{2} = \left(\frac{\gamma}{\gamma - 1}\right)\left(\frac{P_1 - P_2}{\rho}\right)
+\end{align*}
+
+now we make the approximation $P_1 - P_2 \approx P_1$
+
+\begin{align*}
+\frac{v^2}{2} = \left(\frac{\gamma}{\gamma - 1}\right)\frac{P_1}{\rho}
+\end{align*}
+
+Assuming that the air is an ideal gas, the density of the outside air is
+
+\begin{align*}
+\rho = \frac{\mu P_1}{RT_1}
+\end{align*}
+
+hence
+
+\begin{align*}
+\frac{v^2}{2} = \left(\frac{\gamma}{\gamma - 1}\right)\frac{RT_1}{\mu}
+\end{align*}
+
+and so
+
+\begin{align*}
+v = \sqrt{\left(\frac{\gamma}{\gamma - 1}\right)\frac{2RT_1}{\mu}}
+\end{align*}
+
+\subsection{Pump}
+
+The power the pump needs to use is $\Pi_h = Fv$. The force $F = P_1 S$. Hence
+
+\begin{align*}
+\Pi_h = P_1 S \sqrt{\left(\frac{\gamma}{\gamma - 1}\right)\frac{2RT_1}{\mu}}
+\end{align*}
+
+to express it as a function of $M$, we note that $P_1, T_1, R, \mu, \gamma$ are all constants; hence $\Pi_h \sim S$. Next we assume that $S \sim R^2$ because the density of holes per unit surface area should be constant. Then since $M \sim R^3$, 
+
+\begin{align*}
+\Pi_h \sim M^\frac{2}{3}
+\end{align*}
+
+\end{document}
