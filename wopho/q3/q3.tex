@@ -136,7 +136,7 @@ $R$ will be minimized when $n$ is the smallest, which occurs when $n=1$
 \begin{align*}
 \sqrt{m_eR_0ke^2\left(\frac{9 - \sqrt 3}{8}\right)} &= \hbar \\
 R_0 &= \frac{\hbar^2}{km_e e^2} \left(\frac{8}{9 - \sqrt 3}\right) \\
-&= 5.82478 \times 10^{-11}\ m
+&= 5.82478 \times 10^{-11}\mathrm{\ m}
 \end{align*}
 
 \subsection{$E_b$}
@@ -146,15 +146,15 @@ The total energy of the molecule is
 \begin{align*}
 E &= E_k + E_p \\
 &= \frac{ke^2}{R_0} \left(\frac{3}{2} - \frac{\sqrt 3}{6} + \frac{\sqrt 3}{3} - 3\right) \\
-&= -29.946\ eV
+&= -29.946\mathrm{\ eV}
 \end{align*}
 
-wheares the energy of the hydrogen atom is $E_I$. Hence the binding energy, which is the difference between the energy of a $\mathrm{H_2}$ molecule and two $H$ atoms, is
+wheares the energy of the hydrogen atom is $E_I$. Hence the binding energy, which is the difference between the energy of a $\mathrm{H_2}$ molecule and two H atoms, is
 
 \begin{align*}
 E_b &= -2 E_I - E \\
-&= 29.946\ eV - 2(13.606\ eV) \\
-&= 2.73\ eV
+&= 29.946\mathrm{\ eV} - 2(13.606\mathrm{\ eV}) \\
+&= 2.73\mathrm{\ eV}
 \end{align*}
 
 \section{Vibrating $\mathrm{H_2}$ molecule}
@@ -188,35 +188,35 @@ F(R) &= -\frac{dE}{dR} \\
 as expected, $F(R_0) = 0$, so $R_0$ is an equilibrium position and the system will oscillate around it. Let $r$ be a small increase in $R$; then
 
 \begin{align*}
-F(R_0 + r) &= \frac{dF}{dR}\Big|_{R_0} r
+F(R_0 + r) &\approx \frac{dF}{dR}\Big|_{R_0} r
 \end{align*}
 
-so
+and
 
 \begin{align*}
 \frac{dF}{dR}\Big|_{R_0} &= -\frac{2\alpha^2D}{R_0^2} \left(2e^{2\alpha(1-R/R_0)} - e^{\alpha(1-R/R_0)}\right) \Big|_{R_0} \\
 &= -\frac{2\alpha^2D}{R_0^2}
 \end{align*}
 
-Let the acceleration be $\ddot{r}$
+Let the acceleration be $\ddot{r}$. Since there are 2 protons,
 
 \begin{align*}
-\ddot{r} &= \frac{F}{m_p} = -\frac{2\alpha^2D}{m_pR_0^2} r
+\ddot{r} &= \frac{F}{2m_p} = -\frac{\alpha^2D}{m_pR_0^2} r
 \end{align*}
 
 Let $\omega$ be the angular frequency; then 
 
 \begin{align*}
-\omega &= \sqrt\frac{2\alpha^2D}{m_pR_0^2} \\
-&= \frac{\alpha}{R_0}\sqrt\frac{2E_b}{m_p}
+\omega &= \sqrt\frac{\alpha^2D}{m_pR_0^2} \\
+&= \frac{\alpha}{R_0}\sqrt\frac{E_b}{m_p}
 \end{align*}
 
 \begin{align*}
 v_{vib} &= \frac{\omega}{2\pi} \\
-&= \frac{\alpha}{2\pi R_0}\sqrt\frac{2E_b}{m_p}
+&= \frac{\alpha}{2\pi R_0}\sqrt\frac{E_b}{m_p}
 \end{align*}
 
-\subsection{$\alpha$ constant}
+\subsection{$\alpha$}
 
 The energy of a photon is $hc/\lambda$; hence the photon lost in the Raman process is
 
@@ -234,8 +234,8 @@ v_{vib} &= c\left(\frac{1}{514\mathrm{\ nm}} - \frac{1}{664\mathrm{\ nm}}\right)
 and the energy lost was $0.54$ eV.
 
 \begin{align*}
-\alpha &= 2\pi R_0 v_{vib} \sqrt\frac{m_p}{2E_b} \\
-&= 2.11
+\alpha &= 2\pi R_0 v_{vib} \sqrt\frac{m_p}{E_b} \\
+&= 2.98
 \end{align*}
 
 \subsection{Minimum amplitude}
@@ -243,21 +243,23 @@ and the energy lost was $0.54$ eV.
 We approximate E by a taylor series
 
 \begin{align*}
-E(R_0 + r) = E(R_0) + \frac{1}{2} \frac{d^2E}{dR^2}\Big|_{R_0} r^2 + O(r^3)
+E(R_0 + r) \approx E(R_0) + \frac{1}{2} \frac{d^2E}{dR^2}\Big|_{R_0} r^2
 \end{align*}
 
 and
 
 \begin{align*}
 \frac{1}{2} \frac{d^2E}{dR^2}\Big|_{R_0} &= \frac{\alpha^2D}{R_0^2} \\
-&= 3.58 \times 10^{21}\mathrm{\ eV\ m}^{-2}
+&= 7.15 \times 10^{21}\mathrm{\ eV\ m}^{-2}
 \end{align*}
 
-We know that $E(R_0 + A_{min}) = 0.54$ eV; hence
+We know that $E(R_0 + A_{min}) = E(R_0) + 0.54$ eV; hence
 
 \begin{align*}
-A_{min} &= \sqrt\frac{0.54\mathrm{\ eV}}{3.58 \times 10^{21}\mathrm{\ eV\ m}^{-2}}\\
-&= 1.23 \times 10^{-11} \mathrm{\ m}
+A_{min} &= \sqrt\frac{0.54\mathrm{\ eV}}{7.15 \times 10^{21}\mathrm{\ eV\ m}^{-2}}\\
+&= 8.69 \times 10^{-12} \mathrm{\ m}
 \end{align*}
+
+or about $0.1\mathrm{ \AA}$.
 
 \end{document}
