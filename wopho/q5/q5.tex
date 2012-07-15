@@ -8,208 +8,154 @@
 \usepackage[a4paper,margin=1in]{geometry}
 
 \newcommand{\half}{\frac{1}{2}}
+\newcommand{\D}{\Delta}
 
-\title{Heat capacity for moist porous solid}
+\title{The rainbow}
 \date{}
 
 \begin{document}
 \maketitle
 
-\section{Pore contents}
+\section{The maximal diameter of a spherical water droplet}
 
-\subsection{Mass of vapour}
+We use spherical coordinates for this section, with the symbols $r$ for distance, $\theta$ for polar angle and $\phi$ for azimuthal angle. Since $r$ does not vary across our calculations, we set it to be $r = D/2$.
 
-According to the ideal gas law, the number of moles of vapour $n$ is
+\subsection{Air resistant force}
+
+The upward component of the force on a small section of area $dS$ is $f dS \sin \theta$. Hence the total upward force is
 
 \begin{align*}
-n = \frac{p_0 V}{RT_0}
+F_f &= \iint f dS \sin \theta \\
+&= \iint f r^2 \sin\theta d\theta d\phi \sin\theta \\
+&= r^2 f \int_0^\pi \sin^2 \theta d\theta \int_0^{2\pi} d\phi \\
+&= r^2 f \frac{\pi}{2} 2\pi \\
+&= \pi^2 r^2 f
 \end{align*}
 
-And since the molar mass $M$ is the mass per mole,
+For constant speed this must balance the gravitational force
 
 \begin{align*}
-m_{s_0} &= Mn \\
-&= \frac{MVp_0}{RT_0}
-\end{align*}
-
-\subsection{Mass of vapour and liquid water}
-
-The mass of vapour is
-
-\begin{align*}
-m_s(T) &= Mn \\
-&= \frac{MVp}{RT} \\
-&= \frac{MV}{RT}p_0 e^{\frac{ML}{R}\left(\frac{1}{T_0} - \frac{1}{T}\right)}
-\end{align*}
-
-By conservation of mass,
-
-\begin{align*}
-m_s(T) + m_w(T) &= m_{s_0} + m_{w_0} \\
-m_w(T) &= m_{s_0} + m_{w_0} - m_s(T) \\
-&= \frac{MVp_0}{RT_0} + m_{w_0} - \frac{MV}{RT}p_0 e^{\frac{ML}{R}\left(\frac{1}{T_0} - \frac{1}{T}\right)}
-\end{align*}
-
-\subsection{Vapour mass change}
-
-\begin{align*}
-m_s(T) &= \frac{MV}{RT}p_0 e^{\frac{ML}{R}\left(\frac{1}{T_0} - \frac{1}{T}\right)} \\
-\frac{d m_s(T)}{dT} &= \frac{d}{dT} \left(\frac{MV}{RT}p_0 e^{\frac{ML}{R}\left(\frac{1}{T_0} - \frac{1}{T}\right)}\right) \\
-&= -\frac{MV}{RT^2}p_0 e^{\frac{ML}{R}\left(\frac{1}{T_0} - \frac{1}{T}\right)} + \frac{MV}{RT}p_0 e^{\frac{ML}{R}\left(\frac{1}{T_0} - \frac{1}{T}\right)}\frac{ML}{RT^2} \\
-&= \frac{MV}{RT^2}p_0 e^{\frac{ML}{R}\left(\frac{1}{T_0} - \frac{1}{T}\right)} \left(\frac{ML}{RT} - 1\right)
+F_g &= \rho (\frac{4}{3} \pi r^3) g
 \end{align*}
 
 Hence
 
 \begin{align*}
-\Delta m_s(T) = \frac{MV}{RT^2}p_0 e^{\frac{ML}{R}\left(\frac{1}{T_0} - \frac{1}{T}\right)} \left(\frac{ML}{RT} - 1\right) \Delta T
+\pi^2 r^2 f &= \rho (\frac{4}{3} \pi r^3) g \\
+\pi f &= \rho (\frac{4}{3} r) g \\
+f &= \frac{4 \rho r g}{3\pi} \\
+&= \frac{2 \rho D g}{3\pi}
 \end{align*}
 
-\subsection{Heat capacity of pore}
+\subsection{Horizontal component of air resistant force}
 
-The number of moles of vapour is
+The horizontal component of the air resistant force is
 
 \begin{align*}
-n_s(T) &= \frac{m_s(T)}{M} \\
-&= \frac{V}{RT}p_0 e^{\frac{ML}{R}\left(\frac{1}{T_0} - \frac{1}{T}\right)}
+F_a &= \iint f dS \cos\theta \sin\phi \\
+&= \iint f r^2 \sin\theta d\theta d\phi \cos\theta \sin\phi \\
+&= r^2 f \int^{\frac{\pi}{2}}_\pi \sin\theta \cos\theta d\theta \int_0^\pi \sin\phi d\phi \\
+&= r^2 f \\
+&= \frac{D^2}{4} \frac{2 \rho D g}{3\pi} \\
+&= \frac{\rho D^3 g}{6 \pi}
 \end{align*}
 
-The number of moles of liquid water is
+\subsection{Surface tension}
+
+The area of contact has a length $L = \pi D / 2$; hence $F_t = \sigma L$ 
 
 \begin{align*}
-n_w(T) &= \frac{m_w(T)}{M} \\
-&= \frac{Vp_0}{RT_0} + \frac{m_{w_0}}{M} - \frac{V}{RT}p_0 e^{\frac{ML}{R}\left(\frac{1}{T_0} - \frac{1}{T}\right)}
+F_t &= \frac{\sigma \pi D}{2}
 \end{align*}
 
-And the heat capacity is the sum of the heat capacity of the liquid and the heat capacity of the vapour
+\subsection{Spherical water droplet}
 
 \begin{align*}
-C_p(T) &= c_w n_w(T) + 3R n_s(T) \\
-&= \frac{c_wVp_0}{RT_0} + \frac{c_w m_{w_0}}{M} - \frac{c_w V}{RT}p_0 e^{\frac{ML}{R}\left(\frac{1}{T_0} - \frac{1}{T}\right)} + \frac{3V}{T}p_0 e^{\frac{ML}{R}\left(\frac{1}{T_0} - \frac{1}{T}\right)}
+F_t &= 100 F_a \\
+\frac{\sigma \pi D}{2} &= 100 \frac{\rho D^3 g}{6 \pi} \\
+\sigma \pi &= 100 \frac{\rho D^2 g}{3 \pi} \\
+D &= \pi \sqrt{\frac{3 \sigma}{100 \rho g}} \\
+&= 0.00277 \mathrm{\ m}
 \end{align*}
 
-\subsection{Complete evarpouration}
+The maximum diameter is 0.00277 m.
 
-The volume of the liquid water is $V_w = \delta V$, hence the mass is $m_{w_0} = \rho_w V_w = \rho_w \delta V$. Then the condition for complete evapouration is that $m_w = 0$ or
+\section{Refraction and reflection of light rays in a spherical water droplet}
+
+\subsection{Angle of reflected wave}
+
+Let $\beta$ be the refracted angle; then
 
 \begin{align*}
-m_w(T) &= \frac{MVp_0}{RT_0} + m_{w_0} - \frac{MV}{RT}p_0 e^{\frac{ML}{R}\left(\frac{1}{T_0} - \frac{1}{T}\right)} \\
-0 &= \frac{MVp_0}{RT_0} + \rho_w \delta V - \frac{MV}{RT}p_0 e^{\frac{ML}{R}\left(\frac{1}{T_0} - \frac{1}{T}\right)} \\
-&= \frac{Mp_0}{RT_0} + \rho_w \delta - \frac{M}{RT}p_0 e^{\frac{ML}{R}\left(\frac{1}{T_0} - \frac{1}{T}\right)}
+\sin\alpha &= n\sin\beta \\
+\beta &= \sin^{-1}(\frac{1}{n} \sin\alpha)
 \end{align*}
 
-Hence, letting $T = T_1$,
+\includegraphics[width=\textwidth]{drawing.png}
 
 \begin{align*}
-\frac{Mp_0}{RT_0} + \rho_w \delta &= \frac{M}{RT_1}p_0 e^{\frac{ML}{R}\left(\frac{1}{T_0} - \frac{1}{T_1}\right)} \\
-e^{-\frac{ML}{RT_0}} \left( \frac{ML}{RT_0} + \frac{L \rho_w \delta}{p_0}\right) &= \frac{ML}{RT_1} e^{-\frac{ML}{RT_1}} \\
-&= 1.305 \times 10^{-4}
+\theta &= 4\beta - 2\alpha \\
+&= 4 \sin^{-1}(\frac{1}{n} \sin\alpha) - 2\alpha
 \end{align*}
 
-solving numerically,
+[plot 4 * asin(0.74951 * sin(x)) - 2*x]
+
+\subsection{Optical power distribution}
+
+Let $x$ and $y$ be the coordinates of the incident beam, as seen when staring into the beam. Then
 
 \begin{align*}
-\frac{ML}{RT_1} &= 11.38 \\
-T_1 &= 438\mathrm{\ K}
+\D P &= I_0 \D x \D y
 \end{align*}
 
-\subsection{Significant terms}
-
-We consider the case where $T = T_0$, and $V = 0.1 \mathrm{\ cm^3}$ then
+a fraction $T_1 T_2 R$ of the beam is transmitted to the outgoing wave; hence we must relate $\D x$ and $\D y$ to $\D \theta$ and $\D \phi$. Now
 
 \begin{align*}
-C_p(T) &= \frac{c_wVp_0}{RT_0} + \frac{c_w m_{w_0}}{M} - \frac{c_w V}{RT}p_0 + \frac{3V}{T}p_0 \\
-\frac{c_wVp_0}{RT_0} &= 5.9 \times 10^{-4} \mathrm{\ J/K} \\
-\frac{c_w m_{w_0}}{M} &= 6.6 \times 10^{-2} \mathrm{\ J/K} \\
-\frac{c_w V}{RT}p_0 &= 5.9 \times 10^{-4} \mathrm{\ J/K} \\
-\frac{3V}{T}p_0 &= 3.5 \times 10^{-6} \mathrm{\ J/K}
+\theta &= 4 \sin^{-1}(\frac{1}{n} \sin\alpha) - 2\alpha \\
+\D\theta &= \left(\frac{4\cos\alpha}{n\sqrt{1 - (\frac{1}{n} \sin\alpha)^2}} - 2\right)\D\alpha
 \end{align*}
 
-As $T$ increase, however, the exponential term grows larger; hence we can keep the two largest terms and get
+and
 
 \begin{align*}
-C_p(T) &= \frac{c_w m_{w_0}}{M} - \frac{c_w V}{RT}p_0 e^{\frac{ML}{R}\left(\frac{1}{T_0} - \frac{1}{T}\right)}
+r \sin\alpha &= y \\
+r \cos\alpha \D\alpha &= \D y \\
+\D\alpha &= \frac{\D y}{r \cos\alpha}
 \end{align*}
 
-The first term is the initial heat capacity of water and the second term is the capacity `lost' due to evapouration. It seems that the vapour does not contribute to the heat capacity and does not contain a lot of water.
-
-\subsection{Specific heat capacity}
-
-Since the total mass of pore content is always the same (water does not enter/exit the pore), the mass of pore content is
+so
 
 \begin{align*}
-m_{s_0} + m_{w_0} &= \frac{MVp_0}{RT_0} + \delta \rho_w V
+\D\theta &= \left(\frac{4}{rn\sqrt{1 - (\frac{1}{n}\sin\alpha)^2}} - \frac{2}{r\cos\alpha}\right) \D y
 \end{align*}
 
-and the specific heat capacity is
+also, if we displace the beam a bit to the left or right (ie add $\D x$), $\alpha$ does not change to first order because the tangent to the circle of constant $\alpha$ is parallel to the direction of $\D x$ when $x$ is 0, as is the case here.
 
 \begin{align*}
-c_p(T) &= \frac{C_p(T)}{m_s + m_w} \\
-&= \frac
-{\frac{c_wVp_0}{RT_0} + \frac{c_w \delta \rho_w V}{M} - \frac{c_w V}{RT}p_0 e^{\frac{ML}{R}\left(\frac{1}{T_0} - \frac{1}{T}\right)} + \frac{3V}{T}p_0 e^{\frac{ML}{R}\left(\frac{1}{T_0} - \frac{1}{T}\right)}}
-{\frac{MVp_0}{RT_0} + \delta \rho_w V} \\
-&= \frac
-{\frac{c_wp_0}{RT_0} + \frac{c_w \delta \rho_w}{M} - \frac{c_w}{RT}p_0 e^{\frac{ML}{R}\left(\frac{1}{T_0} - \frac{1}{T}\right)} + \frac{3}{T}p_0 e^{\frac{ML}{R}\left(\frac{1}{T_0} - \frac{1}{T}\right)}}
-{\frac{Mp_0}{RT_0} + \delta \rho_w} \\
+\D x &= \frac{r\sin\theta\sin\alpha}{\sin(4\beta - \alpha)} \D\phi
 \end{align*}
 
-for $T = T_0$,
+Hence
 
 \begin{align*}
-c_p(T_0) &= \frac
-{\frac{c_w \delta \rho_w}{M} + \frac{3}{T_0}p_0}
-{\frac{Mp_0}{RT_0} + \delta \rho_w} \\
-&= 231.1 \mathrm{\ J/gK}
+\D P = I_0 \frac{\frac{r\sin\theta\sin\alpha}{\sin(4\beta - \alpha)} \D\phi}{\left(\frac{4}{rn\sqrt{1 - (\frac{1}{n}\sin\alpha)^2}} - \frac{2}{r\cos\alpha}\right)} \D\theta
 \end{align*}
 
-When $T > T_1$, there is no more water left and the terms that depend on $c_w$ sum to 0. Hence
+Therefore 
 
 \begin{align*}
-c_p(T_1) &= \frac
-{\frac{3}{T_1}p_0 e^{\frac{ML}{R}\left(\frac{1}{T_0} - \frac{1}{T_1}\right)}}
-{\frac{Mp_0}{RT_0} + \delta \rho_w} \\
-&= 3.10 \mathrm{\ J/gK}
+J &= I_0 \frac{\frac{\sin\theta\sin\alpha}{\sin(4\beta - \alpha)}}{\left(\frac{4}{n\sqrt{1 - (\frac{1}{n}\sin\alpha)^2}} - \frac{2}{\cos\alpha}\right)} T_1 T_2 R \\
+&= I_0 \frac{\sin(4\sin^{-1}(\frac{1}{n} \sin\alpha)-2\alpha)\sin\alpha}{\sin(4\sin^{-1}(\frac{1}{n} \sin\alpha) - 2\alpha)\left(\frac{4}{n\sqrt{1 - (\frac{1}{n}\sin\alpha)^2}} - \frac{2}{\cos\alpha}\right)} T_1 T_2 R
 \end{align*}
 
-for $T > T_1$, since there is no further change to the composition of the pore (all of it is vapour), hence $c_p = 3.10 \mathrm{\ J/gK}$
+\subsection{$\lambda = 550 nm$}
 
-\section{Porous solid}
-\subsection{Specific heat capacity}
-The mass of the solid body
+[plot (sin(4*asin(0.74951 * sin(x))-2*x) * sin(x))/(sin(4 * asin(0.74951 * sin(x)) - 2*x) * (4/(1.3342 * sqrt(1 - (0.74951 * sin(x))**2)) - 2/(cos(x))))]
 
-\begin{align*}
-m_S = (1 - \xi) \rho_S V_t
-\end{align*}
+When we plot it, we see that it diverges at $\alpha = 1.04$; indeed, for this angle $\D \theta = 0$.
 
-where $V_t$ is the total body volume. Also,
+\subsection{Spectral Intensity}
 
-\begin{align*}
-V = \xi V_t
-\end{align*}
-
-Hence, if $H_S$ is the heat capacity of the body,
-
-\begin{align*}
-c(T) &= \frac{C_p(T) + H_S(T) }{m_s + m_w + m_S} \\
-&= \frac
-{\frac{c_w\xi V_tp_0}{RT_0} + \frac{c_w \delta \rho_w \xi V_t}{M} - \frac{c_w \xi V_t}{RT}p_0 e^{\frac{ML}{R}\left(\frac{1}{T_0} - \frac{1}{T}\right)} + \frac{3\xi V_t}{T}p_0 e^{\frac{ML}{R}\left(\frac{1}{T_0} - \frac{1}{T}\right)} + C_S (1 - \xi) \rho_S V_t}
-{\frac{M\xi V_tp_0}{RT_0} + \delta \rho_w \xi V_t + (1 - \xi) \rho_S V_t} \\
-&= \frac
-{\frac{c_w\xi p_0}{RT_0} + \frac{c_w \delta \rho_w \xi }{M} - \frac{c_w \xi }{RT}p_0 e^{\frac{ML}{R}\left(\frac{1}{T_0} - \frac{1}{T}\right)} + \frac{3\xi }{T}p_0 e^{\frac{ML}{R}\left(\frac{1}{T_0} - \frac{1}{T}\right)} + C_S (1 - \xi) \rho_S }
-{\frac{M\xi p_0}{RT_0} + \delta \rho_w \xi + (1 - \xi) \rho_S}
-\end{align*}
-
-\subsection{Numerical value}
-
-\begin{align*}
-c_p(T_0) &= 2591 \mathrm{\ J/kgK} \\
-c_p(T_1) &= 111 \mathrm{\ J/kgK}
-\end{align*}
-
-For $T > T_1$, since the composition of the pore doesn't change, $c_p$ is still $111 \mathrm{\ J/kgK}$
-
-\subsection{Graph}
-
-\includegraphics[width=\textwidth]{graphplot.png}
+\section{Basic characteristics of the rainbow}
 
 \end{document}
