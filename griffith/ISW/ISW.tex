@@ -1,0 +1,93 @@
+\listfiles
+\documentclass{article}
+
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+
+\renewcommand{\l}{\left}
+\renewcommand{\r}{\right}
+
+\title{Infinite Square Well}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{align*}
+\psi_n(x) &= \sqrt{\frac{2}{a}} \sin\l(\frac{n\pi}{a} x\r) \\
+E_n &= \frac{\pi^2 n^2 \hbar^2}{2ma^2}
+\end{align*}
+
+\section{Triangle}
+
+\begin{align*}
+c_n = \frac{4\sqrt{6}}{(n\pi)^2}(-1)^{\frac{n-1}{2}}\ \ \ \  \mathrm{n\ odd}
+\end{align*}
+
+\begin{align*}
+\sum c_n^2 = \frac{96}{\pi^4} \sum\frac{1}{n^4}
+\end{align*}
+
+how to evaluate this integral by exploiting symmetry?
+
+\begin{align*}
+\sum c_n^2 E_n &= \frac{48\hbar^2}{ma^2\pi^2} \sum\frac{1}{n^2}\ \ \ \ \mathrm{n\ odd} \\
+&= \frac{6\hbar^2}{ma^2}
+\end{align*}
+
+how to evaluate $\l< H \r>$ in the presence of a corner discontinuity?
+
+\section{Flat}
+
+\begin{align*}
+c_n = \frac{2\sqrt{2}}{n\pi}\ \ \ \  \mathrm{n\ odd}
+\end{align*}
+
+\begin{align*}
+\sum c_n^2 = \frac{8}{\pi^2} \sum\frac{1}{n^2}
+\end{align*}
+
+\begin{align*}
+\sum c_n^2 E_n &= \frac{4\hbar^2}{2ma^2} \sum 1
+\end{align*}
+
+\section{Half-Flat}
+
+\begin{align*}
+c_n = \frac{4}{\pi n}
+\end{align*}
+
+\begin{align*}
+\sum c_n^2 = 
+\end{align*}
+
+\begin{align*}
+\sum c_n^2 E_n &=
+\end{align*}
+
+
+\section{Quadratic}
+
+\begin{align*}
+\psi(x,0) = \sqrt\frac{30}{a^5}x(a-x)
+\end{align*}
+
+\begin{align*}
+c_n = \frac{8\sqrt{15}}{(n\pi)^3}\ \ \ \  \mathrm{n\ odd}
+\end{align*}
+
+\begin{align*}
+\sum c_n^2 = \frac{960}{\pi^6}\sum\frac{1}{n^6}\ \ \ \  \mathrm{n\ odd}
+\end{align*}
+
+$\<H\> = \frac{5\hbar^2}{ma^2}$
+
+
+\end{document}

@@ -1,0 +1,78 @@
+\listfiles
+\documentclass{article}
+
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+
+\title{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Parseval's Theorem}
+
+\begin{align*}
+\int_{-\infty}^{\infty} |\psi(x)|^2 dx &= \int_{-\infty}^{\infty} |\phi(k)|^2 dk \\
+\end{align*}
+
+\begin{align*}
+\int_{-\infty}^{\infty} |\psi(x)|^2 dx &= \int \left(\int \frac{1}{\sqrt{2\pi}} \phi(k) e^{ikx} dk \right) \left( \int \frac{1}{\sqrt{2\pi}}\phi^*(k') e^{-ik'x} dk' \right) dx \\
+&= \frac{1}{2\pi} \int\int\int \phi(k) \phi^*(k') e^{i(k-k')x} dk' dk dx \\
+&= \frac{1}{2\pi} \int\int \phi(k) \phi^*(k') 2\pi\delta(k-k') dk dk' \\
+&= \int \phi(k) \phi^*(k) dk
+\end{align*}
+
+\begin{align*}
+\int_{-L}^L e^{ikx} dx = \frac{2\sin(kL)}{L}
+\end{align*}
+
+Height: $2L$
+Width: $\frac{2\pi}{L}$
+Area: $2\pi$
+
+\begin{align*}
+\int_{-\infty}^\infty e^{ikx} dx = 2\pi\delta(k)
+\end{align*}
+
+\section{Fourier transform of a square wave packet}
+
+\begin{align*}
+\phi(k) &= \frac{1}{\sqrt{2\pi}} \int_{-d/2}^{d/2} \frac{1}{\sqrt d} e^{-ikx} dx \\
+&= \frac{1}{\sqrt{2\pi d}} \int_{-d/2}^{d/2} e^{-ikx} dx \\
+&= \frac{1}{\sqrt{2\pi d}} \frac{2\sin(\frac{dk}{2})}{k}
+\end{align*}
+
+$\psi(x): d$
+$\phi(k): 4\pi/d$
+
+\section{Momentum distribution due to slit and their diffraction patterns}
+
+\begin{align*}
+\psi(x) &\sim [-d/2 < x < d/2] \\
+\phi(k_x) &\sim \frac{2\sin(\frac{dk_x}{2})}{k_x}
+\end{align*}
+
+For the particle to land on $x'$, the ratio momenta (= ratio of wavenumber) must be $x' : L$. Hence $k_x = k_0 x' / L$. Also we have $k_0 = 2\pi/\lambda$. The argument to the sin function is then
+
+\begin{align*}
+\frac{dk_x}{2} &= \frac{d (2\pi/\lambda) (x' / L)}{2} \\
+&= \frac{d \pi x'}{\lambda L} \\
+&= Ax'
+\end{align*}
+
+\section{de Broglie wavelength of macroscopic objects}
+\section{Gaussian wavepacket in free space}
+
+$\int e^{-ikx - x^2 / 4w^2} = 2 \sqrt\pi w e^{-k^2 w ^2}$,
+$w_0 = 1/2k_0$,
+$w_0 k_0 = 1/2$
+
+\end{document}
