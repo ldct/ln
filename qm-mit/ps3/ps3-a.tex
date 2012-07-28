@@ -10,6 +10,7 @@
 \newcommand{\half}{\frac{1}{2}}
 \newcommand{\<}{\langle}
 \renewcommand{\>}{\rangle}
+\newcommand{\D}{\Delta}
 
 \title{}
 \date{}
@@ -57,18 +58,54 @@ c,d,e
 
 \section{Gaussian wave packets and Heisenberg uncertainty relation}
 
-a) $|\psi^2| = \frac{1}{\sqrt{2\pi} w_0} e^{-x^2/2w_0}$ \\
-$I = \frac{1}{\sqrt{2\pi} w_0} \int e^{-t^2} \sqrt 2 w_0 dt = 1$
-\\
+
+
+a)
+\begin{align*}
+|\psi^2| &= \frac{1}{\sqrt{2\pi} w_0} e^{-x^2/2w_0} \\
+I &= \frac{1}{\sqrt{2\pi} w_0} \int e^{-t^2} \sqrt 2 w_0 dt \\
+&= 1
+\end{align*}
 b) 0, 0
 \\
-c) $I = 1/\sqrt{2\pi}w_0 \int x^2 e^{-x^2/2w_0^2} dx = 1/\sqrt{2\pi}w_0 \int 2w_0^2t^2 e^{-t^2} \sqrt 2 w_0 dt = w_0^2$
+c) 
+\begin{align*}
+I &= \frac{1}{\sqrt{2\pi}}w_0 \int x^2 e^{-x^2/2w_0^2} dx \\
+&= \frac{1}{\sqrt{2\pi}}w_0 \int 2w_0^2t^2 e^{-t^2} \sqrt 2 w_0 dt \\
+&= w_0^2
+\end{align*}
 \\
-d) $\<x^2\> \<p^2\> = \hbar^2 k_0^2 w_0^2 = \hbar^2 / 4$
+d) 
+\begin{align*}
+\<x^2\> \<p^2\> &= \hbar^2 k_0^2 w_0^2 \\
+&= \frac{\hbar^2}{4}
+\end{align*}
 \\
-e) $\bar\phi(k) = A\int e^{-x'^2/4w_0^2} e^{-ikx'}e^{-ikx_0} dx' = e^{-ikx_0}\phi(k)$ \\
+e) 
+\begin{align*}
+\bar\phi(k) &= A\int e^{-x'^2/4w_0^2} e^{-ikx'}e^{-ikx_0} dx' \\
+&= e^{-ikx_0}\phi(k)
+\end{align*}
 same momentum distribution
 
 \section{Childish precision experiment}
+
+\begin{align*}
+\D p &= \frac{\hbar}{\D x} \\
+\D v &= \frac{\hbar}{m \D x} \\
+t &= \sqrt\frac{2H}{g} \\
+\D x' &= \D x + t\D v \\
+&= \D x + \sqrt\frac{2H}{g} \frac{\hbar}{m\D x}
+\end{align*}
+
+Differentiating wrt $\D x$ and setting to $0$,
+
+\begin{align*}
+(\D x)^2 = \sqrt\frac{2H}{g} \frac{\hbar}{m}
+\end{align*}
+
+$9.08 \times 10^{-17}m$
+
+$1.02 \times 10^{-5}m$
 
 \end{document}
