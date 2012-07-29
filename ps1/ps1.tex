@@ -6,6 +6,8 @@
 
 \usepackage[a4paper,margin=1in]{geometry}
 
+\setlength\parindent{0pt}
+
 \title{18.014 pset 1}
 \date{}
 
@@ -14,10 +16,11 @@
 
 A is Dedekind-infinite: $\exists$ $A' \subset A$ such that $A \leftrightarrow A'$
 
+\section{Any subset of a Dedekind...}
 
 Given $A' \subseteq A$
 
-* Show that $A$ is D-finite $\implies A'$ is D-finite
+Show that $A$ is D-finite $\implies A'$ is D-finite
 
 It suffices to show that $A'$ is D-infinite $\implies A$ is D-infinite
 
@@ -35,7 +38,7 @@ g bijects $A$ to $(A - A') \cup A'' $
 
 hence $A$ is D-infinite
 
-* Show that the following are equivalent
+\section{Show that the following are equivalent}
 
 1) Any injection $A \rightarrow A$ is a surjection
 
@@ -75,7 +78,7 @@ Furthermore $p^n(A) - p^{n+1}(A)$ is nonempty because $p(p^n(A)) \subset p^n(A)$
 
 Then map $n$ to an element in $p^n(A) - p^{n+1}(A)$. Done!
 
-* Show that the union of two D-finite sets is D-finite
+\section{Show that the union of two D-finite sets is D-finite}
 
 $A$ finite and $B$ finite $\implies A \cup B$ D-finite
 
@@ -98,5 +101,47 @@ Consider the injection $j$ defined by $0 \rightarrow$ smallest element of $S$
 And $n \rightarrow$ smallest element of $S$ larger than $j(n-1)$; this exists because S is unbounded
 
 Hence $N \rightarrow S$, so S is infinite.
+
+\section{Roots}
+
+Use PNT
+
+\section{Find at least 3 diophantine approximants to $\sqrt{2}$}
+
+$1/1, 3/2, 7/5, 10/7, 17/12$
+
+\section{$1 < s < t \implies D(x,s) \supset D(x,t)$}
+
+$1/n^t < 1/n^s$
+
+\section{For any irrational $x$, $|D(x,1)| = \infty$}
+
+measure in units of $1/n$; then $m/n < x < (m+1)/n$. 
+
+\section{If $x$ is rational then $D(x,s) < \infty$ for $s>1$}
+
+Let $s = 1 + \epsilon$. $|\frac{a}{b} - \frac{m}{n}| = \frac{|an-bm|n^\epsilon}{n^s}$.
+
+\begin{align*}
+\frac{n^\epsilon}{bn^s} < \frac{|an-bm|n^\epsilon}{bn^s} &< \frac{1}{n^s}
+\end{align*}
+
+\begin{align*}
+n^\epsilon &< b
+\end{align*}
+
+This fails when $n > b^{1/\epsilon}$; since there are a finite number of $n$ and for each $n$ a finite number of $m$, we are done
+
+\section{Liouville numbers are transcedental}
+
+We must prove that infinite irrationality exponent $\implies$ not a solution to polynomial equation
+
+Solution to polynomial equation $\implies$ there exists $n, c$ such that for all $p,q$, $|x - \frac{p}{q}| > \frac{c}{q^n}$. Let $c = 1/k$, 
+
+\begin{align*}
+|x - \frac{p}{q}| > \frac{1}{kq^n} > \frac{1}{q^{n'}}
+\end{align*}
+
+for some $n'$ that depends on $q$. Hence for all $q$ there exists $n'$ such that $|x - \frac{p}{q}| > \frac{1}{q^{n'}}$ which means there are no $n'$ or above approximants with denominator $q$. $n'(q) = n + 1/\ln_k q$ so the $q-n'$ plot cuts off everything to the right of some $n'$.
 
 \end{document}

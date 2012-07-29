@@ -1,0 +1,55 @@
+\listfiles
+\documentclass{article}
+
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+
+\newcommand{\ff}{\frac{1}{\sqrt{2\pi}}}
+
+\title{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Continuity equation for probability density and probability current}
+a)
+\begin{align*}
+\psi_t &= i\frac{\hbar}{2m} \psi_x -i\frac{V}{\hbar} \psi \\
+\frac{\partial}{\partial t} \psi\psi^* &= \psi\psi^*_t + \psi^*\psi_t \\
+&= \psi(-i\frac{\hbar}{2m} \psi^*_{xx} + i\frac{V}{\hbar} \psi^* ) + \psi^*(i\frac{\hbar}{2m} \psi_x -i\frac{V}{\hbar} \psi) \\
+&= \psi(-i\frac{\hbar}{2m} \psi^*_{xx}) + \psi^*(i\frac{\hbar}{2m} \psi_{xx}) \\ 
+&= i\frac{\hbar}{2m} (\psi^*\psi_{xx} - \psi\psi^*_{xx}) \\
+\\
+J_x &= \frac{\hbar}{2im}(\psi^*_x\psi_x + \psi^*\psi_{xx} - \psi^*_x\psi_x - \psi^*_{xx}\psi_x) \\
+&= -i\frac{\hbar}{2m}(\psi^*\psi_{xx} - \psi^*_{xx}\psi_x) 
+\end{align*}
+\\
+b) $P_t(a,b) = J(a) - J(b)$
+
+\section{Fictitious Bohr Atom}
+
+\begin{align*}
+V &= -C_6r^{-6} \\
+F_r &= 6C_6r^{-7} \\
+&= \frac{m_e v^2}{r} \\
+v^2 &= \frac{6C_6}{m_er^6} \\
+v &= \sqrt\frac{6C_6}{m_e}r^{-3} \\
+L &= \sqrt{6m_eC_6}r^{-2} \\
+&= n\hbar \\
+r^2 &= \frac{\sqrt{6m_eC_6}}{n\hbar} \\
+v^2 &= \frac{6C_6}{m_e} (\frac{n\hbar}{\sqrt{6m_eC_6}})^3 \\
+\half m_e v^2 &= 3C_6 (\frac{n\hbar}{\sqrt{6m_eC_6}})^3 \\
+E &\sim n^3
+\end{align*}
+
+\section{Sommerfeld-Wilson quantization for linear potential in one dimension}
+
+\end{document}
