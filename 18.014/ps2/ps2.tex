@@ -1,0 +1,32 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\setlength\parindent{0pt}
+
+\title{18.014 pset 2}
+\date{}
+
+\begin{document}
+\maketitle
+
+\setcounter{section}{9}
+\section{Show that we have the following equations for any $p,q$}
+
+$h(0,p,q) = q+1
+\\
+h(1,p,q) = h(0,p,h(1,p,q-1)) = h(1,p,q-1) + 1 = ... = h(1,p,0) + q = p + q
+\\
+h(2,p,q) = h(1,p,h(2,p,q-1)) = p + h(2,p,q-1) = ... = pq
+\\
+h(3,p,q) = h(2,p,h(3,p,q-1)) = p*h(3,p,q-1) = ...p^q
+\\
+h(4,p,q) = h(3,p,h(4,p,q-1)) = p^{h(4,p,q-1)} = p^{p^{p^{...}}}$
+
+\section{Define a function $a(n) = h(n,n,n)$}
+
+\end{document}
