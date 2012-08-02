@@ -30,6 +30,8 @@
 &= \int \phi(k) \phi^*(k) dk
 \end{align*}
 
+To evaluate the $\int e^{ikx} dx$ integral,
+
 \begin{align*}
 \int_{-L}^L e^{ikx} dx = \frac{2\sin(kL)}{L}
 \end{align*}
@@ -54,18 +56,34 @@ letting $L \rightarrow \infty$,
 &= \frac{1}{\sqrt{2\pi d}} \frac{2\sin(\frac{dk}{2})}{k}
 \end{align*}
 
-Width of $\psi(x): d$
+The width of $\psi(x)$ (which can also be defined as the distance between the first two zereos) is clearly
 
-Width of $\phi(k): 4\pi/d$
+\begin{align*}
+d
+\end{align*}
+
+while the width of $\phi(k)$ is
+
+\begin{align*}
+\frac{4\pi}{d}
+\end{align*}
 
 \section{Momentum distribution due to slit and their diffraction patterns}
 
+Let $\psi(x,y) \sim \psi_x(x)\psi_y(y)$. Then
+
 \begin{align*}
-\psi(x) &\sim [-d/2 < x < d/2] \\
-\phi(k_x) &\sim \frac{2\sin(\frac{dk_x}{2})}{k_x}
+\psi_x(x) &\sim [-d/2 < x < d/2] \\
+\phi_x(k_x) &\sim \frac{2\sin(\frac{dk_x}{2})}{k_x}
 \end{align*}
 
-For the particle to land on $x'$, the ratio momenta (= ratio of wavenumber) must be $x' : L$. Hence $k_x = k_0 x' / L$. Also we have $k_0 = 2\pi/\lambda$. The argument to the sin function is then
+Where $\phi_x(k_x)$ is the probability distribution for the $x$ component of the wavevector $k_x$. For the particle to land on $x'$, the ratio momenta upon leaving the slit must be $x' : L$; this is the same as the ratio of wavenumber since $p \sim k$. Hence 
+
+\begin{align*}
+k_x = \frac{k_0 x'}{L}
+\end{align*}
+
+Also we have $k_0 = \frac{2\pi}{\lambda}$. The argument to the sin function in $\phi(k_x)$ is then
 
 \begin{align*}
 \frac{dk_x}{2} &= \frac{d (2\pi/\lambda) (x' / L)}{2} \\
@@ -77,9 +95,24 @@ Which is the answer up to normalization.
 
 \section{de Broglie wavelength of macroscopic objects}
 \section{Gaussian wavepacket in free space}
+a)
+\begin{align*}
+\int dx e^{-ikx} \psi(x) &\sim \int dx e^{-(ikx + \frac{x^2}{4w_0^2})} \\
+&= \int dx e^{-(\frac{x}{2w} + ikw_0)^2} e^{-k^2w_0^2}\\
+&= 2 \sqrt\pi w_0 e^{-k^2 w_0^2}
+\end{align*}
 
-$\int e^{-ikx - x^2 / 4w^2} = 2 \sqrt\pi w e^{-k^2 w ^2}$,
-$w_0 = 1/2k_0$,
-$w_0 k_0 = 1/2$
+Where
+
+\begin{align*}
+w_0 &= \frac{1}{2k_0} \\
+\end{align*}
+
+For the pile of multiplicative factors in front we can note that $\phi(k)$ must be normalized, ie have the same form as $\psi(x)$. 
+\\
+b)
+\begin{align*}
+w_0 k_0 &= \half
+\end{align*}
 
 \end{document}
