@@ -27,6 +27,27 @@ h(3,p,q) = h(2,p,h(3,p,q-1)) = p*h(3,p,q-1) = ...p^q
 \\
 h(4,p,q) = h(3,p,h(4,p,q-1)) = p^{h(4,p,q-1)} = p^{p^{p^{...}}}$
 
-\section{Define a function $a(n) = h(n,n,n)$}
+\section{Compute explicitly...}
+
+$h(4,2,4) = 2^{2^{2^2}} = 2^16 = 65536$
+\\
+$h(5,3,2) = h(4,3,h(5,3,1)) = h(4,3,h(4,3,h(5,3,0))) = h(4,3,h(4,3,1)) = h(4,3,3) = 3^{3^3} = 3^27 \approx 8 \times 10^{12}$
+
+For $n>3$ we can prove
+
+$h(n,2,1) = h(n-1,2,h(n,2,0)) = h(n-1,2,1) = 2$
+
+and using this
+
+$h(n,2,2) = h(n-1,2,h(n,2,1) = h(n-1,2,2)$
+
+\section{Show that $a$ is injective}
+
+$h(n,n,n-1) > n$
+$h(n,n,n) = h(n-1,n,h(n,n,n-1)) > h(n-1,n-1,h(n,n,n-1)) > h(n-1,n-1,n-1)$
+
+\section{For any natural...}
+
+$a$ is injective
 
 \end{document}
