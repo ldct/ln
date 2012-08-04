@@ -46,8 +46,24 @@ $h(n,2,2) = h(n-1,2,h(n,2,1) = h(n-1,2,2)$
 $h(n,n,n-1) > n$
 $h(n,n,n) = h(n-1,n,h(n,n,n-1)) > h(n-1,n-1,h(n,n,n-1)) > h(n-1,n-1,n-1)$
 
-\section{For any natural...}
+\section{For any natural number $n$, let $B_n$ be the set...}
 
 $a$ is injective
+
+\section{Show that...}
+
+\section{Show that the indicator function of the Cantor Set is Riemann integrable}
+
+\section{Show that the function $d$ is not Riemann integrable on $[0,1]$}
+
+In any section of finite width there will be both rational and irratoinal numbers.
+
+\section{Show that the function $\theta$ is Riemann integrable}
+
+For any partition, consider a rectangular block of height $1/q$. At most $q$ rational numbers can be holding it up; then after $2q$ refinements, the block must decrease in area. Hence $\int = 0$.
+
+\subsection*{Proof with fixed-width partitions}
+
+If all partitions have the same witdth $1/N$ where $N$ is the number of partitions, the area is $\frac{1}{N} \sum h$ where $h$ is the height. Obviously we choose the tallest values first; there are at most $q$ numbers for which $h = 1/q$, and the sum of heights is 1; hence $\sum h < \ln N$. So $\bar\int < \frac{1}{N} \ln N = 0$ as $N \rightarrow \infty$
 
 \end{document}
