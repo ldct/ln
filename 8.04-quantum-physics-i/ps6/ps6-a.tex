@@ -41,4 +41,56 @@ g) Particle's energy not known prior to measurement.
 
 Griffiths
 
+\section{Hermitian operators}
+
+\section{Square well centered at origin, parity}
+
+a)
+
+\begin{align*}
+f(x) &= Ae^{ikx} + Be^{-ikx} \\
+f(-a/2) &= Ae^{-ika/2} + Be^{ika/2} = 0 \\
+Ae^{-ika} + B &= 0
+\end{align*}
+
+substituting,
+
+\begin{align*}
+f(x) &= Ae^{ikx} - Ae^{-ika}e^{-ikx} \\
+&= Ae^{-ika/2}(e^{ikx}e^{ika/2} - e^{-ikx}e^{-ika/2}) \\
+&= C\sin k(x+a/2)
+\end{align*}
+
+Now the rest is the same, $k = \frac{n\pi}{a}$ and $C = \sqrt{\frac{2}{a}}$
+\\
+b) 
+
+\begin{align*}
+P\sin \frac{n\pi}{a} (x+a/2) &= \sin \frac{n\pi}{a}(-x + a/2) \\
+&= \sin \frac{n\pi}{a} (-x-a/2 + a) \\
+&= \sin \frac{n\pi}{a} (-x-a/2) + n\pi \\
+&= -\sin \frac{n\pi}{a} (x+a/2) - n\pi \\
+&= -\psi(x) (-1)^n
+\end{align*}
+\\
+c)
+\begin{align*}
+H\psi &= E\psi \\
+PH\psi &= EP\psi \\
+HP\psi &= EP\psi - [P,H]\psi \\
+\end{align*}
+
+so $[P,H]\psi = \lambda P\psi$
+but obviously $[P,D] = 0$ so
+
+\begin{align*}
+[P,V]\psi &= \lambda P\psi \\
+PV\psi - VP\psi &= \lambda P\psi \\
+V(-x)\psi(-x) - V(x)\psi(-x) &= \lambda \psi(-x) \\
+V(-x) &= V(x) + \lambda \\
+&= V(-x) + 2\lambda \\
+\lambda &= 0
+\end{align*}
+
+$V$ must be an even function
 \end{document}

@@ -4,6 +4,7 @@
 \usepackage[pdftex]{graphicx}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{hyperref}
 
 \usepackage[a4paper,margin=1in]{geometry}
 
@@ -18,6 +19,8 @@
 
 \begin{document}
 \maketitle
+
+\url{http://web.mit.edu/jlee08/Public/7.91/8.04/sol4.pdf}
 
 \section{Continuity equation for probability density and probability current}
 a)
@@ -36,20 +39,42 @@ b) $P_t(a,b) = J(a) - J(b)$
 
 \section{Fictitious Bohr Atom}
 
+Use the quantization condition $L = n\hbar$
+
 \begin{align*}
 V &= -C_6r^{-6} \\
-F_r &= 6C_6r^{-7} \\
-&= \frac{m_e v^2}{r} \\
-v^2 &= \frac{6C_6}{m_er^6} \\
+F_r &= 6C_6r^{-7} = \frac{m_e v^2}{r} \\
 v &= \sqrt\frac{6C_6}{m_e}r^{-3} \\
-L &= \sqrt{6m_eC_6}r^{-2} \\
-&= n\hbar \\
+L &= mvr = \sqrt{6m_eC_6}r^{-2} = n\hbar \\
 r^2 &= \frac{\sqrt{6m_eC_6}}{n\hbar} \\
 v^2 &= \frac{6C_6}{m_e} (\frac{n\hbar}{\sqrt{6m_eC_6}})^3 \\
-\half m_e v^2 &= 3C_6 (\frac{n\hbar}{\sqrt{6m_eC_6}})^3 \\
-E &\sim n^3
+\half m_e v^2 &= 3C_6 (\frac{n\hbar}{\sqrt{6m_eC_6}})^3 = \frac{n^3\hbar^3}{2\sqrt{6C_6}m_e^{3/2}} \\
+\frac{C_6}{r^6} &= C_6 (\frac{n\hbar}{\sqrt{6m_eC_6}})^3 = \frac{n^3\hbar^3}{6\sqrt{6C_6}m_e^{3/2}} \\
+E_n &= \half m_e v^2 - \frac{C_6}{r^6} = \frac{n^3\hbar^3}{3\sqrt{6C_6}m_e^{3/2}}
 \end{align*}
 
 \section{Sommerfeld-Wilson quantization for linear potential in one dimension}
 
+We will work over $T/4$. 
+
+a)
+$V = C|x|, p(t) = -Ct, x(t) = A - \frac{C}{2m} t^2$
+\\
+b)
+$CA = p^2/2m + Cx \\
+p = \sqrt{2mc(A-x)} \\
+1/4\int p dx = \int_0^A\sqrt{2mc(A-x)}dx = \sqrt{2mCA^3} 2/3 \\
+\int = \frac{8}{3} \sqrt{2mCA^3}
+$
+\\
+c)
+$
+\frac{8}{3} \sqrt{2mCA^3} = nh \\
+A = (\frac{9n^2h^2}{128mC})^{1/3}
+$
+\\
+d)
+$E_n = CA = (\frac{9n^2h^2C^2}{128m})^{1/3}$
+\section{Momentum expectation values in terms of spatial wavefunctions}
+\section{Relations for probability current}
 \end{document}

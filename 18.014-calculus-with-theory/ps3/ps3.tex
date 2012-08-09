@@ -1,0 +1,49 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\setlength\parindent{0pt}
+
+\title{18.014 pset 2}
+\date{}
+
+\begin{document}
+\maketitle
+
+\setcounter{section}{17}
+\section{For each of the following functions $f$}
+
+\section{Show that a finite set is Jordan-measurable, and that its Jordan measure is 0}
+
+Let $E$ be the finite set. Then for a fixed-width partition $\int = |E|/N \rightarrow 0$ as $N \rightarrow \infty$. No, it is not true; example is $\mathbb{Q}$
+
+\section{Show that}
+\subsection*{the union of two Jordan-measurable sets is Jordan-measurable}
+
+$\chi_{E_1 \cup E_2} = \chi_{E_1} + \chi_{E_2} - \chi_{E_1}\chi_{E_2}$
+
+To prove that products RI functions are RI: $s_1s_2 < f_1f_2 < t_1t_2$
+
+\subsection*{the intersection of two Jordan-measurable sets is Jordan-measurable}
+
+$\chi_{E_1 \cap E_2} = \chi_{E_1}\chi_{E_2}$
+
+\subsection*{the complement of a Jordan-measurable sets is Jordan-measurable}
+
+$\chi_{E'} = 1 - \chi{E}$
+
+\section{Show that if $E$ is a Jordan...}
+
+$\mu_{f(E)} = \int \chi_{f(E)} (x) dx = \int\chi_E(f^{-1}(x)) dx = a\int\chi_E(x)dx$
+
+because
+
+$\chi_{f(E)} (x) = 1 \implies x \in \chi_{f(E)} \implies x = f(u) \implies f^{-1}(x) = u \implies f^{-1}(x) \in \chi_{E} \implies \chi_E(f^{-1}(x)) = 1$
+
+\section{Define the floor function...}
+
+\end{document}
