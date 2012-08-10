@@ -1,0 +1,77 @@
+\listfiles
+\documentclass{article}
+
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+
+\setlength\parindent{0pt}
+
+\title{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Circular Polarization}
+
+$|L\> = \frac{1}{\sqrt 2} (|x\> - i|y\>), |R\> = \frac{1}{\sqrt 2} (|x\> + i|y\>)$
+
+a) Show that these two states are orthonormal
+
+\begin{align*}
+\<L|L\> = \<R|R\> = \frac{1}{2} (\<x|x\> + \<y|y\>) \\
+\<L|R\> = \<R|L\> = \frac{1}{2} (\<x|x\> - \<y|y\>)
+\end{align*}
+
+b) Given 
+
+\begin{align*}
+\psi = a|x\> + b|y\>
+\end{align*}
+
+find $a', b'$ such that
+
+\begin{align*}
+\psi = a'|L\> + b'|R\>
+\end{align*}
+
+Write the linear polarization states in terms of the circular ones:
+
+\begin{align*}
+|x\> = \frac{1}{\sqrt 2} (|L\> + |R\>) \\
+|y\> = \frac{i}{\sqrt 2} (|L\> - |R\>)
+\end{align*}
+
+So
+
+\begin{align*}
+\psi &= a|x\> + b|y\> \\
+&= \frac{a}{\sqrt 2} (|L\> + |R\>) + \frac{bi}{\sqrt 2} (|L\> - |R\>) \\
+&= (\frac{a+bi}{\sqrt 2})|L\> + (\frac{a-bi}{\sqrt 2})|R\>
+\end{align*}
+
+c) Write down the operators that correspond to left- and right-circular polarization filters. Determine the probability that an x’-polarized photon will pass through a left circular polarization filter.
+
+\begin{align*}
+|L\>\<L| &= \half (|x\> - i|y\>)(\<x| + i\<y|) \\
+&= \half (|x\>\<x| + i|x\>\<y| - i)|y\>\<x| + |y\>\<y| \\
+|R\>\<R| &= \half (|x\> + i|y\>)(\<x| - i\<y|) \\
+&= \half (|x\>\<x| - i|x\>\<y| + i)|y\>\<x| + |y\>\<y|
+\end{align*}
+
+and
+
+\begin{align*}
+\<L|x\> = \frac{1}{\sqrt 2}
+\end{align*}
+
+it is $\half$.
+
+\end{document}
