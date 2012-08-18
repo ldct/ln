@@ -11,6 +11,8 @@
 \newcommand{\<}{\langle}
 \renewcommand{\>}{\rangle}
 
+\setlength\parindent{0pt}
+
 \title{Quantum Mechanics - Griffiths, David J}
 \date{}
 
@@ -106,7 +108,7 @@ $\sigma_x^2 \sigma_p^2 = \hbar^2 \left( \frac{n^2 \pi^2}{12} - \frac{1}{2} \righ
 A particle in the infinite square well has as its initial wave function an even mixture of the first two...
 \\ \\
 a) $A = \frac{\sqrt 2}{2}$ \\
-b) $\psi(x,t) = \frac{\sqrt a}{a} \left(\sin(\frac{\pi x}{a}) e^{-i\pi^2\hbar t/ 2ma^2} + \sin(\frac{2\pi x}{a})e^{-4i\pi^2\hbar t / 2ma^2}\right)$,
+b) $\psi(x,t) = \frac{\sqrt a}{a} \left(\sin(\frac{\pi x}{a}) e^{-i\pi^2\hbar t/ 2ma^2} + \sin(\frac{2\pi x}{a})e^{-4i\pi^2\hbar t / 2ma^2}\right)$ \\
 $|\psi|^2 = \frac{1}{a} \left( \sin^2\frac{\pi x}{a} + \sin^2\frac{2\pi x}{a} + 2\sin\frac{\pi x}{a}\sin\frac{2\pi x}{a}\cos\frac{3\pi^2\hbar}{2ma^2}t  \right)$ \\
 c) $\<x\> = \frac{a}{2} - \frac{16a}{9\pi^2} \cos 3\omega t$ \\
 d) $\frac{8\hbar}{3a} \sin 3\omega t$ \\
@@ -131,5 +133,46 @@ a) $A^2 = \frac{12}{a^3}$ \\
 b) $c_n = \frac{4\sqrt{6}}{(n\pi)^2}(-1)^{\frac{n-1}{2}}$ \\
 $\psi(x,t) = \frac{4}{\pi^2} \sqrt{\frac{12}{a}} \sum_{\mathrm{n\ odd}} \frac{(-1)^{\frac{n-1}{2}}}{n^2} \sin(\frac{n\pi}{a} x) e^{-iE_nt/\hbar}$ \\
 c) $c_1 = \frac{16 \cdot 6}{\pi^4} = 0.9855$ \\
-d) $
+d)
+
+check! ---v
+
+\subsection{Half-flat potential [ISW]}
+
+$c_1 = -2/\pi$
+
+\subsection{Explicit calculation of energy [ISW]}
+
+$\<H\> = \frac{\pi \hbar^2}{ma^2}$
+
+\subsection{First three states [QHO]}
+
+Construct explicitly...
+\\ \\
+$\psi_0 = \alpha e^{-\xi^2/2} \\
+\psi_1 = \alpha\sqrt 2 \xi e^{-\xi^2/2} \\
+\psi_2 = \alpha(2\xi^2 - 1) e^{-\xi^2/2}$
+
+\subsection{Uncertainty [QHO]}
+
+$\psi_0: \<x^2\> = \hbar/2m\omega, \<p^2\> = \hbar m \omega / 2$ \\
+$\psi_1: \<x^2\> = 3\hbar/2m\omega, \<p^2\> = 3 \hbar m \omega / 2$
+
+\subsection{Uncertainty by operator method [QHO]}
+
+$\<x^2\> = \frac{\hbar}{m\omega} (n+\half)$ \\
+$\<p^2\> = \hbar m \omega (n + \half)$
+
+\subsection{Linear combination of states [QHO]}
+
+a) $A = \frac{1}{5}$ \\
+b) $\psi = \frac{3}{5} \alpha e^{-\xi^2/2}e^{-iwt/2} + \frac{4}{5} \alpha \sqrt 2 \xi e^{-\xi^2/2}e^{-3iwt/2}$ \\
+$|\psi|^2 = \frac{9}{25} \alpha^2 e^{-\xi^2} + \frac{32}{25} \alpha^2 \xi^2 e^{-\xi^2} + \frac{24\sqrt 2}{25}\alpha^2\xi e^{-xi^2} \cos\omega t$ \\
+$\<x\> = \frac{24\sqrt 2}{50} \sqrt\frac{\hbar}{m\omega} \cos\omega t$ \\
+$\<p\> = -\frac{24\sqrt 2}{50}\sqrt{m\omega t} \sin\omega t$
+
+\subsection{Quadrapoled spring constant [QHO]}
+
+$|c_0|^2 = \sqrt\frac{8}{9}$
+
 \end{document}

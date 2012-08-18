@@ -6,6 +6,10 @@
 \usepackage{amsthm}
 
 \usepackage[a4paper,margin=1in]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{12pt}
+
+\renewcommand\Re{\operatorname{Re}}
 
 \title{Differential Equations and exp(At)}
 \date{}
@@ -30,18 +34,19 @@ compare to the formula for difference equations
 
 \section{Cases}
 
-Stability, $u(\infty) = 0$ when all $Re \lambda < 0$
+Stability, $u(\infty) = 0$ when all $\Re \lambda < 0$
 
-Steady state, $\lambda_1 = 0$ and other eigenvectors have $Re \lambda < 0$
+Steady state, $\lambda_1 = 0$ and other eigenvectors have $\Re \lambda < 0$
 
-Blowup if any $Re \lambda > 0$
+Blowup if any $\Re \lambda > 0$
 
 \section{Special case}
 
 For $2 \times 2$ matrix:
 
-$a + d = \lambda_1 + \lambda_2 < 0$
-$det > 0$
+$\mathrm{Tr} = a + d = \lambda_1 + \lambda_2 < 0$
+\\
+$\mathrm{Det} = ad - bc = \lambda_1\lambda_2> 0$
 
 positive determinant, negative trace.
 
@@ -68,7 +73,7 @@ what do the matrix exponentials mean?
 $e^{At} = I + At + \frac{(At)^2}{2!} + ...$ \\
 $(I-At)^{-1} = I + At + (At)^2 + ...$
 
-the exponential always converges but if $A$ is too big (eigenvalue > 1) the second series will blow up.
+the exponential always converges but if $A$ is too big (eigenvalue $>$ 1) the second series will blow up.
 
 now just write $A = S\Lambda S^{-1}$, we get $e^{At} = S e^{\Lambda t} S^{-1}$
 
