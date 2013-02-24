@@ -1,0 +1,85 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{\baselineskip}
+
+\title{Algebraic Data Types}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Data Types}
+
+A data type is a class of values. For example 5, 3, etc are all of type \verb!Int!. Values that belong to \verb!Int! can be added to each other. Another data type is \verb!String!, with string addition being defined as concataction. Note that there is no natural way to add an \verb!Int! to a \verb!String!.
+
+A compound data type is a type that is built from a smaller type, or parameterized by another type. \verb![Int]! is a list of Ints, which is a list CDT parameterized with Int. We can, for example, \verb!map +1 list_of_ints! which maps the \verb!+1! function over a \verb![Int]!, and our typechecker will deduce that the result is another \verb!Int!.
+
+\section{Pairs} 
+
+For the rest of this paper we will investigate how to combine primitive data types in an arbitrary way. Our primitive data types will have lowercase names like \verb!x! and \verb!y!.
+
+If \verb!x! and \verb!y! are primitive types, then $\mathtt{x \cdot y}$ is a type of ordered pairs of an \verb!x! and a \verb!y!. This is called the \emph{product type} of \verb!x! and \verb!y!. For instance the type $\mathtt{Int \cdot Char}$, the product type of \verb!Int! and \verb!Char!, represents pairs of integers and characters. Values which satisfy this type include \verb!(4, a)! and \verb!(2, x)!
+
+Note that this is an ordered pair, so in $\mathtt{Int \cdot Int}$ the values \verb!(3,4)! and \verb!(4,3)! are distinct.
+
+\section{Option type}
+
+There is another way to combine types, which is summing them to create an \emph{option type}. To explain this clearly we can think of creating a product type $\mathtt{x \cdot y}$ as a two-step process:
+
+1) Create a pair of blanks \verb!(_,_)!. The left blank is associated with \verb!x! and the right with \verb!y!
+.
+
+2) Fill in all the blanks with values of their associated type.
+
+For sum type, the first step is the same, but the second is changed to
+
+2) Choose \emph{one} blank and fill it with a value of its associated type.
+
+For instance Int + Char can be inhabited by (5, \_) and (\_, 'a'). This explains why it's called an option type - intuitively, a value of that type has an option of being any one of its subtypes. However, note that it is an ordered choice, so for example the type \verb!Int + Int! is not the same as \verb!Int! because \verb!(_,5)! is not the same as \verb!(5,_)!.
+
+\section{Counting types}
+
+Why do we define product and option types in this strange way? One reason is that sizes of sum and product types are the sums and products of the sizes of respective subtypes - if \verb!#(x)! denotes the number of types that inhabit \verb!x!, then \verb!#(x+y) = #(x) + #(y)!, and likewise for product types
+
+\section{Identities}
+
+The reason why we call these Algebraic Data Types is because we can add and multiply them. It's also nice to notice that multiplication and addition are both associative and commutative - for instance, \verb!(Int+Char)+Int! is inhabited by \verb!((1,a),3! which corresponds in \verb!(Int, (Char, Int))! to \verb!(1,(a,3))!, and so the two types are equal. Actually, we really mean isomorphic, but from now on equality shall mean isomorphic. This also allows us to define \verb!(x+y+z)! in a natural way.
+
+Once we have these we really should begin thinking of identities. There should be a type \verb!0! such that \verb!0 + x = x! and a type \verb!1! such that $\mathtt{1\cdot x = x}$. Consider that \verb!#(1) = 1! and \verb!#(0) = 0!, they should be types that are only inhabited by one value, and cannot be inhabited by any value at all, respectively. You should think of \verb!1! as the type that represents the empty set - you can't say that two empty sets are different. \verb!0! is commonly known as bottom.
+
+The proof of the identities is quite intuitive - \verb!0 + x! is eiither a \verb!0! or an \verb!x!, but by definition it can't be a \verb!0! so it must be an \verb!x!. $\mathtt{1\cdot x}$ is a pair of a \verb!1! and a \verb!x!, but the first element has only one possibility (ie the empty set), so the only freedom lies in the second blank.
+
+Another identity that follows is $\mathtt{0\cdot x = 0}$ - you can't satisfy the first blank, but you must satisfy both blanks to satisfy the whole type, thus you can't satisfy the whole type. 
+
+\section{Finite types}
+
+Consider the type \verb!1 + 1! which we shall call \verb!2!. It is inhabited by two values, \verb!({}, _)! and \verb!(_,{})!. In other words it is isomorphic to what we normally call the boolean type. In a similar way we can define types \verb!3!, \verb!4!, etc, which are called the finite types because they represent an enumeration of a finite number of choices.
+
+Using this, we can simplify the type \verb!x + x! to be \verb!2x!, because if \verb!t! satisfies \verb!x! we can map \verb!(t, _)! to \verb!("left", t)! and \verb!(_, t)! to \verb!("right", t)!.
+
+The distributive law also holds for types - $\mathtt{a\cdot(x+y) = ax + ay}$
+
+\section{Lists}
+
+How shall we define a lists of things as an ADT? We can do so recursively. A list is either an empty list or a non-empty list; if it is non-empty, it is equal to a pair where the first element is the head of the list and the second element is another list. Hence, if \verb!L[x]! represents a list of \verb!x!s, 
+
+$\mathtt{L[x] = 1 + x\cdot L[x]}$
+
+where a list of \verb!x!s is written as a sum type of either an empty list (\verb!1!) or a pair of an \verb!x! and a \verb!L[x]!. This is a recursively definition because \verb!L[x]! is defined in terms of itself. We can clean it up a bit and "manipulate" this equation algebraicly
+
+\begin{align*}
+L &= 1 + xL \\
+L(1&-x) = 1 \\
+L &= \frac{1}{1-x} \\
+&= 1 + x + x^2 + x^3 + ...
+\end{align*}
+
+which says that a list is either an empty list, or a pair, or a triple, or...
+\end{document}
