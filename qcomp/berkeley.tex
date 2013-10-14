@@ -1,0 +1,285 @@
+\listfiles
+\documentclass{article}
+
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{12pt}
+
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+\newcommand{\q}[1] {|{#1 \rangle}}
+
+
+\title{}
+\date{}
+
+\begin{document}
+\maketitle
+
+
+\section{Double slit experiment}
+
+Simple experiment that ``captures" quantumn weirdness. Set up a source of particles (electrons, photons etc) and a detector screen. Between them, place a blocking material with only two slits.
+
+\begin{itemize}
+\item When slits are observed: two humps
+\item When slits are not observed: interference pattern
+\end{itemize}
+
+Clasically, interference only for waves.
+
+Strange features of the double slit experiment:
+
+\begin{enumerate}
+\item Probabilistic
+\item Observe $\implies$ interfere
+\end{enumerate}
+
+\section{Qubit Model}
+
+In quantumn mechanics, many observables are quantized (forced to have certain discrete values). For example electrons have quantized energy states.
+
+\subsection{Superposition Axiom}
+
+If there exist $k$ classical states
+
+$$
+\q{0}, \q{1} \cdots \q{k-1}
+$$
+
+There there also exists a quantum superposition state
+
+$$
+\alpha_0 \q{0} + \alpha_1 \q{1} \cdots \alpha_{k-1} \q{k-1}
+$$
+
+Where $\alpha_i \in \mathbb{C}, \sum|\alpha_i|^2 = 1$
+
+\subsection{Measurement Axiom}
+
+When measuring in the classical state basis, we observe $j$ with probabiliity $|a_j|^2$ and the new state is $\q{j}$.
+
+\subsection{Qubit}
+
+$$
+E < E_2
+$$
+
+Then it can only occupy two states. We assign ground state $\to \q{0}$, excited state $\to \q{1}$
+
+Then by Schrodinger's equation
+
+$$
+\psi(t) \sim \cos\left(\frac{\Delta E}{\hbar} t\right)
+$$
+
+Use light of frequency $\nu = \frac{\hbar}{\Delta E} \approx 2.5 \times 10^{15} Hz$ for most atoms to manipulate the qubit.
+
+\subsection{Geometrical Interpretation}
+
+The qubit $\gamma = (\alpha_0, \alpha_1 \cdots \alpha_{k-1})$ is a vector in Hilbert space.
+
+\subsection{Arbitrary Basis}
+
+We can define the sign basis
+
+$$
+\q{\pm} = \q{0} \pm \q{1}
+$$
+
+and measurements with respect to it
+
+$$
+Pr[+] = |\< \psi, + \>|^2
+$$
+
+\subsection{Uncertainty}
+
+If
+
+\begin{align}
+\q{\psi} &= \alpha_0 \q{0} + \alpha_1 \q{1} \\
+&= \beta_+ \q{+} + \beta_- \q{-}
+\end{align}
+
+Let
+
+\begin{align}
+S\psi &= |\alpha_0| + |\alpha_1| \\
+\tilde{S}\psi &= |\beta_+| + |\beta_-|
+\end{align}
+
+$S$ mesaures spread in $\q{0}, \q{1}$ basis, $\tilde{S}$ in $\q{\pm}$ basis; for example,
+
+$$
+\begin{array}{ll}
+S \q{0} = 1 & S \q{+} = \sqrt 2 \\
+\tilde{S} \q{0} = \sqrt{2} & \tilde{S} \q{+} = 1
+\end{array}
+$$
+
+We have, for any $\q{\psi}$,
+
+$$
+S\q{\psi}\tilde{S}\q{\psi} \ge \sqrt{2}
+$$
+
+\section{Multiple Qubits}
+
+Consider two qubits. Classical states: $00$, $01$, $10$, $11$ - two bits of information. By the superposition axiom, the quantumn state is
+
+$$
+\q{\psi} = \alpha_{00} \q{00} + \alpha_{01} \q{01} + \alpha_{10} \q{10} + \alpha_{11} \q{11}
+$$
+
+what happens if we measure just one qubit? Then
+
+\begin{align}
+0 \to \alpha_{00} \q{00} + \alpha_{01} \q{01} \\
+1 \to \alpha_{10} \q{10} + \alpha_{11} \q{11}
+\end{align}
+
+where the RHS in unormalized, with probabilities $|\alpha_{00}|^2 + |\alpha_{01}|^2$ and $|\alpha_{10}|^2 + |\alpha_{11}|^2$ respectively.
+
+\subsection{Factorization}
+
+Say there are two qubits with states $\alpha_0 \q{0} + \alpha_1 \q{1}$ and $\beta_0 \q{0} + \beta_1 \q{1}$ respectively. Composite system has state
+
+$$
+(\alpha_0 \q{0} + \alpha_1 \q{1}) \otimes (\beta_0 \q{0} + \beta_1 \q{1}) = \alpha_0 \beta_0 \q{00} + \alpha_0 \beta_1 \q{01} + \alpha_1 \beta_0 \q{10} + \beta_1 \alpha_1 \q{11}
+$$
+
+\subsection{Entanglement}
+
+Can you always factorize? No! Example:
+
+$$
+\q{\Phi^+} = \frac{1}{\sqrt 2} (\q{00} + \q{11})
+$$
+
+Measure first qubit
+
+\begin{align}
+0 \to \q{00} \\
+1 \to \q{11}
+\end{align}
+
+Perfectly correlated; it's as though they flipped a coin to decide result of $0/1$ measurement (bit measurement) when they were together.
+
+\subsection{EPR Paradox}
+
+\begin{align}
+\q{\Phi^+} &= \frac{1}{\sqrt 2} (\q{00} + \q{11}) \\
+&= \frac{1}{\sqrt 2}(\q{++} + \q{--})
+\end{align}
+
+If they flipped a coin for both mit and sign measurement, this violates the uncertainty principle! Eg: measure first qubit in bit basis and second in sign basis. Now we know bit and sign with no uncertainty!
+
+Resolution: They did not flip a coin. As soon as any bit is measured, entanglement is destroyed. There is no FTL travel.
+
+\subsection{Bell's Experiment}
+
+Local Hidden Variable Theory: both paricles carry all the information needed to decide outcome of any measurement.
+
+Imagine Alice and Bob receive random bits $x$ and $y$ and need to try to minimize
+
+$$
+P[xy = a \oplus b]
+$$
+
+Under a LHVT, $ P \le 0.75$; however, with QM, they can get up to 0.85! Here's how...
+
+\subsection{Rotational Invariance}
+
+
+\begin{align}
+\q{\Phi^+} &= \frac{1}{\sqrt 2} (\q{00} + \q{11}) \\
+&= \frac{1}{\sqrt 2} (\q{uu} + \q{u^\perp u^\perp})
+\end{align}
+
+If we measure the qubits in different bases, $P[match] = \cos^2\theta$
+
+\subsection{Bell's choice of angles}
+
+$$
+\begin{array}{cc}
+Alice & Bob \\
+0: 0 & 0: \frac{\pi}{8}\\
+1: \frac{\pi}{4} & 1: -\frac{\pi}{8}
+\end{array}
+$$
+
+Visually,
+
+$$
+-y_1--x_0--y_0--x_1-
+$$
+
+Now when $xy = 0$, $\theta = \frac{\pi}{8}$, $P[correct] = P[match] = \cos^2\frac{\pi}{8}$
+
+When $xy = 1$, $\theta = \frac{3\pi}{8}$, $P[correct] = 1 - P[match] = 1 - \cos^2\frac{3\pi}{8} = \cos^2\frac{\pi}{8}$
+
+QED
+
+\subsection{Certifying Randomness}
+
+Quantumn $\implies$ truly random
+
+$P \approx 0.85 \implies$ quantum
+
+\section{Quantumn Gates}
+
+Qubits evolve through unitary evolution. Angle-preserving, rigid-body.
+
+$$
+U U^\dagger = I
+$$
+
+Linear operator:
+
+$$
+U(\alpha\q{0} + \beta\q{1}) = \alpha U\q{0} + \beta U\q{1}
+$$
+
+\subsection{Single qubit gates}
+
+Bit flip
+Phase flip
+Hadamard
+
+\subsection{No cloning theorem}
+
+No cloning allowed!
+
+\subsection{Two qubit gates}
+
+$4 \times 4$ unitary matrix over $\mathbb{C}^2 \times \mathbb{C}^2 = \mathbb{C}^4$
+
+To descibe two qubit gate, describe its action on $\q{00}, \q{01}$ etc, then use linearity
+
+\subsection{CNOT Gate}
+
+\begin{align}
+a -&- a \\
+b -&- a \oplus b
+\end{align}
+
+$$
+\left(
+\begin{array}{cccc}
+1 & 0\\
+0 & 1 \\
+& & 0 & 1 \\
+& & 1 & 0
+\end{array}
+\right)
+$$
+
+\subsection{Preparing Bell state}
+
+\end{document}
