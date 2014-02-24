@@ -1,0 +1,57 @@
+\documentclass[letterpaper]{article}
+
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+
+\setlength\parindent{0em}
+
+
+\begin{document}
+
+\begin{enumerate}
+\item Determine algebraically whether the function $f(x) = \cfrac{5x - \sqrt[3]{x}}{x^2 - 7}, x \ne \pm\sqrt{7}$ is odd, even or neither.
+
+\item The functions $f$ and $g$ are defined as follows:
+
+\begin{align*}
+f:x &\to \frac{x-3}{x+2}, x \ne -2 \\
+g:x &\to 3x+1, x > -1
+\end{align*}
+
+\begin{enumerate}
+\item Sketch the graph of $f$, clearly indicating the asymptote(s)
+
+\item Evaluate $(f^{-1} \circ g)(2)$
+
+\item Given that $(f \circ h)(x) = \cfrac{e^{2x} + 1}{e^{2x} + 6}$, find the function $h$.
+\end{enumerate}
+
+\item The diagram below illustrates the graph of $y=f(x)$, whose asymptotes are $y=1$ and $x=4$ and $P(0,2)$ is a turning point. The graph cuts the x-axis at $x=2$ and $x=6$.
+
+
+\begin{tikzpicture}
+\begin{axis}[
+	enlargelimits=false,
+	ymin = -3,
+	ymax = 5,
+	xmin = -6,
+	xmax = 12,
+	xtick = {2,4,6},
+	ytick = {1,2},
+	axis x line=center,
+	axis y line=center,
+]
+\addplot [domain=-20:20, y domain=-5:5, samples=201,unbounded coords=jump]{1 + 1.3*e^(-((x-0.1)^2 / 4)) - 4.5/(x-3.8)^2};
+\end{axis}
+\end{tikzpicture}
+
+\begin{enumerate}
+\item Find the equation of the asymptotes and the coordinates of the point corresponding to $P$ on the graph of $y=f(-2x) + 1$
+
+\item State the interval(s) for which the graph of $y=\cfrac{1}{f(x)}$ is strictly increasing.
+\end{enumerate}
+\end{enumerate}
+\end{document}
