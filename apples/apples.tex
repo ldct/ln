@@ -1,0 +1,203 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[margin=0.8in]{geometry}
+
+\title{On Comparing Baskets of Fruits}
+\date{}
+
+\begin{document}
+
+\setlength{\parindent}{0cm}
+
+FC: How are apples and oranges supposed to be compared? Possible answers-
+
+Me: What do you mean how are apples and oranges supposed to be compared?
+
+FC: Well, is an apple worth more than an orange, or an orange more than an apple?
+
+Me: Both cases are mathematically consistent.
+
+FC: That's not very interesting.
+
+Me: Your question only had 3 possible answers...either an apple is worth more than an apple, an apple more than an orange, or both have equal value.
+
+FC: Ok, let's say that an apple is worth more than an orange. Then is an apple still worth more than two oranges? Isn't that a meaningful follow-up question to ask?
+
+Me: You chanegd your universe of discourse! First you only considered comparing elements of the set $\{apple, orange\}$, but now you're considering at least the universe $\{apple, orange, 2\ oranges\}$
+
+FC: So we have to fix the universe of discourse?
+
+Me: Yeap. Then a ranking can be a rule that, for every two elements $x$ and $y$ of the universe, says either $x > y$, $y < x$.
+
+FC: So we have a totally ordered set.
+
+Me: What's that?
+
+FC: Well, they have to obey rules like if $x < y$ and $y < z$ then $x < z$.
+
+Me: Sounds reasonable. So what's our universe of discourse?
+
+FC: How about the universe of all lists of oranges and apples, up to order?
+
+Me: So...baskets of apples and oranges?
+
+FC: Yeah!
+
+Me: For example, the basket $(3\ apples, 2\ oranges)$ is in our set.
+
+FC: Let's call that $(3, 2)$. Then our universe is all the pairs $(a, o)$ for $a$ and $o$ integers. Now we need a rule to compare any two elements of the set.
+
+Me: I think there's a natural way to do so. The basket $(a_1, o_1)$ is smaller than the basket $(a_2, o_2)$ if $a_1 < a_2$, greater if $a_1 > a_2$, and equal if $a_1 = a_2$.
+
+FC: That's a very apple-centric view of the world. For instance, $(5,5) > (4,9006)$ even though the second basket has over 9000 more oranges than the first.
+
+Me: There's an analogous orange-centric ranking system, of course.
+
+FC: I find both of them unpleasantly asymmetric. I prefer a system where we add the number of apples and oranges and then compare that.
+
+Me: So $(a_1, o_1) > (a_2, o_2)$ if and only if $a_1 + o_1 > a_2 + o_2$.
+
+FC: Yeap.
+
+Me: So we have three different ranking systems, where two of them are basically equivalent, and the third-
+
+FC: No, they're all the same.
+
+Me: What do you mean?
+
+FC: Well, I was wondering what ``basically equivalent'' meant, and I realized that thy're all isomorphic.
+
+Me: Isomorphic?
+
+FC: Here - draws on whiteboard
+
+\begin{align*}
+Rule\ 1&: \parbox[c]{0.1\textwidth}{\centering (1,1) \\ (1,2) \\ \ldots} < \parbox[c]{0.1\textwidth}{\centering (2,1) \\ (2,2) \\ \ldots} < \parbox[c]{0.1\textwidth}{\centering (3,1) \\ (3,2) \\ \ldots} < \ldots \\ \\
+Rule\ 2&: \parbox[c]{0.1\textwidth}{\centering (1,1) \\ (2,1) \\ \ldots} < \parbox[c]{0.1\textwidth}{\centering (1,2) \\ (2,2) \\ \ldots} < \parbox[c]{0.1\textwidth}{\centering (1,3) \\ (2,3) \\ \ldots} < \ldots \\ \\
+Rule\ 3&: \parbox[c]{0.1\textwidth}{\centering (1,1)} < \parbox[c]{0.1\textwidth}{\centering (1,2) \\ (2,1)} < \parbox[c]{0.1\textwidth}{\centering (1,3) \\ (2,2) \\ \ldots} < \ldots \\
+\end{align*}
+
+Me: Oh, the $<$ signs are in the same place. Is that what isomorphic means?
+
+FC: To be precise, the elements of rule 1 can each be relabelled with an element of rule 2 such that comparing them under rule 1 is like comparing their labels under rule 2.
+
+Me: Interesting definition.
+
+FC: Say, how come you don't know the definition of isomorphic? You're writing this, so you know everything I know. Is this your attempt to cast philosophical doubt about what it really means to know something?
+
+Me: No. Don't put words into my mouth!
+
+P: Actually, he's putting words into your mouth.
+
+FC: Prof! Don't you have a class today?
+
+P: I'm not real, remember?
+
+FC: Oh dear.
+
+P: Well, we need to focus. You have found 3 basket-ranking systems that turn out to be isomorphic. Are there any systems not isomorphic to them?
+
+Me: Hmm. No idea.
+
+FC: Me neither.
+
+P: Well, let's try a change of perspective. Instead of comparing baskets, why not compare the natural numbers?
+
+\begin{align*}
+0 < 1 < 2 < 3 < \ldots
+\end{align*}
+
+FC: That's isomorphic to what we already have.
+
+P: Try addin just a single non-natural number.
+
+Me: -1? But $-1 < 0 < 1 < \ldots$ is still isomorphic to what we already have...
+
+FC: I get it! We can define an element $\infty$ which is greater than any other number, with the resulting system
+
+\begin{align*}
+0 < 1 < 2 < 3 < \ldots \raisebox{-0.375em}{\scalebox{3}{$<$}} \infty
+\end{align*}
+
+Me: But is it isomorphic?
+
+FC: Well, $\infty$ has the special property that it there is nothing greater than it, but the $0 < 1 < \ldots$ system doesn't have anything with this property.
+
+Me: Sounds about right.
+
+P: Good, so you have two systems
+
+\begin{align*}
+\omega&: 0 < 1 < 2 < 3 < \ldots \\
+\omega+1&: 0 < 1 < 2 < 3 < \ldots \raisebox{-0.375em}{\scalebox{3}{$<$}} \infty
+\end{align*}
+
+Me: What's $\omega$?
+
+P: Just a name.
+
+FC: What about
+
+\begin{align*}
+0 < 1 < \ldots \raisebox{-0.375em}{\scalebox{3}{$<$}} \infty < \infty'
+\end{align*}
+
+Me: That seems distinct as well.
+
+FC: We can generalize this to a whole series of non-isomorphic rankings, one for every natural number $n$:
+
+\begin{align*}
+\omega&: 0 < 1 < 2 < 3 < \ldots \\
+\omega+1&: 0 < 1 < 2 < 3 < \ldots \raisebox{-0.375em}{\scalebox{3}{$<$}} \infty \\
+\vdots \\
+\omega+n&: 0 < 1 < 3 < 3 < \ldots \raisebox{-0.375em}{\scalebox{3}{$<$}} \infty < \infty' < \infty'' < \ldots < \infty^{(n)}
+\end{align*}
+
+P: Or even
+
+\begin{align*}
+2\omega: 0 < 1 < \ldots < \infty < \infty' < \ldots
+\end{align*}
+
+Me: Ok, seriously, what's with the $\omega$s?
+
+P: Well, think of adding two rankings as declaring all elements in the right ranking to be greater than elements in the left ranking. Since
+
+\begin{align*}
+\infty < \infty' < \infty'' < \ldots
+\end{align*}
+
+is isomorphic to $\omega$, $2\omega: 0 < 1 < \ldots < \infty < \infty' < \ldots$ is $\omega + \omega$, or $2\omega$.
+
+FC: Hey, that provides a way apples and oranges under $2\omega$. My universe of discourse are all baskets of single species of fruits - baskets of oranges or baskets or apples. My rule is that baskets of oranges are greater than baskets of apples, and for two baskets of the same fruits, compare the number of fruits.
+
+\begin{align*}
+1 apple < 2 apple < \ldots < 1 orange < 2 orange < \ldots
+\end{align*}
+
+Me: Yeah! If we add in pears, we have
+
+\begin{align*}
+3\omega: 1 apple < 2 apples < \ldots < 1 orange < 2 oranges < \ldots < 1 pear < 2 pears
+\end{align*}
+
+Me: With an infinite-
+
+FC: Countable
+
+Me: -countable number of fruits, we get
+
+\begin{align*}
+1 apple < \ldots < fruit \#2 < fruit \#3
+\end{align*}
+
+P: Actually, you don't need a countable number of fruits. Just apples and oranges are enough, if you compare baskets of them lexicographically.
+
+FC: Lexicographically? Like how words are sorted in a dictionary?
+
+P: Yes. The rule is to first compare the number of apples; the basket with the greater number of apples is ranked higher. If the baskets have the same number of apples, then use the number of oranges to rank.
+
+Me: Cool!
+\end{document}
