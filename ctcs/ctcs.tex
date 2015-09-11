@@ -1,0 +1,90 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\DeclareMathOperator{\Hom}{Hom}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{1em}
+
+
+\title{CTCS}
+\date{}
+
+
+\begin{document}
+\maketitle
+
+
+\section*{Sets}
+
+\subsection*{1}
+
+Let $h: W \rightarrow S$ be a function. Define a function $\Hom(h, T): \Hom(S, T) \to \Hom(W, T)$ by $\Hom(h, T)(g) = g \circ h$. Show that if $T$ has at least 2 elements, then $h$ is surjective iif $\Hom(h, T)$ is injective.
+
+$\implies$: Let $h$ be surjective. We wish to show that $\Hom(h, T)$ is injective. Suppose $\Hom(h, T)(f) = \Hom(h, T)(g)$. Then
+
+\begin{align}
+\Hom(h, T)(f) &= \Hom(h, T)(g) \\
+f \circ h &= g \circ h
+\end{align}
+
+Let $y \in S$ be arbitrary. Since $h$ is onto $S$, there exists $x$ such that $y = h(x)$. Then
+
+\begin{align}
+f(h(x)) &= g(h(x)) \\
+f(y) &= g(y)
+\end{align}
+
+Since $y$ was arbitrary, $f = g$. Hence $\Hom(h, T)$ is injective.
+
+$\impliedby$: Let $h$ be not surjective. We wish to show that $\Hom(h, T)$ is not injective. Since $h$ is not surjective there exists $y \in S$ such that $y \ne h(x)$ for all $x$. Let $f$ and $g$ be functions both from XXX that agree on all values in their domain except that $f(y) \ne g(y)$. Note that they are different functions. However $\Hom(h, T)(f) = \Hom(h, T)(g)$ because $g \circ h = f \circ h$. Hence $\Hom(h, T)$ is not injective.
+
+\subsection*{2a}
+
+Show that the mapping that takes a pair $(f: X \to S, g: X \to T)$ of functions to the function $<f, g>: X \to S \times T$ defined by $<f, g>(x) = <f(x), g(x)>$ is a bijection from $\Hom(X, S) \times \Hom(X, T)$ to $\Hom(X, S \times T)$.
+
+Surjective: we show that the range of the mapping is equal to the codomain, $\Hom(X, S \times T)$. Let $h \in \Hom(X, S \times T)$ be given. Then $h: X \to S \times T$. We construct $f$ and $g$ as follows. Let $x$ be arbitrary. Then $h(x) \in S \times T$, so $h(x) = (a, b)$. Then let $f(x) = a, g(x) = b$.
+
+Injective: Suppose $<f, g> = <h, j>$. Then for all $x$ we have
+
+\begin{align*}
+<f, g>(x) &= <h, j>(x) \\
+(f(x), g(x)) &= (h(x), j(x)) \\
+f(x) &= h(x) \\
+g(x) &= j(x)
+\end{align*}
+
+Since this is true of all $x$ we have $f = h, g = j$
+
+\subsection*{2b}
+
+If you set $X = S \times T$ in (a) what does $id_{S \times T}$ correspond to under the bijection?
+
+\subsection*{3a}
+
+Let $S$ and $T$ be disjoint sets. Let $V$ be a set. Let $\phi: \Hom(S, V) \times \Hom(T, V) \to \Hom(S \cup T, V)$ be the mapping that takes a pair $(f: S \to V, g: T \to V)$ to the function $<f|g>: S \cup T \to V$ defined by $<f|g>(x) = f(x) if x \in S, g(x) if x \in T$. Show that $\phi$ is a bijection.
+
+\subsection*{3b}
+
+If you set $V = S \cup T$ in (a), what is $\phi(id_{S \cup T})$?
+
+\subsection*{4a}
+
+If $P(C)$ denotes the powerset of all subsets of $C$, then $Rel(A, B) = P(A \times b)$ denotes the set of relations from $A$ to $B$. Let $\phi: Rel(A, B) \to \Hom(A, P(B))$ be defined by $\phi(\alpha)(a) = \{b \in B | (a, b) \in \alpha \}$. Show that $\phi$ is a bijection.
+
+\subsection*{4b}
+
+Let $A = B$. What corresponds to $\Delta_A$ under this bijection?
+
+\subsection*{4c}
+
+If we let $A = P(B)$ then $\phi^{-1}: \Hom(P(B), P(B)) \to Rel(P(B), B)$. What is $\phi^{-1}(id_{P(B)})$?
+
+\end{document}
