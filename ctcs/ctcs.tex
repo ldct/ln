@@ -7,6 +7,8 @@
 
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 \DeclareMathOperator{\Hom}{Hom}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
 
 \usepackage[a4paper,margin=1in]{geometry}
 
@@ -48,14 +50,14 @@ $\impliedby$: Let $h$ be not surjective. We wish to show that $\Hom(h, T)$ is no
 
 \subsection*{2a}
 
-Show that the mapping that takes a pair $(f: X \to S, g: X \to T)$ of functions to the function $<f, g>: X \to S \times T$ defined by $<f, g>(x) = <f(x), g(x)>$ is a bijection from $\Hom(X, S) \times \Hom(X, T)$ to $\Hom(X, S \times T)$.
+Show that the mapping that takes a pair $(f: X \to S, g: X \to T)$ of functions to the function $\<f, g\>: X \to S \times T$ defined by $\<f, g\>(x) = \<f(x), g(x)\>$ is a bijection from $\Hom(X, S) \times \Hom(X, T)$ to $\Hom(X, S \times T)$.
 
 Surjective: we show that the range of the mapping is equal to the codomain, $\Hom(X, S \times T)$. Let $h \in \Hom(X, S \times T)$ be given. Then $h: X \to S \times T$. We construct $f$ and $g$ as follows. Let $x$ be arbitrary. Then $h(x) \in S \times T$, so $h(x) = (a, b)$. Then let $f(x) = a, g(x) = b$.
 
-Injective: Suppose $<f, g> = <h, j>$. Then for all $x$ we have
+Injective: Suppose $\<f, g\> = \<h, j\>$. Then for all $x$ we have
 
 \begin{align*}
-<f, g>(x) &= <h, j>(x) \\
+\<f, g\>(x) &= \<h, j\>(x) \\
 (f(x), g(x)) &= (h(x), j(x)) \\
 f(x) &= h(x) \\
 g(x) &= j(x)
@@ -67,24 +69,97 @@ Since this is true of all $x$ we have $f = h, g = j$
 
 If you set $X = S \times T$ in (a) what does $id_{S \times T}$ correspond to under the bijection?
 
+Let $id_{S \times T} = \<f, g\>$. Then
+
+\begin{align*}
+id_{S \times T}(s, t) &= (s, t) \\
+\<f, g\>(s, t) &= (f(s), g(t)) \\
+f(s) &= s \\
+g(t) &= t
+\end{align*}
+
+It corresponds to $(id_S, id_T)$
+
 \subsection*{3a}
 
-Let $S$ and $T$ be disjoint sets. Let $V$ be a set. Let $\phi: \Hom(S, V) \times \Hom(T, V) \to \Hom(S \cup T, V)$ be the mapping that takes a pair $(f: S \to V, g: T \to V)$ to the function $<f|g>: S \cup T \to V$ defined by $<f|g>(x) = f(x) if x \in S, g(x) if x \in T$. Show that $\phi$ is a bijection.
+Let $S$ and $T$ be disjoint sets. Let $V$ be a set. Let $\phi: \Hom(S, V) \times \Hom(T, V) \to \Hom(S \cup T, V)$ be the mapping that takes a pair $(f: S \to V, g: T \to V)$ to the function $\<f|g\>: S \cup T \to V$ defined by $\<f|g\>(x) = f(x)$ if $x \in S, g(x)$ if $x \in T$. Show that $\phi$ is a bijection.
+
+Surjective: Let $S, T$ be disjoint sets. Let $h \in \Hom(S \cup T, V)$ be given. Then $h: S \cup T \to V$. Construct $f: S \to V, g: T \to V$ as follow: for each $s \in S$ let $f(s) = h(s)$, and for each $v \in V$ let $g(v) = h(v)$. Then $\<f|g\> = h$.
+
+Injective: Suppose $\<f|g\> = \<h|j\>$. For all $s \in S$ we have
+
+\begin{align*}
+\<f|g\>(s) &= \<h|j\>(s) \\
+f(s) &= h(s)
+\end{align*}
+
+Hence $f = h$. Similarly, $g = j$.
 
 \subsection*{3b}
 
-If you set $V = S \cup T$ in (a), what is $\phi(id_{S \cup T})$?
+If you set $V = S \cup T$ in (a), what is $\phi^{-1}(id_{S \cup T})$?
+
+Let $s \in S, t \in T$. Then $\<id_S | id_T\>(s) = s, \<id_S | id_T\>(t) = t$. Hence $\<id_S | id_T\> = id_{S \cup T}$.
 
 \subsection*{4a}
 
-If $P(C)$ denotes the powerset of all subsets of $C$, then $Rel(A, B) = P(A \times b)$ denotes the set of relations from $A$ to $B$. Let $\phi: Rel(A, B) \to \Hom(A, P(B))$ be defined by $\phi(\alpha)(a) = \{b \in B | (a, b) \in \alpha \}$. Show that $\phi$ is a bijection.
+If $P(C)$ denotes the powerset of $C$ (all subsets of $C$), then $Rel(A, B) = P(A \times B)$ denotes the set of relations from $A$ to $B$. Let $\phi: Rel(A, B) \to \Hom(A, P(B))$ be defined by $\phi(\alpha)(a) = \{b \in B | (a, b) \in \alpha \}$. Show that $\phi$ is a bijection.
+
+Surjective: Let $h \in \Hom(A, P(B))$ be given. Then $h: A \to P(B)$ and for all $a \in A$ we have $h(a) \subseteq B$. Construct $\alpha$ as follow: $\alpha = \{(a, b) | a \in A, b \in h(a) \}$. Then
+
+\begin{align*}
+\phi(\alpha)(a) &= \{b \in B | (a, b) \in \alpha \} \\
+&= \{b \in B | (a, b) \in \{(a, b) | a \in A, b \in h(a) \} \} \\
+&= \{b \in B | b \in h(a) \} \\
+&= h(a)
+\end{align*}
+
+as required.
+
+Injective: suppose $\phi(X) = \phi(Y)$. Then for all $a \in A$,
+
+\begin{align*}
+\phi(X) &= \phi(Y) \\
+\phi(X)(a) &= \phi(Y)(a) \\
+\{b \in B | (a, b) \in X\} &= \{b \in B | (a, b) \in Y\}
+\end{align*}
+
+so for all $a \in A$, for all $b \in B$,
+
+\begin{align*}
+b \in \{b \in B | (a, b) \in X\} &\iff b \in \{b \in B | (a, b) \in Y\} \\
+(a, b) \in X &\iff (a, b) \in Y
+\end{align*}
+
+Hence $X = Y$.
+
 
 \subsection*{4b}
 
 Let $A = B$. What corresponds to $\Delta_A$ under this bijection?
 
+\begin{align*}
+\phi(\Delta_A)(a) &= \{b | (a, b) \in \Delta_A \} \\
+&= \{ b | a = b \} \\
+&= \{a\}
+\end{align*}
+
+It corresponds to the singleton function $f(a) = \{a\}$
+
 \subsection*{4c}
 
 If we let $A = P(B)$ then $\phi^{-1}: \Hom(P(B), P(B)) \to Rel(P(B), B)$. What is $\phi^{-1}(id_{P(B)})$?
+
+Let $\phi^{-1}(id_{P(B)}) = \alpha$. Let $s \subseteq B$. Then
+
+\begin{align*}
+\phi(\alpha)(s) &= \{b \in B | (s, b) \in \alpha \} \\
+&= id_{P(B)}(s) \\
+&= s \\
+&= \{b \in B | b \in s \} \\
+&= \{b \in B | (s, b) \in \{(s, b) | b \in s \} \}
+\end{align*}
+
+Hence $\alpha$ is the subset relation.
 
 \end{document}
