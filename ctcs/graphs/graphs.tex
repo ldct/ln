@@ -1,0 +1,58 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{tikz-cd}
+
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\DeclareMathOperator{\Hom}{Hom}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{1em}
+
+
+\title{CTCS - graphs}
+\date{}
+
+
+\begin{document}
+\maketitle
+
+
+\section*{Sets}
+
+
+\subsection*{1}
+
+Produce a graph that expresses the concept of graph with nodes labeled from a set $L$.
+
+\begin{tikzcd}
+A \arrow[r, shift left, "s"]
+  \arrow[r, shift right, "t"]
+& N \arrow[r] & L
+\end{tikzcd}
+
+\subsection*{2}
+
+Let $G$ be a graph with a set of nodes $N$ and a set of arrows $A$. Show that $G$ is simple iif the function $\<source, target\>: A \to N \times N$ is injective.
+
+$\implies$: We are given that $G$ is simple.
+
+\begin{align*}
+\<s, t\>(a_1) &= \<s, t\>(a_2) \\
+\<s_1, t_1\> &= \<s_2, t_2\> \\
+s_1 &= s_2 \\
+t_1 &= t_2
+\end{align*}
+
+Since $a_1$ and $a_2$ have the same source and target, they are the same arrow. Hence $a_1 = a_2$.
+
+$\impliedby$: We are given that $\<source, target\>: A \to N \times N$ is injective. Suppose $a_1$ and $a_2$ have the same source and target. Then $\<s, t\>(a_1) = \<s, t\>(a_2)$. Since $\<s, t\>$ is injective, $a_1 = a_2$. Hence $G$ is simple.
+
+\end{document}
