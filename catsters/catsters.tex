@@ -1,0 +1,107 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\title{Catsters}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Terminal and Initial objects}
+
+Let $C$ be a category. A terminal object in $C$ is an object $T \in Obj(C)$ such that $\forall X \in Obj(C) \exists ! $ morphism $X \to T$.
+
+Example: one-element sets are terminal in Set.
+
+Example: the trivial group is terminal in Grp.
+
+Example: any one-point space is terminal in Top.
+
+It is pointless to think about ``how many trivial groups there are" since they are all isomorphic (as groups), and the isomorphism is canonical.
+
+Lemma: terminal objects are unique up to unique isomorphism.
+
+Non-examples:
+
+\begin{tikzcd}
+\cdot \arrow[r, shift left] \arrow[r, shift right] & \cdot
+\end{tikzcd}
+
+\begin{tikzcd}
+\cdot \arrow[r] & \cdot & \cdot \arrow[r] & \cdot
+\end{tikzcd}
+
+\begin{tikzcd}
+\cdot \arrow[r] & \cdot \arrow[r] & \cdot \arrow[r] & \cdot \arrow[r] & \ldots
+\end{tikzcd}
+
+Fields (assuming $0 \ne 1$ in a field)
+
+\subsection{Initial 1}
+
+Let $C$ be a category. An initial object in $C$ is an object $I \in Obj(C)$ such that $\forall X \in Obj(C) \exists ! $ morphism $I \to X$.
+
+An initial object in $C$ is a terminal object in $C^{op}$.
+
+Example: the empty set is initial in Set.
+
+Example: the one-point space is initial in Top.
+
+Example: the trivial group is initial in Grp.
+
+The trivial group is initial and terminal in Grp. We call such things null objects. Other examples of categories with null objects: pointed sets, based spaces.
+
+In Cat, the empty category is initial and a category with one object and one morphism is terminal.
+
+In Field, there is no initial object.
+
+\section{Products and Coproducts}
+
+The cartesian product of $\{1, 2\}$ and $\{3, 4\}$ is any four element set, but the set must come with projection maps to $\{1, 2\}$ and $\{3, 4\}$.
+
+Examples: Product topology, group product, sum of vector spaces, product of categories, maximums in a poset.
+
+Coproduct in group: you can try taking the disjoint union, but this is not a group. Hence you generate something freely. Free group. (similar intuition for vector space).
+
+Example: coproduct in based topologies is disjoint union, but where the base points are identified.
+
+Notations: $(f, g)$ vs $f \times g$:
+
+\begin{tikzcd}
+ & V \arrow[ldd, "f"', bend right] \arrow[rdd, "g", bend left] \arrow[d, "{(f, g)}", dotted] &  \\
+ & A \times B \arrow[ld] \arrow[rd] &  \\
+A &  & B
+\end{tikzcd}
+
+\begin{tikzcd}
+ & X \times Y \arrow[ld] \arrow[rd] \arrow[dd, "f \times g", dotted] &  \\
+X \arrow[dd, "f"'] &  & Y \arrow[dd, "g"] \\
+ & A \times B \arrow[ld] \arrow[rd] &  \\
+A &  & B
+\end{tikzcd}
+
+\begin{tikzcd}
+ & A \arrow[ldd, bend right] \arrow[rdd, bend left] \arrow[d, "\Delta", dotted] &  \\
+ & A \times A \arrow[ld] \arrow[rd] &  \\
+A &  & A
+\end{tikzcd}
+
+\begin{tikzcd}
+V \arrow[d, "\Delta"] \arrow[dd, "{(f, g)}"', bend right=49] \\
+V \times V \arrow[d, "f \times g"] \\
+A \times B
+\end{tikzcd}
+
+Let $1$ be a terminal object. Then $X \times 1 = X$.
+
+\section{Pullbacks and Pushouts}
+
+TBD
+
+\end{document}
