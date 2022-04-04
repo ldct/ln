@@ -1,0 +1,91 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{listings}
+
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\E}{E}
+\def\Z{\mathbb{Z}}
+\def\N{\mathbb{N}}
+\def\R{\mathbb{R}}
+\def\Q{\mathbb{Q}}
+\def\K{\mathbb{K}}
+\def\T{\mathbb{T}}
+\def\B{\mathcal{B}}
+\def\XX{\mathfrak{X}}
+\def\YY{\mathfrak{Y}}
+\def\AA{\mathfrak{A}}
+\def\ZZ{\mathfrak{Z}}
+\def\BB{\mathcal{B}}
+\def\UU{\mathcal{U}}
+\def\MM{\mathcal{M}}
+\def\M{\mathfrak{M}}
+\def\l{\lambda}
+\def\L{\Lambda}
+\def\<{\langle}
+\def\>{\rangle}
+\def\f12{\frac{1}{2}}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{1em}
+
+\title{Manfrino, Ortega, Delgato Inequalities A Mathematical Olympiad Approach}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{1.25 (Difference of AM and GM)}
+
+Let $p = \sqrt{a}, q = \sqrt{b}$. We have
+
+\begin{align*}
+p \le \f12(p+q) \le q \\
+\f12 \frac{p+q}{p} \le 1 \le \f12 \frac{p+q}{q} \\
+\f12 \frac{p^2 - q^2}{p} \le p-q \le \f12 \frac{p^2 - q^2}{q} \\
+\frac{1}{4} \frac{p^2 - q^2}{p^2} \le (p-q)^2 \le \frac{1}{4} \frac{p^2 - q^2}{q^2}
+\end{align*}
+
+(Can also be proven by direct computation)
+
+Lesson: AM-GM can be factorized
+
+\section*{1.33 $x^4 + y^4 + 8 \ge 8xy$}
+
+Looks like a special case of 4-term AMGM, $x^4 + y^4 + p^4 + q^4 \ge 4xypq$. Comparing coefficients, we have $p^4 + q^4 = 8, pq = 2$, hence $p = q = \sqrt 2$
+
+\section*{1.38 $a > 1 \implies a^n-1 > n (a^{\frac{n+1}{2}} - a^{\frac{n-1}{2}})$}
+
+\begin{align*}
+a^n - 1 &= (a-1) (1 + a + a^2 + \ldots a^{n-1}) \\
+&\ge (a-1) (a ^ {1 + 2 + \ldots n-1})^{1/n} \cdot n \\
+&= n (a-1) a^\frac{n-1}{2} \\
+&= RHS
+\end{align*}
+
+\section*{1.39 $(1+a)(1+b)(1+c) \implies 8 \implies abc \le 1$}
+
+$ 1 = \frac{1+a}{2} \frac{1+b}{2} \frac{1+c}{2} \ge \sqrt{abc}$. Now square.
+
+\section*{1.40 $\frac{a^3}{b} + \frac{b^3}{c} + \frac{c^3}{a} \ge ab + bc + ca$}
+
+By muirhead, since $(3, -1, 0) > (1, 1, 0)$. Can also expand to get rid of the -1.
+
+\section*{1.41 $a^2b^2 + b^2c^2 + c^2a^2 \ge abc(a+b+c)$}
+
+By muirhead, since $(2, 2, 0) > (2, 1, 1)$.
+
+\section*{1.58 $x^4 + y^4 + z^2 \ge \sqrt{8} xyz$}
+
+LHS = $x^4 + y^4 + \frac{z^2}{2} + \frac{z^2}{2}$. Now apply 4-term AMGM.
+
+Good example of weighted AMGM
+
+\end{document}
