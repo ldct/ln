@@ -76,16 +76,56 @@ $ 1 = \frac{1+a}{2} \frac{1+b}{2} \frac{1+c}{2} \ge \sqrt{abc}$. Now square.
 
 \section*{1.40 $\frac{a^3}{b} + \frac{b^3}{c} + \frac{c^3}{a} \ge ab + bc + ca$}
 
-By muirhead, since $(3, -1, 0) > (1, 1, 0)$. Can also expand to get rid of the -1.
+By cyclic (see section), since $(3, -1, 0) > (1, 1, 0)$. Can also expand to get rid of the -1.
 
 \section*{1.41 $a^2b^2 + b^2c^2 + c^2a^2 \ge abc(a+b+c)$}
 
 By muirhead, since $(2, 2, 0) > (2, 1, 1)$.
 
+\section*{1.51 $a + b + c = 1 \implies \left(\frac{1}{a}+1\right) \left(\frac{1}{b}+1\right) \left(\frac{1}{c}+1\right) \ge 64$}
+
+This is equivalent to $(1+a)(1+b)(1+c) \ge 64abc$. Using $1 = a+b+c$, $(2a + b + c)(a + 2b + c)(a + b + 2c) \ge 64abc$. Apply 4-term AMGM, e.g. the first factor is $\ge (a^2bc)^\frac{1}{4}$.
+
+Note the starting inequality is sharp when $a=b=c$. 3-term doesn't work since it is not sharp in that case.
+
+\section*{1.52 $a + b + c = 1 \implies \left(\frac{1}{a}-1\right) \left(\frac{1}{b}-1\right) \left(\frac{1}{c}-1\right) \ge 8$}
+
+Equivalent to $(b+c)(a+c)(a+b) \ge 8abc$ which holds by AMGM on each factor.
+
+\section*{1.53}
+
+Unsolved...
+
+\section*{1.54}
+
+Let $p = \frac{1}{1+a}$. Then the inequality is equivalent to 1.52.
+
+\section*{1.55}
+
+Equivalent to $HM(a, b) + HM(b, c) + HM(a, c) \le 3*AM(a, b, c)$. Rewrite the RHS as $AM(a, b) + AM(b, c) + AM(a, c)$.
+
+Same strategy used to show that $3*AM(x, y, z) \ge GM(x, y) + GM(y, z) + GM(x, z)$.
+
+\section*{1.56}
+
+\section*{1.57}
+
 \section*{1.58 $x^4 + y^4 + z^2 \ge \sqrt{8} xyz$}
 
 LHS = $x^4 + y^4 + \frac{z^2}{2} + \frac{z^2}{2}$. Now apply 4-term AMGM.
 
+\section*{1.59}
+
+Using the substitution $x = 1+p$ we have $(1+p)^2p + (1+q)^2q \ge 8pq$. We have $(1 + p)^2 \ge 4p$ by AMGM. Then $4(p^2 + q^2) \ge 8pq$ which holds by AMGM.
+
+We know we first have to apply AMGM to the $1+p$ term by dimensional analysis.
+
 Good example of weighted AMGM
+
+\section*{Cyclic $(1, 0, 0) > (p, q, 0)$}
+
+Let $a, b, c > 0, p+q=1$. Define $(r, s, t) = \sum_{cyc} a^r b^s c^t$. Then $(1, 0, 0) > (p, q, 0)$.
+
+Proof: we have $pa + qb \ge a^p b^q, pb + qc \ge b^p + c^q, pc + qa \ge c^p a^q$ by weighted AMGM. Summing them gives $(p+q)(a + b + c) \ge (p, q, 0)$.
 
 \end{document}
