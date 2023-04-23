@@ -1,0 +1,61 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{listings}
+
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\E}{E}
+\def\Z{\mathbb{Z}}
+\def\N{\mathbb{N}}
+\def\R{\mathbb{R}}
+\def\Q{\mathbb{Q}}
+\def\K{\mathbb{K}}
+\def\T{\mathbb{T}}
+\def\B{\mathcal{B}}
+\def\XX{\mathfrak{X}}
+\def\YY{\mathfrak{Y}}
+\def\AA{\mathfrak{A}}
+\def\ZZ{\mathfrak{Z}}
+\def\BB{\mathcal{B}}
+\def\UU{\mathcal{U}}
+\def\MM{\mathcal{M}}
+\def\M{\mathfrak{M}}
+\def\l{\lambda}
+\def\L{\Lambda}
+\def\<{\langle}
+\def\>{\rangle}
+\def\f12{\frac{1}{2}}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{1em}
+
+\title{Intro to Topological Manifolds}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Intro to Topological Manifolds}
+
+\section*{2-3}
+
+$T_1$: Yes. $0$ and $X$ are in $T_1$. When intersecting sets, their complement is unioned, so an intersection of two sets (both with finite complement) has finite complement. When taking union, their complement is intersected, and an intersection of sets each of which is finite, is finite.
+
+$T_2$: No. Take $X = \Z, U_1$ be the odd numbers, $U_2$ be the even numbers except for $42$. Then $U_1 \cup U_2$ is not open.
+
+$T_3$: Yes, similar argument to $T_1$, since the union of two sets (each of which is countable) is countable, and the intersection of sets (each of which is countable) is countable.
+
+\section*{2-5}
+
+$X \to \R^2$: an open set in $\R^2$ is a union of disks, each disk is open in $X$. Proof: let $B(a, b, c) = \{ (c, y) : a < y < b \}$, let $D$ be a disk, $C = \{ x : (x, y) \in D\}$, then the collection $\{B(f(c), g(c), c) : c \in C\}$ covers $D$, where $f(c)$ is the sup of $\{y : (c, y) \in D\}$ and $g(c)$ the inf.
+
+
+
+\end{document}
