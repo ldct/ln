@@ -52,7 +52,7 @@ Suppose otherwise. Let $e = [1]$; then $e$ is the identity element because for a
 
 Let $\sim$ be a equivalence relation on real numbers: for real numbers $a, b$ let $a \sim b$ if $b - a$ is an integer. This is reflexive as $0$ is an integer, and transitive as the sum of two integers is an integer.
 
-Let $f(l)$ be the fractional part of $l$. We have $f(l) = l - [l] \ge 0$ because $[l] \le l$ by definition. We have $f(l) = l - [l] < 1$ because otherwise, $[l]+1$ would be an integer less than $l$. Hence $x * y \in G$.
+Let $f(l)$ be the fractional part of $l$. We have $f(l) = l - [l] \ge 0$ because $[l] \le l$ by definition. We have $f(l) = l - [l] < 1$ because otherwise, $[l]+1$ would be an integer less than $l$. Hence $x * y \in R$.
 
 Lemma 1: for a positive real number $a$ we have $[a]+1 = [a+1]$. Proof: $[a]+1 \le a+1$ by adding 1 to both sides of the inequality $[a] \le a$. Suppose there is an integer $t > [a]+1$ which satisfies $t \le a+1$; then because the difference of two distinct integers is at least 1, $[a]+2 \le t \le a+1$ which means $[a] + 1 \le a$, contradicting the definition of $[a]$.
 
@@ -62,13 +62,13 @@ Lemma 3: for two positive reals $a, b$ we have $a \sim b \implies f(a) = f(b)$. 
 
 Lemma 4: for a positive real $a, f(a) \sim a$. Proof: their difference is an integer by the defition of $f$.
 
-Identity: $0$ is the identity since for all $x \in R, 0*x = f(x+0) = f(x) = x$.
+Identity: $0$ is the identity since for all $x \in G, 0*x = f(x+0) = f(x) = x$.
 
-Inverse: let $x \in R$; then $1-x \in R$ and their group product is $f(1-x+x) = f(1) = 0$.
+Inverse: let $x \in G$; then $1-x \in G$ and their group product is $f(1-x+x) = f(1) = 0$.
 
-Commutativity: for $x, y \in R$ we have $x+y = y+x$ hence $f(x+y) = f(y+x)$.
+Commutativity: for $x, y \in G$ we have $x+y = y+x$ hence $f(x+y) = f(y+x)$.
 
-Associativity: for $x, y, z \in R$ we have $x*(y*z) \sim x*(y+z) \sim x+(y+z) = (x+y)+z \sim (x*y)+z \sim (x*y)*z$.
+Associativity: for $x, y, z \in G$ we have $x*(y*z) \sim x*(y+z) \sim x+(y+z) = (x+y)+z \sim (x*y)+z \sim (x*y)*z$.
 
 \section*{14.}
 
@@ -88,11 +88,15 @@ $17, 1; o(17) = 1$
 
 \section*{22.}
 
-For all positive integers $k$ we have $(g^{-1}xg)^k = g^{-1}xg g^{-1}xg \ldots g^{-1}xg = g^{-1}x^kg$. In particular for $k=n$ we have $(g^{-1}xg)^k = g^{-1}x^kg = g^{-1}g = 1$, hence $o(g^{-1}xg) \le 1$. Suppose $o(g^{-1}xg) = k$ with $k < n$; then we have $g^{-1}x^kg = 1 \implies x^k g = g \implies x^k = g g^{-1} = 1$, contradicting that $n$ is the least positive integer such that $x^n = 1$.
+For all positive integers $k$ we have $(g^{-1}xg)^k = g^{-1}x^kg$ by induction on $k$, with inductive step $(g^{-1}xg)^{k+1} = (g^{-1}xg)^k (g^{-1}xg) = g^{-1}x^kg g^{-1}xg = g^{-1}x^kxg = g^{-1}x^{k+1}g$ and base case $k=1$.
+
+In particular for $k=n$ we have $(g^{-1}xg)^n = g^{-1}x^ng = g^{-1}g = 1$, hence $o(g^{-1}xg) \le 1$. Suppose $o(g^{-1}xg) = k$ with $k < n$; then we have $g^{-1}x^kg = 1 \implies x^k g = g \implies x^k = g g^{-1} = 1$, contradicting that $n$ is the least positive integer such that $x^n = 1$.
+
+We have $o(ab) = o(a^{-1}aba) = o(ba)$.
 
 \section*{31.}
 
-For every $g \in t(G)$ create an edge from $g$ to $g^{-1}$; since $G$ does not contain elements which are their own inverses, each edge points to a different element. Since we have $(g^{-1})^{-1} = g$ this forms a set of bidirectional edges, meaning that $|t(G)|$ is even. Hence $|G - t(G)|$ is even, and since $e \not\in t(G)$ it has at least two elements. Let $x$ be such an element with $x \ne e$. We have $x = x^{-1} \implies x^2 = 1$. Since $x \ne e, o(x) = 2$.
+For every $g \in t(G)$ create an edge from $g$ to $g^{-1}$; since $t(G)$ does not contain elements which are their own inverses, each edge points to a different element. Since we have $(g^{-1})^{-1} = g$ this forms a set of bidirectional edges, meaning that $|t(G)|$ is even. Hence $|G - t(G)|$ is even, and since $e \not\in t(G)$ it has at least two elements. Let $x$ be such an element with $x \ne e$. We have $x = x^{-1} \implies x^2 = 1$. Since $x \ne e, o(x) = 2$.
 
 \section*{32.}
 
@@ -102,6 +106,6 @@ Suppose $t = |x| > |G|$; then $x^0, x^1, \ldots x^{t-1}$ are all distinct elemen
 
 \section*{35.}
 
-Let $x^k$ be such an integer power, and let $k = qn + r$ where $0 \le r < n$. We have $x^k = x^{qn+r} = (x^n)^q + x^r = 1^q x^r = x^r$ as required.
+Let $x^k$ be such an integer power, and let $k = qn + r$ where $0 \le r < n$. We have $x^k = x^{qn+r} = (x^n)^q x^r = 1^q x^r = x^r$ as required.
 
 \end{document}
