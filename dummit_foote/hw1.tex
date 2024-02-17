@@ -50,15 +50,25 @@ Suppose otherwise. Let $e = [1]$; then $e$ is the identity element because for a
 
 \section*{7.}
 
+Let $\sim$ be a equivalence relation on real numbers: for real numbers $a, b$ let $a \sim b$ if $b - a$ is an integer. This is reflexive as $0$ is an integer, and transitive as the sum of two integers is an integer.
+
 Let $f(l)$ be the fractional part of $l$. We have $f(l) = l - [l] \ge 0$ because $[l] \le l$ by definition. We have $f(l) = l - [l] < 1$ because otherwise, $[l]+1$ would be an integer less than $l$. Hence $x * y \in G$.
- 
-Commutativity: for all $x, y \in G$ we have $x*y = x + y - [x+y] = y+x - [y+x] = y*x$. 
 
-Lemma: $f(l) = r \iff r \in R$ and there exists an integer $t$ such that $r + t = l$. $\implies$ follows because we can take $t = [l]$. $\impliedby$ follows because $f(l) = l-t = r$ where the first equality holds because $t$ cannot be increased (since we have $l - (t+1) = r-1 < 0$).
+Lemma 1: for a positive real number $a$ we have $[a]+1 = [a+1]$. Proof: $[a]+1 \le a+1$ by adding 1 to both sides of the inequality $[a] \le a$. Suppose there is an integer $t > [a]+1$ which satisfies $t \le a+1$; then because the difference of two distinct integers is at least 1, $[a]+2 \le t \le a+1$ which means $[a] + 1 \le a$, contradicting the definition of $[a]$.
 
-For associativity we will show that for $a, b, c \in G$ we have $a*(b*c) = f(a + b + c)$; the proof that $(a*b)*c = a + b + c - [a+b+c]$ is similar, and then we have $a*(b*c) = (a*b)*c$.
+Lemma 2: for a positive real number $a$ and a positive integer $k$ we have $[a]+k = [a+k]$ by induction on $k$.
 
-By our lemma, $a*(b*c) = f(a + b + c) \iff$ there exists an integer $t$ such that $a + b + c = t + a*(b*c)$.
+Lemma 3: for two positive reals $a, b$ we have $a \sim b \implies f(a) = f(b)$. Proof: WLOG $b = a+k$ for a positive integer $k$, then $f(b) = f(a+k) = a+k - [a+k] = a+k - ([a] + k) = a - [a] = f(a)$.
+
+Lemma 4: for a positive real $a, f(a) \sim a$. Proof: their difference is an integer by the defition of $f$.
+
+Identity: $0$ is the identity since for all $x \in R, 0*x = f(x+0) = f(x) = x$.
+
+Inverse: let $x \in R$; then $1-x \in R$ and their group product is $f(1-x+x) = f(1) = 0$.
+
+Commutativity: for $x, y \in R$ we have $x+y = y+x$ hence $f(x+y) = f(y+x)$.
+
+Associativity: for $x, y, z \in R$ we have $x*(y*z) \sim x*(y+z) \sim x+(y+z) = (x+y)+z \sim (x*y)+z \sim (x*y)*z$.
 
 \section*{14.}
 
