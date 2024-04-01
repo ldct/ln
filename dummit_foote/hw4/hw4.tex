@@ -58,11 +58,11 @@ Transitive: let $a, b, c \in A$ such that $a \sim b, b \sim c$. This means $a = 
 
 Let $\phi$ be the map.
 
-Injective: suppose $\phi(h_1) = \phi_(h_2)$, that is $h_1 x = h_2 x$. By multiplying by $x^\inv$ on the right, we have $h_1 = h_2$.
+Injective: suppose $\phi(h_1) = \phi(h_2)$, that is $h_1 x = h_2 x$. By multiplying by $x^\inv$ on the right, we have $h_1 = h_2$.
 
 Surjective: let $y \in O$ be some element in the codomain of $\phi$. This means $x \sim y$, that is there exists some $h$ with $x = hy$. Then $\phi(h^\inv) = h h^\inv y = y$. Here $\phi(h^\inv)$ is well-defined because $h^\inv \in H$.
 
-Let $O_x$ be the orbit of $x$. For all $x, y \in G$ we have $|O_x| = |H| = |O_y|$. Since the orbits partition $G$ we can write $G = H_{i_1} \sqcup H_{i_2} \ldots \sqcup H_{i_k}$ which means $|G| = k |H|$.
+Let $O_g$ be the orbit of $g$. The bijection given by $\phi$ tells us that $|O_g| = |H|$. Since the orbits partition $G$ we can write $G = O_{g_1} \sqcup O_{g_2} \ldots \sqcup O_{g_k}$ for some subset $\{g_1, g_2 \ldots g_k\} \subseteq G$ which means $|G| = \sum_k |O_{g_k}| = k |H|$.
 
 \section*{2}
 
