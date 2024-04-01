@@ -1,0 +1,100 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{hyperref}
+
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\E}{E}
+\def\Z{\mathbb{Z}}
+\def\N{\mathbb{N}}
+\def\R{\mathbb{R}}
+\def\Q{\mathbb{Q}}
+\def\K{\mathbb{K}}
+\def\T{\mathbb{T}}
+\def\B{\mathcal{B}}
+\def\XX{\mathfrak{X}}
+\def\YY{\mathfrak{Y}}
+\def\AA{\mathfrak{A}}
+\def\ZZ{\mathfrak{Z}}
+\def\BB{\mathcal{B}}
+\def\UU{\mathcal{U}}
+\def\MM{\mathcal{M}}
+\def\M{\mathfrak{M}}
+\def\l{\lambda}
+\def\L{\Lambda}
+\def\<{\langle}
+\def\>{\rangle}
+\def\f12{\frac{1}{2}}
+\def\inv{{-1}}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{1em}
+
+\title{HW 4}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{1}
+
+\subsection*{1.7.18}
+
+Reflexive: for all $a \in A$ we have $a \sim a$ since $a = e a$.
+
+Symmetric: let $a, b \in A$ such that $a \sim b$, that is, $a = h b$. Then $b = h^\inv a$. Since $h^\inv \in H$ this means $b \sim a$.
+
+Transitive: let $a, b, c \in A$ such that $a \sim b, b \sim c$. This means $a = h_1 b, b = h_2 c$ for some $h_1, h_2 \in H$. Then $a = h_1 \cdot (h_2 \cdot c) = (h_1 h_2) \cdot c$ hence $a \sim c$ because $h_1 h_2 \in H$.
+
+\subsection*{1.7.19}
+
+Let $\phi$ be the map.
+
+Injective: suppose $\phi(h_1) = \phi_(h_2)$, that is $h_1 x = h_2 x$. By multiplying by $x^\inv$ on the right, we have $h_1 = h_2$.
+
+Surjective: let $y \in O$ be some element in the codomain of $\phi$. This means $x \sim y$, that is there exists some $h$ with $x = hy$. Then $\phi(h^\inv) = h h^\inv y = y$. Here $\phi(h^\inv)$ is well-defined because $h^\inv \in H$.
+
+Let $O_x$ be the orbit of $x$. For all $x, y \in G$ we have $|O_x| = |H| = |O_y|$. Since the orbits partition $G$ we can write $G = H_{i_1} \sqcup H_{i_2} \ldots \sqcup H_{i_k}$ which means $|G| = k |H|$.
+
+\section*{2}
+
+\subsection*{a}
+
+Let $D_{14}$ act faithfully on $A$ where $n = |A| < 7$. The group action is equivalent to a group homomorphism $D_{14} \to S_A$. Since the action is faithful, this is an injective homomorphism (since distinct elements of $D_{14}$ are mapped to distinct permutations). By Cayley's theorem we have $S_A$ is a subgroup of $S_6$; hence there is an injective homomorphism $D_{14} \to S_6$; the range of this homomorphism is a subgroup of $S_6$ isomorphic to $D_{14}$. By Lagrange's theorem the order of this subgroup divides $|S_6| = 6!$, that is $14 | 6!$, a contradiction.
+
+\subsection*{b}
+
+We wish to construct an isomorphic copy of $D_{12}$ in $S_5$, say with generating permutations $r, s$ satisfying the usual relations. We have $ord(r) = 6$ hence $r$ must decompose into a 3-cycle multiplied by a 2-cycle; WLOG $r = (1,2,3)(4, 5)$. If we take $s = (4, 5)$ we have $rsrs = (1,2,3)(4, 5)(4, 5)(1,2,3)(4, 5)(4, 5) = e$ and $s^2 = e$.
+
+Concretely, the action can be defined as follows: $r^i s^j \cdot x = (1, 2, 3)^i(4, 5)^{i+j}x$ for $i \in [0, 6), j \in [0, 1)$.
+
+\subsection*{c}
+
+By the argument above, if $D_{2n}$ acts faithfully on a set with $k$ elements then there is an injective homomorphism $D_{2n} \to S_k$, in particular $n | k!$. For $(n, k) = (7, 7)$ this is a contradiction; the smallest factorial which is a multiple of $2 \cdot 7$ is $7!$. In general for $(n, k) = (p, p)$ for $p$ prime this leads to a contradiction. However for $(n, k) = (6, 5)$ this is fine, since $6 | 5!$.
+
+% ~~
+
+% 3. We say that an action of a group g on a set A is transitive if, for any elements a,b\in A, there is some g\in G such that g.a=b. (In other words, using the language from the first problem, an action is transitive if there is only one orbit.)
+
+% (a) Prove that, if G acts transitively on A, then all of the stabilizers are isomorphic to each other.
+
+% (b) Provide a counterexample to demonstrate that the transitivity hypothesis was necessary.
+
+% ~~
+
+% 4.
+% (a) Let G be a finite group acting on a set S, and take some s\in S. If \mathcal{O} is the orbit of some element s\in S, prove that |\mathcal{O}|=|G|/|G_s|, where G_s denotes the stabilizer. (This is called the orbit-stabilizer theorem.)
+
+% (b) Given a finite group G and an element a\in G, the conjugacy class of a is the set of all elements of G which are conjugate to a. Prove that the size of a conjugacy class always divides the size of the group.
+
+% (c) Deduce from this that, if |G| is a prime power, then the center Z(G) is nontrivial. [This result appears later in Dummitt and Foote, but try to prove it yourself without looking ahead! Ask me if you need a hint.]
+
+\end{document}
