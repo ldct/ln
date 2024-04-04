@@ -101,7 +101,9 @@ Hence $G_a$ and $G_b$ are isomorphic as long as $a$ and $b$ are in the same orbi
 
 \subsection*{b}
 
-The coin example in Maclauley's notes; $\Stab(0,0,0,0) = D_8$ but $r \not\in \Stab(0,1,1,0)$.
+We can use $D_8$ acting on the seven binary squares (slide 5 of \url{https://www.math.clemson.edu/~macaule/classes/s24_math4120/slides/math4120_slides_chapter05_h.pdf})
+
+$\Stab(0,0,0,0) = D_8$ but $r \not\in \Stab(0,1,1,0)$.
 
 \section*{4}
 
@@ -114,6 +116,14 @@ Fix $s$ and consider the set-function $\phi : G \to O$ defined by $\phi(g) = g \
 The set $g_{o \to s} \phi^\inv(o) = \{g_{o \to s} x | x \in \phi^\inv(o)\}$ has the same cardinality as $\phi^\inv(o)$ (since left-multiplication in $G$ is invertible) and each element satisfies $g_{o \to s}x \cdot s = g_{o \to s} \cdot o = s$, hence $g_{o \to s}\phi^\inv(o) \subseteq G_s$. Also every $g \in G_s$ can be written as $g_{o \to s} g_{s \to o} g$ where $g_{s \to o}g \in \phi^\inv(o)$.
 
 Hence $g_{o \to s}\phi^\inv(o) = G_s$ and $\phi$ is a surjection onto $O$ where every preimage has size $G_s$, hence $|G| = |G_s| |O|$.
+
+\subsection*{b}
+
+Let $\phi: G \times G \to G$ be an action of $G$ on itself by conjugation, that is $g \cdot a = gag^\inv$. This is a group action because for $h, g, a \in G$ we have $h \cdot (g \cdot a) = h \cdot g a g^\inv = hg ag^\inv h^\inv = hg \cdot a$. A conjugacy class in an orbit under this action, hence by (a) it divides $|G|$.
+
+\subsection*{c}
+
+Suppose $|G| = p^n$ for some prime $p$ and $Z(G) = \{e\}$. For all $g \in G$ let $[g]$ be the set of conjugates of $g$. We have $g \in Z(G) \iff \forall a \in G, a g a^\inv = g \iff [g] = \{g\}$; hence $|[g]| = 1 \iff g = e$. By 4b, $|[g]|$ divides $p^n$. Hence we can write $G$ as a disjoint union of its conjugates $G = [e] \sqcup [g_1] \sqcup [g_2] \ldots [g_k]$ where for each $i, |g_i|$ divides $p^n$ but is not equal to one, hence it is a multiple of $p$. Hence consider the equation $|G| = |[e]| + |[g_1]| + \ldots$ modulo $p$; this becomes $0 = 1 + 0 + 0 + \ldots$, a contradiction.
 
 % 4.
 % (a) Let G be a finite group acting on a set S, and take some s\in S. If \mathcal{O} is the orbit of some element s\in S, prove that |\mathcal{O}|=|G|/|G_s|, where G_s denotes the stabilizer. (This is called the orbit-stabilizer theorem.)
