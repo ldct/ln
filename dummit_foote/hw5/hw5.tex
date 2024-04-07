@@ -1,0 +1,111 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{hyperref}
+
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\E}{E}
+\def\Z{\mathbb{Z}}
+\def\N{\mathbb{N}}
+\def\R{\mathbb{R}}
+\def\Q{\mathbb{Q}}
+\def\K{\mathbb{K}}
+\def\T{\mathbb{T}}
+\def\B{\mathcal{B}}
+\def\XX{\mathfrak{X}}
+\def\YY{\mathfrak{Y}}
+\def\AA{\mathfrak{A}}
+\def\ZZ{\mathfrak{Z}}
+\def\BB{\mathcal{B}}
+\def\UU{\mathcal{U}}
+\def\MM{\mathcal{M}}
+\def\M{\mathfrak{M}}
+\def\l{\lambda}
+\def\L{\Lambda}
+\def\<{\langle}
+\def\>{\rangle}
+\def\f12{\frac{1}{2}}
+\def\inv{{-1}}
+\def\im{\textrm{im}}
+\def\Stab{\textrm{Stab}}
+\def\Dic{\textrm{Dic}}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{1em}
+
+\title{HW 5}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{1}
+
+% 1. If G is a group and H is a subgroup, the index of H in G is the number of left cosets of H in G. It's usually written |G:H|, and we'll discuss it more in the next section of the book.
+
+% (a) Prove that |G:H| is also the number of right cosets of H in G.
+
+% (b) Prove that any subgroup of index 2 is normal. (Notice that the definition of index does not require G to be finite!)
+
+% (c) For every natural number n, find an index-2 (and therefore normal) subgroup of S_n.
+
+% (d) Find a normal subgroup of S_4 that isn't the one you described in part (b). What is the quotient? [We will eventually show that S_4 is actually the only finite symmetric group for which such a subgroup exists!]
+
+\subsection*{a}
+
+Let $\phi$ be a map between the left cosets and the right cosets of $N$ as follows: given a left coset $gN$, the map is conjugation by $g^\inv$.
+
+To show that $\phi$ is well-defind, suppose $gN = hN$; this means $g^\inv h \in N$. Under conjugation by $g^\inv$, they are mapped to $Ng$ and $g^\inv h Ng$ respectively, and it is required to show that $Ng = g^\inv h Ng$, which follows because $g^\inv h N = N$.
+
+\subsection*{b}
+
+Let $N \le G$ be such a subgroup of index 2; by theorem 6, it suffices to show that $gN = Ng$ for all $g \in G$, and for this it suffices to show that the bijection $\phi$ defined in 1a is an identity. We have $\phi(N) = eNe = N$. Hence $\phi$ maps the remaining coset $N^C$ (the complement of $N$ in $G$) to itself.
+
+\subsection*{c}
+
+Among $S_n$ the even permutations are closed under composition. Furthermore, an even permutation can be written as $g = t_1 t_2 \ldots t_{2n}$ where each $t_i$ is a transposition; hence $g^\inv = t_{2n}^\inv \ldots t_1^\inv$ is even as well. Hence the even permutations form a subgroup. 
+
+Let $A_n \le S_n$ be the subgroup of even permutations. Choose a transposition $t$; then every element of $tA_n$ is odd. Furthermore, every odd permutation $g$ can be written as $g = t (t g) \in tA_n$, hence $S_n = A_n \sqcup tA_n$ and $A_n$ has index 2.
+
+\subsection*{d}
+
+Consider the set $N = \{e, (1, 2)(3, 4), (1, 3)(2, 4) (1, 4)(2, 3)\}$ consisting of all the permutations of cycle structure $2+2$ together with the identity. By brute force computation, this is a subgroup since
+
+\begin{align*}
+(1, 2)(3, 4)(1, 3)(2, 4) &= (1,4)(2,3) \\
+(1, 2)(3, 4)(1, 4)(2, 3) &= (1,3)(2,4) \\
+(1, 3)(2, 4)(1, 4)(2, 3) &= (1,2)(3,4)
+\end{align*}
+
+Since the conjugate $pnp^\inv$ is $n$ with relabelled elements, it has the same cycle structure as $n$; hence conjugation by $g \in S_n$ fixes $N$. (To be more rigorous, it suffices to verify this for all 6 transpositions in $S_n$ since conjugation by $p$ can be written as a sequence of conjugations by transpositions).
+
+\section*{2}
+
+% 2. For even n, define the dicyclic group of order 2n as the group \mathrm{Dic}_n=\langle r,s | r^n=1,r^{n/2}=s^2,rsr=s\rangle. (See slide 64 of Macauley's notes: https://www.math.clemson.edu/~macaule/classes/s24_math4120/slides/math4120_slides_chapter02_h.pdf.) Show that \mathrm{Dic}_n has a quotient which is isomorphic to \mathbb{Z}/2 and a quotient which is isomorphic to D_n.
+
+
+$C_2$ as quotient: let $N = \<r\> = e, r^1, r^2 \ldots r^n$. Since $|G:N|=2, N$ is normal and the quotient $Dic_n / N$ has order 2; hence it must be isomorphic to $C_2$.
+
+$D_n$ as quotient: consider the subgroup $E = \{1, s^2\}$ (this is a subgroup since $s^4 = 1$). To show that $E$ is normal, it suffices to show that $s^2$ commutes with every element of $D_n$, and it suffices to show that it commutes with every generator. $s^2$ commutes with $s$ is trivial, and $s^2 = r^\frac{n}{2}$ hence it commutes with $r$ as well.
+
+In terms of the matrix representation, this is $E = \{I, -I\}$, and this commutes with everything in the group since it consists of diagonal matrices.
+
+Hence $\Dic_n / E$ is a quotient group with the same order as $D_n$; it remains to find an isomorphic copy of $D_n$ in it; in fact $R = rE$ and $S = sE$ satisfies the correct relations. $\<R\> = \{ R^1, R^2 \ldots R^\frac{n}{2} = E\}$ where the inner equality holds because $r^\frac{n}{2} \{e, r^\frac{n}{2}\} = \{r^\frac{n}{2}, e\}$ and the list has no duplicates since $r^a E = r^b E \iff \{r^a, r^{a + \frac{n}{2}}\} = \{r^b, r^{b + \frac{n}{2}}\} \iff \{[a], [a+\frac{n}{2}]\} = \{[b], [b+\frac{n}{2}]\}$ where $[\cdot]$ denotes congruence classes modulo $n$. Hence $r^a E = r^b E \iff$ either $a = b \pmod N$ or $a = b + \frac{n}{2} \pmod n$; in either case, $a = b \pmod{\frac{n}{2}}$. Similarly, $\<S\> = \{e, s^2 E\}$. Lastly, $RSRS = rsrs E = s^2E = E$.
+
+% ~~
+
+% 3. Do Exercise 36 on p. 89.
+
+% 4. Do Exercise 41 on p. 89. [For the angle-bracket notation used to define N here, see Section 2.4; this isn't a group presentation.]
+
+% 5. Do Exercise 43 on p. 89.
+
+\end{document}
