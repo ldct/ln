@@ -100,11 +100,47 @@ In terms of the matrix representation, this is $E = \{I, -I\}$, and this commute
 
 Hence $\Dic_n / E$ is a quotient group with the same order as $D_n$; it remains to find an isomorphic copy of $D_n$ in it; in fact $R = rE$ and $S = sE$ satisfies the correct relations. $\<R\> = \{ R^1, R^2 \ldots R^\frac{n}{2} = E\}$ where the inner equality holds because $r^\frac{n}{2} \{e, r^\frac{n}{2}\} = \{r^\frac{n}{2}, e\}$ and the list has no duplicates since $r^a E = r^b E \iff \{r^a, r^{a + \frac{n}{2}}\} = \{r^b, r^{b + \frac{n}{2}}\} \iff \{[a], [a+\frac{n}{2}]\} = \{[b], [b+\frac{n}{2}]\}$ where $[\cdot]$ denotes congruence classes modulo $n$. Hence $r^a E = r^b E \iff$ either $a = b \pmod N$ or $a = b + \frac{n}{2} \pmod n$; in either case, $a = b \pmod{\frac{n}{2}}$. Similarly, $\<S\> = \{e, s^2 E\}$. Lastly, $RSRS = rsrs E = s^2E = E$.
 
-% ~~
+\section*{3.1.36}
 
-% 3. Do Exercise 36 on p. 89.
+Suppose $G / Z(G)$ is cyclic with generator $xZ(G)$. This means that any coset can be written as $(xZ(G))^a = x^a Z(G)$ for some $a \in \Z$. Since the cosets partition $G$, every element of $G$ is of the form $x^a z$ for some $a \in \Z, z \in Z(G)$. 
 
-% 4. Do Exercise 41 on p. 89. [For the angle-bracket notation used to define N here, see Section 2.4; this isn't a group presentation.]
+Let $g_1, g_2 \in G$; we can write $g_1 = x^a z_1, g_2 = x^b z_2$ for some $a, b \in \Z, z_1, z_2 \in Z(G)$. Then $g_1 g_2 = x^a z_1 x^b z_2 = x^a x^b z_1 z_2 = x^{a+b} z_1 z_2 = x^b x^a z_2 z_1 = x^b z_2 x^a z_1 = g_2 g_1$. 
+
+\section*{3.1.41}
+
+Let $M = \{x^\inv y^\inv x y | x, y \in G\}$, and $N = \bar{M}$.
+
+Notation: let $[a, b] = a^\inv b^\inv ab$ be the comutator of $a$ and $b$. We have $[b^\inv, a^\inv]ab = bab^\inv a^\inv ab = ba$. 
+
+For $n \in N, g \in G$ we show that $gng^\inv \in N$. 
+
+By the definition of $N$, we can write $n = c_1 c_2 \ldots c_k$ where each $c_i = [x_i, y_i]$.
+
+\begin{align*}
+gn &= g c_1 c_2 \ldots c_k \\
+&= [g^\inv ,c_1^\inv]c_1 g c_2 \ldots c_k \\
+&= [g^\inv, c_1^\inv]c_1[g^\inv, c_2^\inv]c_2 g \ldots c_k \\
+&\ldots \\
+&= [g^\inv, c_1^\inv]c_1[g^\inv, c_2^\inv]c_2 \ldots [g^\inv, c_k^\inv]g
+\end{align*}
+
+Hence $gng^\inv = [g^\inv, c_1^\inv]c_1[g^\inv, c_2^\inv]c_2 \ldots [g^\inv, c_k^\inv]$. This belongs to $N$ since every factor is a comutator.
+
+\section*{3.1.43}
+
+For each $g \in G$ let $P(g)$ be the partition containing $g$. Let $N = P(e)$ where $e$ is the identity in $G$.
+
+Notation: let $Q$ be a part. $Q^\inv$ is the unique part satisfying $Q^\inv Q = N$ where the operation is quotient multiplication (this exists and is unique because the partition is a group under quotient multiplication).
+
+Claim: $N$ is closed under the group operation. Suppose $a, b \in N$. By the well-definedness of the quotient operation, $P(ab) = P(ee) = N$. Hence $ab \in N$.
+
+Claim: $N$ is closed under inverse. For $a \in N$ we have $P(a^\inv)$ must be an identity element under quotient multiplication; since identities are unique in groups, $P(a^\inv) = N$ hence $a^\inv \in N$.
+
+By the above two claims, $N$ is a subgroup of $G$. We will prove that every part is a left coset of $N$, and every left coset is a part. This suffices to prove that $N$ is normal by proposition 5 (page 81).
+
+Claim: $P(g) = P(g') \iff g^\inv g' \in N$. Proof: $\implies$: suppose $P(g) = P(g')$. Consider the equation $P(g)^\inv P(g') = N$, which is true because $P(g)^\inv = P(g')^\inv$. By the well-definedness of quotient multiplication the LHS is $P(g^\inv g')$ hence $P(g^\inv g') \in N$ hence $g^\inv g' = N$. $\impliedby:$ suppose $g^\inv g' \in N$, then $N = P(g^\inv g') = P(g)^\inv P(g')$. By multiplying the outer equation on the left with $P(g)$, we have $P(g) = P(g')$.
+
+Now $g' \in P(g) \iff P(g') = P(g)  \iff g^\inv g' \in N \iff g' \in gN$ where the first biimplication holds because the $P$'s form a partition. This shows that $P(g) = gN$, hence each part is a left coset. The fact that every left coset is a part follows because the parts partition (i.e. cover) $G$.
 
 % 5. Do Exercise 43 on p. 89.
 
