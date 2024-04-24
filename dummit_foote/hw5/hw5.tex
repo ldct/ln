@@ -61,9 +61,11 @@
 
 \subsection*{a}
 
-Let $\phi$ be a map between the left cosets and the right cosets of $N$ as follows: given a left coset $gN$, the map is conjugation by $g^\inv$.
+Let $\phi(g) = g^\inv$. We will show that $\phi$ maps left cosets to right cosets.
 
-To show that $\phi$ is well-defind, suppose $gN = hN$; this means $g^\inv h \in N$. Under conjugation by $g^\inv$, they are mapped to $Ng$ and $g^\inv h Ng$ respectively, and it is required to show that $Ng = g^\inv h Ng$, which follows because $g^\inv h N = N$.
+$a, b$ are in the same left coset $\iff aH = bH \iff b^\inv a H = H \iff b^\inv a \in H \iff Ha^\inv = Hb^\inv \iff \phi(a), \phi(b)$ are in the same right coset.
+
+Hence consider $\phi_1$ as a map from left cosets to right cosets, defined by $\phi_1(T) = \{ \phi(t) | t \in T\}$, and $\phi_2$ a map from right cosets to left cosets defined by $\phi_2(T) = \{ \phi(t) | t \in T\}$ (these have the stated domains and codomains by the fact that $\phi$ maps left cosets to right cosets). It is easy to check that $\phi_1$ and $\phi_2$ are inverses of each other (since $\phi$ is self-inverse). Hence $\phi$ is a bijection between left and right cosets.
 
 \subsection*{b}
 
