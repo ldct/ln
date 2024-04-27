@@ -1,0 +1,107 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{hyperref}
+
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\E}{E}
+\def\Z{\mathbb{Z}}
+\def\N{\mathbb{N}}
+\def\R{\mathbb{R}}
+\def\Q{\mathbb{Q}}
+\def\K{\mathbb{K}}
+\def\T{\mathbb{T}}
+\def\B{\mathcal{B}}
+\def\XX{\mathfrak{X}}
+\def\YY{\mathfrak{Y}}
+\def\AA{\mathfrak{A}}
+\def\ZZ{\mathfrak{Z}}
+\def\BB{\mathcal{B}}
+\def\UU{\mathcal{U}}
+\def\MM{\mathcal{M}}
+\def\M{\mathfrak{M}}
+\def\l{\lambda}
+\def\L{\Lambda}
+\def\<{\langle}
+\def\>{\rangle}
+\def\f12{\frac{1}{2}}
+\def\inv{{-1}}
+\def\im{\textrm{im}}
+\def\Stab{\textrm{Stab}}
+\def\Dic{\textrm{Dic}}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{1em}
+
+\title{HW 6}
+\date{}
+
+\begin{document}
+\maketitle
+
+% Reading
+
+% Read Section 3.2 (pp. 89-95).
+
+% ~~~
+
+% Problems
+
+
+
+\section*{3.2.9}
+
+\subsection*{a}
+
+We can rewrite $S$ as $S = \{(x_1, \ldots x_{p-1}, (x_1 \ldots x_{p-1})^\inv) | x_i \in G\}$. Since there are no restrictions on the $x_i$ and there are $p-1$ choices of the $x_i$, the size of this set is $|G|^{p-1}$.
+
+\subsection*{b}
+
+We prove this for the cyclic permutation $x_k \ldots x_{k-1}, k \in [1, p)$ by induction on $k$, where the base case $k=1$ holds by definition of $S$. For the inductive step, we are given $x_k \ldots x_{k-1} = 1$. Multiplying by $x_k^\inv$ on the left, we have $x_{k+1} \ldots x_{k-1} = x_k^\inv$. Multiplying by $x_k$ on the right, we have $x_{k+1} \ldots x_{k} = 1$.
+
+\subsection*{c}
+
+Notation: let $S_p$ (the symmetric group on $[1, p]$) act on $S$ by permuting the indices, that is for $\tau \in S_p$ we have $\tau \cdot (x_1, \ldots x_p) = (x_{\tau(1)}, \ldots x_{\tau(p)})$.
+
+I will assume that a cyclic permutation of $(x_1, \ldots x_p)$ is $\sigma^j \cdot (x_1, \ldots x_p) = (x_{\sigma^j(1)}, \ldots x_{\sigma^j(p)})$ where $\sigma^j \in S_p$ is some power of the $p$-cycle $\sigma = (1, \ldots p)$.
+
+
+Reflexive: this holds because $\sigma^0$ is the identity.
+
+Symmetric: this holds because $\sigma^\inv = \sigma^{p-1}$.
+
+Transitive: this holds because $\sigma^a \sigma^b = \sigma^{a+b}$.
+
+\subsection*{d}
+
+$\impliedby$: clearly $(x, \ldots x) \in S$. Every cyclic permutation is also of the form $(x, \ldots x)$. Hence the equivalence class has exactly 1 element.
+
+$\implies$: let $E = \{(x_1, \ldots x_k)\}$ be the equivalence class. For any $k \in [1, p)$ we have $(x_1, \ldots x_k) = (x_k, \ldots x_{k-1})$ since both the LHS and RHS belong to $E$, hence $x_1 = x_k$. Hence $x_1 = x_2 \ldots = x_p$. 
+
+\subsection*{e}
+
+Let $E$ be the equivalence class, and fix some $X = (x_1, \ldots x_p) \in E$. Let $j$ be the smallest positive integer such that $\sigma^j \cdot X = X$. We have $j \le p$ since $\sigma^j = e$. If $j = p$ then all $p$ cyclic permutations are distinct and $|E| = p$. Otherwise, $j$ and $p$ are coprime so the sequnce $\sigma, \sigma^j, \sigma^{2j} \ldots$ contains every power of $\sigma$. Every cyclic permutation of $X$ is $\sigma^k \cdot X$, and there exists $t$ such that $\sigma^k = \sigma^{jt}$, and $\sigma^k \cdot X = \sigma^{jt} \cdot X = \sigma^j \cdot \sigma^j \ldots \cdot X = X$.
+
+Since $S$ is a disjoint union of its equivalence classes, we have $|S| = |G|^{p-1} = \sum_E |E| = \sum_{E, |E| = 1} |E| + \sum_{E, |E| = p} |E| = k + pd$ where the summation is over equivalence classes. 
+
+\subsection*{f}
+
+Consider the equation $|G|^{p-1} = k + pd$ modulo $p$. The LHS is $0$ since $p$ divides $|G|$ and the RHS is $k$. Hence $p | k$. Since $p \ge 2$ and $k \ge 1$ (since we have at least one equivalence class of size 1) we have $k > 1$, hence there are at least two equivalence classes of size 1, hence at least one of the form $\{x, \ldots x\}$ where $x \ne 1$. By the definition of $G$, $x$ satisfies $x^p = 1$.
+
+
+% 2. Do Exercise 11 on p. 96.
+
+% 3. Do Exercise 16 on p. 96.
+
+% 4. Do Exercise 18 on p. 96.
+
+
+\end{document}
