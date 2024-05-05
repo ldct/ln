@@ -71,7 +71,7 @@ We prove this for the cyclic permutation $x_k \ldots x_{k-1}, k \in [1, p)$ by i
 
 Notation: let $S_p$ (the symmetric group on $[1, p]$) act on $S$ by permuting the indices, that is for $\tau \in S_p$ we have $\tau \cdot (x_1, \ldots x_p) = (x_{\tau(1)}, \ldots x_{\tau(p)})$.
 
-I will assume that a cyclic permutation of $(x_1, \ldots x_p)$ is $\sigma^j \cdot (x_1, \ldots x_p) = (x_{\sigma^j(1)}, \ldots x_{\sigma^j(p)})$ where $\sigma^j \in S_p$ is some power of the $p$-cycle $\sigma = (1, \ldots p)$.
+I will assume that a cyclic permutation of $(x_1, \ldots x_p)$ is $\sigma^j \cdot (x_1, \ldots x_p) = (x_{\sigma^j(1)}, \ldots x_{\sigma^j(p)})$ where $\sigma^j$ is some power of the $p$-cycle $\sigma = (1, \ldots p)$.
 
 
 Reflexive: this holds because $\sigma^0$ is the identity.
@@ -96,10 +96,24 @@ Since $S$ is a disjoint union of its equivalence classes, we have $|S| = |G|^{p-
 
 Consider the equation $|G|^{p-1} = k + pd$ modulo $p$. The LHS is $0$ since $p$ divides $|G|$ and the RHS is $k$. Hence $p | k$. Since $p \ge 2$ and $k \ge 1$ (since we have at least one equivalence class of size 1) we have $k > 1$, hence there are at least two equivalence classes of size 1, hence at least one of the form $\{x, \ldots x\}$ where $x \ne 1$. By the definition of $G$, $x$ satisfies $x^p = 1$.
 
+\section*{3.2.11}
 
-% 2. Do Exercise 11 on p. 96.
+We know that the left cosets of $H$ partition $K$ (and that the left cosets have equal cardinality) and the left sets of $K$ partition $G$. Let $P_c$ be the partition of $G$ by $H$. There are two natural finer partitions on $G$ to consider:
 
-% 3. Do Exercise 16 on p. 96.
+1. By left cosets of $K$, i.e. by the equivalence relation $g_1 \sim g_2 \iff g_1 K = g_2 K$.
+
+2. By translating the partition of $H$ by $K$ to cover $G$.
+
+It suffices to show that these are the same partitions (call them $P_1$ and $P_2$ respectively).
+
+We will work out what is the equivalence relation in (2); let $g_1, g_2$ be in the same part of $P_2$. Then they are in the same part of $P_c$, hence $g_1 H = g_2 H$.
+
+
+
+
+\section*{3.2.16}
+
+Notation: let $U = (\Z/pZ)^x$. We have $|U| = p-1$ because the $p-1$ elements $1, \ldots p-1$ are distinct modulo $p$, and coprime to $p$. Let $a \in U$. By Lagrange's theorem, $ord(a)$ divides $|U| = p-1$. We have $a^{ord(a)} = 1$ hence $a^{p-1} = (a^{ord(a)})^{\frac{p-1}{ord(a)}} = 1$ hence $a^p = a$.
 
 % 4. Do Exercise 18 on p. 96.
 
