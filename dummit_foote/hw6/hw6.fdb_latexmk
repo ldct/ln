@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1714928379 "/Users/xuanji/gits/ln/dummit_foote/hw6/hw6.tex" "hw6.pdf" "hw6" 1714928380 0
-  "/Users/xuanji/gits/ln/dummit_foote/hw6/hw6.tex" 1714928379 4966 9172cf52cafd3e3e1cb75028692921cc ""
+["pdflatex"] 1715561295 "/Users/xuanji/gits/ln/dummit_foote/hw6/hw6.tex" "hw6.pdf" "hw6" 1715561296 0
+  "/Users/xuanji/gits/ln/dummit_foote/hw6/hw6.tex" 1715561295 5697 929866677a9060efc420af70d258dea1 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -97,9 +97,9 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1682690123 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1682690097 7883453 4a76af47382d8e05ab046bf848df43ed ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "hw6.aux" 1714928380 554 04ae3964aa57b78538b565d0454a3de2 "pdflatex"
-  "hw6.out" 1714928380 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "hw6.tex" 1714928379 4966 9172cf52cafd3e3e1cb75028692921cc ""
+  "hw6.aux" 1715561296 554 04ae3964aa57b78538b565d0454a3de2 "pdflatex"
+  "hw6.out" 1715561296 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "hw6.tex" 1715561295 5697 929866677a9060efc420af70d258dea1 ""
   (generated)
   "hw6.aux"
   "hw6.log"

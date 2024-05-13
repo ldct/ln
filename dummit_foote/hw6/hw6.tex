@@ -98,24 +98,22 @@ Consider the equation $|G|^{p-1} = k + pd$ modulo $p$. The LHS is $0$ since $p$ 
 
 \section*{3.2.11}
 
-We know that the left cosets of $H$ partition $K$ (and that the left cosets have equal cardinality) and the left sets of $K$ partition $G$. Let $P_c$ be the partition of $G$ by $H$. There are two natural finer partitions on $G$ to consider:
+Label the cosets of $H$ in $G$ as $\{H_\alpha\}_{\alpha \in \Lambda}$. It is easy to check that every coset of $K$ in $G$ is some disjoint union of the $H_\alpha$.
 
-1. By left cosets of $K$, i.e. by the equivalence relation $g_1 \sim g_2 \iff g_1 K = g_2 K$.
+Let $\sim$ be the equivalence relation on $\Lambda$ given by $\alpha \sim \beta$ if $H_\alpha K = H_\beta K$. It suffices to show that every equivalence class has the same size, since then the required equation is $|\Lambda| = |\Lambda / \sim| |K:H|$ where $|K:H|$ is the number of components of the $H_\alpha$ that make up $K$ (considered as a $K$-coset).
 
-2. By translating the partition of $H$ by $K$ to cover $G$.
+Let $\alpha \sim \beta \sim \ldots$ and $a \sim b \ldots$ be two different equivalence classes. There is some $g \in G$ such that $g H_\alpha = H_a$. It is easy to check that left multiplication by $g$ maps $H_\alpha K$ to $H_a K$.
 
-It suffices to show that these are the same partitions (call them $P_1$ and $P_2$ respectively).
-
-We will work out what is the equivalence relation in (2); let $g_1, g_2$ be in the same part of $P_2$. Then they are in the same part of $P_c$, hence $g_1 H = g_2 H$.
-
-
-
+We have $g \{H_\alpha \sqcup H_\beta \ldots \} = gH_\alpha K = H_a K = \{H_a \cup H_b \ldots \}$. Since left multiplication by $g$ is an injective map on the cosets of $H$ in $G$, $\{H_\alpha, H_\beta \ldots \}$ and $\{H_a, H_b \ldots \}$ have the same size.
 
 \section*{3.2.16}
 
 Notation: let $U = (\Z/pZ)^x$. We have $|U| = p-1$ because the $p-1$ elements $1, \ldots p-1$ are distinct modulo $p$, and coprime to $p$. Let $a \in U$. By Lagrange's theorem, $ord(a)$ divides $|U| = p-1$. We have $a^{ord(a)} = 1$ hence $a^{p-1} = (a^{ord(a)})^{\frac{p-1}{ord(a)}} = 1$ hence $a^p = a$.
 
-% 4. Do Exercise 18 on p. 96.
+\section*{3.2.18}
 
+Let $h \in H$. By Lagrange's theorem, $t_1 o(h) = |H|$ and $t_2 o(hN) = |G:N| = |G/N|$ for some integers $t_1, t_2$. By coprimality there are integers $a', b'$ such that $a' |H| + b' |G:N| = 1$. Hence $a o(h) + b o(hN) = 1$ where $a = a't_1, b = b't_2$.
+
+Working in $G/N$ we have $hN = (hN)^1 = (hN)^{a o(h) + b o(hN)} = (h^{o(h)})^a N \cdot ((hN)^{o(hN)})^b = N \cdot N = N$; hence $h \in N$.
 
 \end{document}
