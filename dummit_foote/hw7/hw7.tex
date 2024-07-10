@@ -1,0 +1,94 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage[all,pdf]{xy}
+\usepackage{lmodern,amssymb}
+
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\E}{E}
+\def\Z{\mathbb{Z}}
+\def\N{\mathbb{N}}
+\def\R{\mathbb{R}}
+\def\Q{\mathbb{Q}}
+\def\K{\mathbb{K}}
+\def\T{\mathbb{T}}
+\def\B{\mathcal{B}}
+\def\XX{\mathfrak{X}}
+\def\YY{\mathfrak{Y}}
+\def\AA{\mathfrak{A}}
+\def\ZZ{\mathfrak{Z}}
+\def\BB{\mathcal{B}}
+\def\UU{\mathcal{U}}
+\def\MM{\mathcal{M}}
+\def\M{\mathfrak{M}}
+\def\l{\lambda}
+\def\L{\Lambda}
+\def\<{\langle}
+\def\>{\rangle}
+\def\f12{\frac{1}{2}}
+\def\inv{{-1}}
+\def\im{\textrm{im}}
+\def\Stab{\textrm{Stab}}
+\def\Dic{\textrm{Dic}}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{1em}
+
+\title{HW 7}
+\date{}
+
+\begin{document}
+\maketitle
+
+% Reading
+
+% Read Section 3.2 (pp. 89-95).
+
+% ~~~
+
+% Problems
+
+\section*{3.3.1}
+
+Let $G = GL_n(F), S = SL_n(F), \phi : G \to S$ be defined by $f(m) = m / \det(m)$. This is a surjective mapping because $f(S) = S$. Furthermore $f^\inv(m) = \{m, 2m, \ldots (q-1)m\}$ hence $f$ is a $q-1$-to-1 mapping. 
+
+\section*{3.3.3}
+
+Let $G$ be a group, $H$ normal in $G$, $K$ a subgroup of $G$, $[G:H] = p$. From the second isomophism theorem we know that $KH$ is a subgroup of $G$, and we have the lattice 
+
+$$
+\xymatrix{
+G \ar@{-}[d]^{a} \\
+KH \ar@{-}[d]^{b} \\
+H
+}
+$$
+
+let $[G:KH] = a, [KH:H] = b$. Since $p = ab$ we have $(a, b) = (1, p)$ or $(a, b) = (p, 1)$. In the first case, $KH = HK = G$. By the second isomophism theorem, $H \cap K$ is a normal subgroup of $K$ and $K / H \cap K \sim KH / H$ hence $[K : H \cap K] = [KH : H] = p$. In the second case, we have $[KH : H] = 1$ hence $KH = H$ hence $K \subseteq H$.
+
+\section*{3.3.7}
+
+By normality, $MN = \{ mn | m \in M, n \in N\} = \{ m m^\inv n' m | m \in M, n' \in N \} = NM$.
+
+\xymatrix{
+ & G=MN=NM \ar@{-}[ld] \ar@{-}[rd] &  \\
+M \ar@{-}[rd] &  & N \ar@{-}[ld] \\
+ & I = M \cap N & 
+}
+
+By the diamond isomophism theorem, we have $G / M \sim N / I$ and $G / N \sim M / I$. Hence it suffices to show that $G / I \sim N / I \times M / I$.
+
+We have $M / I \times N / I = \{(mI, nI) | m \in M, n \in N\}$. Let $\phi: M/I \times N/I \to G/I$ be given by $\phi(mI, nI) = mnI$. This is well-defined as follows: suppose $(mI, nI) = (m'I, nI)$, that is $mI = m'I$, hence $mIn = m'In$, hence $mnI = m'nI$. A similar argument shows that the choice of representative for $N/I$ does not matter.
+
+This is a surjective group homomorphism (the homomorphism laws are easily verified) since any $g \in G$ can be written as $g = mn$ for some $m \in M, n \in N$, and $\phi(mI, nI) = gI$. Hence it suffices to show that this is an injective homomorphism. Suppose $mnI = m'n'I$, then $n n'^\inv I = m^\inv m' I$, and this coset must be $I$ (since toherwise, it lies in $G - I$, which is composed of a disjoint union of a subset of $M$ and a subset of $N$), hence $m^\inv m' I = I$, hence $mI = m'I$. A similar argument shows that $nI = n'I$.
+
+\end{document}
