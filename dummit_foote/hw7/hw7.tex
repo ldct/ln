@@ -57,6 +57,16 @@
 
 % Problems
 
+\section*{3.2.11}
+
+For each coset of $H$ in $K$, choose a representative element, so that the set of representatives is $\{ h_\alpha | \alpha \in A \}$, and the set of cosets is $\{ h_\alpha H | \alpha \in A \}$. Similarly, for each coset of $K$ in $G$, choose a representative element, so that the set of representatives is $\{ k_\beta | \beta \in B \}$, and the set of cosets is $\{ k_\beta K | \beta \in B \}$.
+
+The set $\{ k_\beta h_\alpha | \alpha \in A, \beta \in B \}$ is a set of representatives for the cosets of $H$ in $G$, and none of the representatives are for the same coset. To see that every coset is represented, let $g \in G$, then $g K = k_\beta K$ for some $\beta \in B$. Hence $k_\beta^\inv g \in K$, hence $k_\beta^\inv g H = h_\alpha H$ for some $\alpha \in A$, hence $gH =k_\beta h_\alpha H$.
+
+To see that none of the representatives are for the same coset, suppose $k_\alpha h_\beta H = k_{\alpha'} h_{\beta'} H$ for some $\alpha, \alpha' \in A, \beta, \beta' \in B$. This means $k_\alpha K = k_{\alpha'} K$ since $K = h_\beta H K = h_{\beta'} H K$. Hence $\alpha = \alpha'$ and hence $h_\beta H = h_{\beta'} H$. Hence $\beta = \beta'$.
+
+We have $|G : H| = \{ k_\beta h_\alpha | \alpha \in A, \beta \in B \}, |G : K| = \{ k_\beta | \beta \in B \}, |K : H| = \{ h_\alpha | \alpha \in A \}$, hence $|G : H| = |G : K| |K : H|$.
+
 \section*{3.3.1}
 
 Let $G = GL_n(F), S = SL_n(F), \phi : G \to S$ be defined by $f(m) = m / \det(m)$. This is a surjective mapping because $f(S) = S$. Furthermore $f^\inv(m) = \{m, 2m, \ldots (q-1)m\}$ hence $f$ is a $q-1$-to-1 mapping. 
