@@ -1,0 +1,119 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage[all,pdf]{xy}
+\usepackage{lmodern,amssymb}
+
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\E}{E}
+\def\Z{\mathbb{Z}}
+\def\N{\mathbb{N}}
+\def\R{\mathbb{R}}
+\def\Q{\mathbb{Q}}
+\def\K{\mathbb{K}}
+\def\T{\mathbb{T}}
+\def\B{\mathcal{B}}
+\def\XX{\mathfrak{X}}
+\def\YY{\mathfrak{Y}}
+\def\AA{\mathfrak{A}}
+\def\ZZ{\mathfrak{Z}}
+\def\BB{\mathcal{B}}
+\def\UU{\mathcal{U}}
+\def\MM{\mathcal{M}}
+\def\M{\mathfrak{M}}
+\def\l{\lambda}
+\def\L{\Lambda}
+\def\<{\langle}
+\def\>{\rangle}
+\def\f12{\frac{1}{2}}
+\def\inv{{-1}}
+\def\im{\textrm{im}}
+\def\Stab{\textrm{Stab}}
+\def\Dic{\textrm{Dic}}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{1em}
+
+\title{HW 8}
+\date{}
+
+\begin{document}
+\maketitle
+
+% 5. Do Exercise 10 on p. 122.
+
+% 6. Do Exercise 11 on p. 122.
+
+
+\section*{4.1.1}
+
+$G_b = \{h \in G | h \cdot b = b\} = \{h \in G | h \cdot (g \cdot a) = (g \cdot a)\} = \{h \in G | hg \cdot a = (g \cdot a)\} = \{h \in G | g^\inv h g \cdot a = a\}$
+
+$g G_a g^\inv = g \{h \in G | h \cdot a = a\} g^\inv = \{ghg^\inv \in G | h \cdot a = a\} $
+
+let $g h g^\inv = x$, then this is equal to $\{x \in G | g^\inv x g \cdot a = a\}$.
+
+$\cap_{g \in G} g G_a g^\inv = \cap_{g \in G} G_{g \cdot a} = \cap_{b \in A} G_b$ where the last step follows because $g \cdot a$ ranges over all of $A$ as $g$ ranges over all of $G$. This last expression is the kernal of the action since it is the intersection of all the stabalizers.
+
+\section*{4.1.2}
+
+The first part follows from 4.1.1 since $\sigma \cdot a = \sigma(a)$. Hence $\cap_{\sigma \in G} \sigma G_a \sigma^\inv$ is the kernal of $G$ which is the set consisting of the identity permutation. 
+
+\section*{4.1.3}
+
+Let $G$ act on $A$ by permutation, then this is a transitive action. Fix $a$. Since $G$ is abelian, we have $a\sigma G_a \sigma^\inv = G_a$. Hence for all $G_a = 1$. Hence if $\sigma \in G - \{1\}$ we have $\sigma$ is not in $G_a$, hence $\sigma(a) \ne a$.
+
+Choose $\sigma \in G - \{1\}$ and let $n = ord(\sigma)$. Then $\sigma, \sigma^2, \ldots \sigma^{n-1}$ are all non-identity. Let $a_0 \in A, a_1 = \sigma(a_0) \ne a_0, a_2 = \sigma(a_1) \ne a_1$. Since $a_2 = \sigma^2 (a_0)$, we have $a_2 \ne a_0$. Continuing this way, if $a_n = \sigma^n (a_0)$ we have $a_0, a_1, \ldots, a_{n-1}$ are all distinct, hence $\sigma$ is a single cycle $[a_0, a_1, \ldots, a_{n-1}]$. Claim: $n = |A|$. Suppose not, then there is some $a \in A$ not in $\{a_0, \ldots a_{n-1}\}$. Then $\sigma(a) = a$ which is a contradiction.
+
+Claim: every permutation in $G$ is a power of $\sigma$. This implies that $|G| = |A|$ since $ord(\sigma) = |A|$. Proof of claim: for any $\tau \in G$ we have $\sigma \tau = \tau \sigma$, hence $\sigma = \tau \sigma \tau^\inv$. In cycle notation, $[a_0, a_1 \ldots] = [\tau(a_0), \tau(a_1), \ldots]$, hence $\tau(a_i) = a_{i+k}$ for some $k$ where the indices are taken modulo $n$.
+
+\section*{4.1.7a}
+
+The identity is clearly in $G_B$. Closure: if $\sigma, \tau \in G_B$ then $(\sigma \tau) \cdot B = \sigma(\tau(B)) = \sigma(B) = B$. Inverse: if $\sigma \in G_B$ then $\sigma(B) = B$ hence $B = \sigma^\inv(B)$.
+
+To show $\sigma \in G_a \implies \sigma \in G_B$, suppose $\sigma \in G_a$. Then $\sigma(a) = a$. Either $\sigma(B) = B$ or $\sigma(B) \cap B = 0$. But in the later case, $\sigma(a) = a \not\in B$ which is a contradiction. Hence $\sigma(B) = B$.
+
+\section*{4.1.7b}
+
+The partition covers $A$: let $b \in B, a \in A$. By transitivity there is a $\sigma$ such that $\sigma \cdot b = a$, and $a \in \sigma (B)$. Hence $a$ appears in a part.
+
+The parts are disjoint: let $\sigma(B), \tau(B)$ be two parts. Suppose they intersect, then there is a $b \in B$ such that $\sigma(b) = \tau(b)$. Then $\sigma^\inv \tau \cdot b = b$ hence $\sigma^\inv \tau \cdot B \cap B \ne 0$ hence $\sigma^\inv \tau \cdot B = B$, hence $\tau(B) = \sigma(B)$.
+
+\section*{4.1.7c}
+
+Let $B$ be a nontrivial block; then there exists $a, b, c \in A$ such that $a, c \in B, b \not\in B$. Then with permutation $\sigma = [a, b], \sigma(B)$ and $B$ have nontrivial intersection.
+
+Let the vertices be $\{1, 2, 3, 4\}$ in clockwise order. Then $\{1, 3\}$ is a nontrivial block, since it is a diagonal and is either mapped to itself or to the other diagonal $\{2, 4\}$.
+
+\section*{4.1.7d}
+
+$\impliedby$: We prove the contrapositivie. If $G$ is imprimitive, it has a nontrivial block $B$ and some $a \in B$. By part a, $G_B$ contains $G_a$. $G$ acts on the partition in part (b) (by acting on each of the elements of the parts) and hence by the orbit-stabalizer theorem, $|G_B|$ (considered as a stabalizer of this action) is strictly between $|G|$ and $|G_a|$.
+
+$\implies$: We prove the contrapositive. By assumption there exists some $a \in A$ and some subgroup $G'$ such that $G_a \subset G' \subset G$ and all the inclusions are strict. Let $B$ be the set of elements of $A$ fixed pointwise by $G'$ (i.e. $B = \{b \in A | G'(b) = b\}$)... TBD
+
+\section*{4.2.7a}
+
+This follows by Caley's theorem.
+
+\section*{4.2.7b}
+
+Let $G = Q_8$ act faithfully on $X$ with $|X| < 8$ with induced homomorphism $\phi$. Let $x \in X$ be arbitrary. Then $|G_x| = 1, 2, 4$ since it $|G_x|$ divides $|X|$. If $|G_x| = 1$ then the orbit of $x$ has size 8, which is impossible. If $|G_x| = 4$ there are 3 choices for $G_x$ (generated by $i, j, k$) all of which contain $\{-1, 1\}$ as a subgroup.
+
+Hence, $-1 \cdot x = x$. Since $x$ was arbitrary, $\phi(-1)$ is the identity permutation, a contradiction.
+
+\section*{4.2.10}
+
+Let $G$ be a non-abelian group of order 6. By Cauchy's theorem, $G$ has an element of order 2, say $s$. If $\<s\>$ is normal, then $G / \<s\>$ is a group of order 3, hence abelian it is $C_3$ and $G = C_3 \times C_2$, a contradiction. Hence $\<s\>$ is not normal.
+
+By Cauchy's theorem, ther is a element of order 3, say $r$. The subgroup $\<r, s\>$ has order 6, hence is all of $G$.
+
+\end{document}
