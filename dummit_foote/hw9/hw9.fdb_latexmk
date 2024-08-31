@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1725063093 "/Users/xuanji/gits/ln/dummit_foote/hw8/hw8.tex" "hw8.pdf" "hw8" 1725063093 0
-  "/Users/xuanji/gits/ln/dummit_foote/hw8/hw8.tex" 1725063092 5967 db0dadf25299b8b503bcf1e851e14a60 ""
+["pdflatex"] 1725128707 "/Users/xuanji/gits/ln/dummit_foote/hw9/hw9.tex" "hw9.pdf" "hw9" 1725128708 0
+  "/Users/xuanji/gits/ln/dummit_foote/hw9/hw9.tex" 1725128707 4983 388da5ced3e13308448224629b782ac3 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1202520719 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc" 1202520719 2840 216e6e45ad352e2456e1149f28885bee ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc" 1202520719 2327 9d6df24f9c4f7368395224341a95523a ""
@@ -47,6 +47,7 @@
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr17.pfb" 1255129361 119752 1bd8d06e4079df624bf59ce3ad7c9aa6 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr7.pfb" 1255129361 121145 68312a933e2c689ed40ec0aba373e279 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy10.pfb" 1254269338 27863 09ce3735688ffde955e72da27c95b61a ""
+  "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy5.pfb" 1254269338 28210 987b40585e9bcf6463d6155bb4219492 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy7.pfb" 1254269338 27941 d1f5d03f61a46c3fcc3a2ba904ddda52 ""
   "/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2023/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1575674566 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
@@ -137,12 +138,12 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1682690123 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1682690097 7883453 4a76af47382d8e05ab046bf848df43ed ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "hw8.aux" 1725063093 554 04ae3964aa57b78538b565d0454a3de2 "pdflatex"
-  "hw8.out" 1725063093 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "hw8.tex" 1725063092 5967 db0dadf25299b8b503bcf1e851e14a60 ""
+  "hw9.aux" 1725128707 554 04ae3964aa57b78538b565d0454a3de2 "pdflatex"
+  "hw9.out" 1725128707 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "hw9.tex" 1725128707 4983 388da5ced3e13308448224629b782ac3 ""
   (generated)
-  "hw8.aux"
-  "hw8.log"
-  "hw8.out"
-  "hw8.pdf"
+  "hw9.aux"
+  "hw9.log"
+  "hw9.out"
+  "hw9.pdf"
   (rewritten before read)
