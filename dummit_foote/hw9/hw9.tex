@@ -91,7 +91,14 @@ Let $G$ be a finite group with $|G| = n$. If $n = 2$ then $G$ has 2 conjugacy cl
 
 \section*{4.3.23}
 
+The normalizer $N_G(M)$ is a subgroup of $G$ containing $M$, that is $M \le N_G(M) \le G$. By maximality of $M$, either $N_G(M) = M$ or $N_G(M) = G$. 
+
+If $M$ is a maximal subgroup of $G$ and $M$ is not normal, then $N_G(M) \ne G$ hence $N_G(M) = M$. Consider the action of $G$ on $P(G)$ by conjugation. The stabilizer of $M$ is $N_G(M) = M$, hence the orbit of $M$ has size $[G:M]$. Each orb (i.e. element in the image of the action, contained in the orbit) is a subgroup conjugate to $M$ and hence the number of nonidentity elements is $|M|-1$. Hence the number of nonidentity elements of $G$ contained in conjugates of $M$ is at most $[G:M] (|M|-1)$.
 \section*{4.3.24}
+
+Since the subgroup lattice is a finite partial order, $G$ is contained in some maximal subgroup $M \ne G$. It suffices to show that $G \ne \cup_{g \in G} gMg\inv$, since $gHg\inv \subseteq gMg\inv$.
+
+The number of nonidentity elements of $G$ contained in conjugates of $M$ is $|G| - 1 \le [G:M] (|M|-1) = \frac{|G|}{|M|}(|M|-1) = |G| - \frac{|G|}{|M|} \le |G| - 2$, a contradiction. Here the first inequality follows from 4.3.23 and the second from $|G| / |M| \ge 2$ since $M$ is a proper subgroup of $G$.
 
 \section*{4.3.26}
 
