@@ -68,14 +68,6 @@ $\cap_{g \in G} g G_a g^\inv = \cap_{g \in G} G_{g \cdot a} = \cap_{b \in A} G_b
 
 The first part follows from 4.1.1 since $\sigma \cdot a = \sigma(a)$. Hence $\cap_{\sigma \in G} \sigma G_a \sigma^\inv$ is the kernal of $G$ which is the set consisting of the identity permutation. 
 
-\section*{4.1.3}
-
-Let $G$ act on $A$ by permutation, then this is a transitive action. Fix $a$. Since $G$ is abelian, we have $a\sigma G_a \sigma^\inv = G_a$. Hence for all $G_a = 1$. Hence if $\sigma \in G - \{1\}$ we have $\sigma$ is not in $G_a$, hence $\sigma(a) \ne a$.
-
-Choose $\sigma \in G - \{1\}$ and let $n = ord(\sigma)$. Then $\sigma, \sigma^2, \ldots \sigma^{n-1}$ are all non-identity. Let $a_0 \in A, a_1 = \sigma(a_0) \ne a_0, a_2 = \sigma(a_1) \ne a_1$. Since $a_2 = \sigma^2 (a_0)$, we have $a_2 \ne a_0$. Continuing this way, if $a_n = \sigma^n (a_0)$ we have $a_0, a_1, \ldots, a_{n-1}$ are all distinct, hence $\sigma$ is a single cycle $[a_0, a_1, \ldots, a_{n-1}]$. Claim: $n = |A|$. Suppose not, then there is some $a \in A$ not in $\{a_0, \ldots a_{n-1}\}$. Then $\sigma(a) = a$ which is a contradiction.
-
-Claim: every permutation in $G$ is a power of $\sigma$. This implies that $|G| = |A|$ since $ord(\sigma) = |A|$. Proof of claim: for any $\tau \in G$ we have $\sigma \tau = \tau \sigma$, hence $\sigma = \tau \sigma \tau^\inv$. In cycle notation, $[a_0, a_1 \ldots] = [\tau(a_0), \tau(a_1), \ldots]$, hence $\tau(a_i) = a_{i+k}$ for some $k$ where the indices are taken modulo $n$.
-
 \section*{4.1.7a}
 
 The identity is clearly in $G_B$. Closure: if $\sigma, \tau \in G_B$ then $(\sigma \tau) \cdot B = \sigma(\tau(B)) = \sigma(B) = B$. Inverse: if $\sigma \in G_B$ then $\sigma(B) = B$ hence $B = \sigma^\inv(B)$.

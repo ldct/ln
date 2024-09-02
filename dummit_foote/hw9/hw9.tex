@@ -51,6 +51,10 @@
 
 \section*{4.1.3}
 
+Let $G$ act on $A$ by permutation, which by assumption is a transitive and faithful action. Fix $a$. Since $G$ is abelian, for all $\sigma \in G$ we have $a\sigma G_a \sigma^\inv = G_a$. By 4.1.2, $\cap_{\sigma \in G} G_a = \{e\}$, hence $G_a = e$, which means $\{\sigma \in G | \sigma(a) = a\} = \{e\}$, which means for all $\sigma \in G$ with $\sigma \ne e, \sigma \not \in G_a$, which means $\sigma(a) \ne a$.
+
+Choose some $g \in G$ and define the map $\phi: A \to G$ by $\phi(g) = g \cdot a$. $\phi$ is surjective since $G$ acts transitively on $A$. $\phi$ is injective. Proof: suppose $g \cdot a = h \cdot a$. Then $(g^\inv h) \cdot a = a$, hence $g^\inv h = e$, hence $g = h$. Hence $\phi$ is a bijection, so $|A| = |G|$.
+
 \section*{4.2.9}
 
 Let $p$ be a prime, $G$ have prime power order, $H \le G$ with $[G:H] = p$. By corollary 4.2.5, since $p$ is the smallest prime dividing $|G|, H$ is normal.
@@ -102,6 +106,6 @@ The number of nonidentity elements of $G$ contained in conjugates of $M$ is $|G|
 
 \section*{4.3.26}
 
-
+?
 
 \end{document}
