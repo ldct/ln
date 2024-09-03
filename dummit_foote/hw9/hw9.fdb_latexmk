@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1725238324 "/Users/xuanji/gits/ln/dummit_foote/hw9/hw9.tex" "hw9.pdf" "hw9" 1725238325 0
-  "/Users/xuanji/gits/ln/dummit_foote/hw9/hw9.tex" 1725238324 6874 9c2bcfbc4723da584e8df56118f6aef7 ""
+["pdflatex"] 1725327067 "/Users/xuanji/gits/ln/dummit_foote/hw9/hw9.tex" "hw9.pdf" "hw9" 1725327067 0
+  "/Users/xuanji/gits/ln/dummit_foote/hw9/hw9.tex" 1725327066 7397 58ac120e25fbc8135e136518f7c9e381 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1202520719 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc" 1202520719 2840 216e6e45ad352e2456e1149f28885bee ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc" 1202520719 2327 9d6df24f9c4f7368395224341a95523a ""
@@ -138,9 +138,9 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1682690123 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1682690097 7883453 4a76af47382d8e05ab046bf848df43ed ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "hw9.aux" 1725238325 554 dd2b48f1aba1e3b725040b4d3abf7fbe "pdflatex"
-  "hw9.out" 1725238324 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "hw9.tex" 1725238324 6874 9c2bcfbc4723da584e8df56118f6aef7 ""
+  "hw9.aux" 1725327067 554 dd2b48f1aba1e3b725040b4d3abf7fbe "pdflatex"
+  "hw9.out" 1725327067 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "hw9.tex" 1725327066 7397 58ac120e25fbc8135e136518f7c9e381 ""
   (generated)
   "hw9.aux"
   "hw9.log"
