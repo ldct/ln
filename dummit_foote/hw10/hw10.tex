@@ -1,0 +1,125 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage[all,pdf]{xy}
+\usepackage{lmodern,amssymb}
+\usepackage{multirow}
+
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\E}{E}
+\def\Z{\mathbb{Z}}
+\def\N{\mathbb{N}}
+\def\R{\mathbb{R}}
+\def\Q{\mathbb{Q}}
+\def\K{\mathbb{K}}
+\def\T{\mathbb{T}}
+\def\B{\mathcal{B}}
+\def\XX{\mathfrak{X}}
+\def\YY{\mathfrak{Y}}
+\def\AA{\mathfrak{A}}
+\def\ZZ{\mathfrak{Z}}
+\def\BB{\mathcal{B}}
+\def\UU{\mathcal{U}}
+\def\MM{\mathcal{M}}
+\def\M{\mathfrak{M}}
+\def\l{\lambda}
+\def\L{\Lambda}
+\def\<{\langle}
+\def\>{\rangle}
+\def\f12{\frac{1}{2}}
+\def\inv{{-1}}
+\def\im{\textrm{im}}
+\def\Stab{\textrm{Stab}}
+\def\Dic{\textrm{Dic}}
+\def\Aut{\textrm{Aut}}
+
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{1em}
+
+\title{HW 10}
+\date{}
+
+\begin{document}
+\maketitle
+
+% 2. Do Exercise 4.4.18 on p. 138. [In part (b), D&F refer you to an earlier exercise which we didn't do, but I don't think it's actually necessary to do that whole exercise --- you can probably count the sizes of these conjugacy classes by hand.]
+
+% 3. Do Exercise 4.4.19 on p. 138.
+
+% 4. Do Exercise 5.1.12 on p. 157.
+
+% 5. Do Exercise 5.2.14 on p. 167.
+
+% 6. Do Exercise 5.2.15 on p. 167.
+
+\section*{4.4.13}
+
+$G$ is partitioned into conjugacy classes where each class has size 1, 7 or 29. The class equation is $203 = |Z(G)| + 7x + 29y$ where $x$ is the number of conjugacy classes of size 7 and $y$ is the number of conjugacy classes of size 29. Since $H$ is a union of conjugacy classes, $H$ cannot contain any element $g$ which belongs in a size-7 class, since then $|H| \ge 8$ (since it contains all the conjugates of $g$ as well as $e$). Similarly it cannot contain any element which belongs in a size-29 class. Hence $H \le Z(G)$.
+
+Now $|Z(G)| \ge 7$, and by Lagrange's theorem $|Z(G)|$ is one of $7, 29, 203$. If $|Z(G)| = 7$ then $G / Z(G)$ is order 29, hence cyclic, hence $Z(G) = G$, a contradiction. Similarly $|Z(G)| \ne 29$. Hence $Z(G) = 203$ and $G$ is abelian.
+
+\section*{4.4.18a}
+
+For $f, g \in G$ let $f \sim g$ if they are conjugates. It suffices to show that $f \sim g \implies \sigma(f) \sim \sigma(g)$, since $\sigma^\inv \in \Aut(G)$.
+
+If $f \sim g$ there exists $x \in G$ such that $f = xgx^\inv$; then $\sigma(f) = \sigma(xgx^\inv) = \sigma(x)\sigma(g)\sigma(x)^\inv$, hence $\sigma(f) \sim \sigma(g)$.
+
+\section*{4.4.18b}
+
+Call a member of $K'$ an involution. Any involution has cycles of length 1 or 2, hence the cycle structure must be $2, 2+2, 2+2+2, \ldots$. Here are the values for $n$ for which the longest cycle type possible is $\#(2+2+2)$:
+
+\begin{tabular}{ |c|c|c|c| } 
+    \hline
+    n & \#(2) & \#(2+2) & \#(2+2+2) \\
+    \hline
+    2 & 1 & 0 & 0 \\ 
+    3 & 3 & 0 & 0 \\ 
+    4 & 6 & 3 & 0 \\ 
+    5 & 10 & 15 & 0 \\ 
+    6 & 15 & 45 & 15 \\ 
+    \hline
+    n & ${n \choose 2}$ & $\frac{1}{2!}{n \choose 2}{n-2 \choose 2}$ & $\frac{1}{3!}{n \choose 2}{n-2 \choose 2}{n-4 \choose 2}$ \\
+    \hline
+\end{tabular}
+
+This completes the proof for $n \le 6$. The general formula is displayed in the last row.
+
+Going from one cell to the one on the right, we multiply by $\frac{1}{2}{n-2 \choose 2}, \frac{1}{3}{n-4 \choose 2}$, etc. This sequence of factors is decreasing, hence a table row is weakly increasing then decreasing (since once a factor becomes less than 1, it will never exceed 1). Hence it suffices to check that $\#(2)$ is less than $\#(2+2)$ and also less than the rightmost nonzero entry in the table.
+
+The first inequalityfollows since $\frac{1}{2}{n \choose 2}$ is a strictly increasing function for $n > 2$.
+
+For the second inequality, we form a set-embedding $f$ (an injective function) for the two sets in question. Let $f((1, 2)) = (1 2)(3 4)(5 6), f(1 x) = (1 2)(x x+1), f(2 y) = (1 2)(y y+1), f(p q) = (1 2)(p q)$, where $x, y, p, q \not\in \{1, 2\}$.
+
+For $\sigma \in \Aut(S_n)$ since $\sigma(K)$ must be a conjugacy class of size $|K|$, and furthermore $\sigma$ preserves orders, we have $\sigma(K) = K$.
+
+\section*{4.4.18c}
+
+Note that all transpositions are self-inverse. WLOG, we can let $\sigma((1, 2)) = (a, b_2)$. Let $\sigma((2, 3)) = (p, q)$.
+
+Note that $(2, 3)(1, 2)(2, 3) = (1, 3)$, and hence $(p, q)(a, b_2)(p, q) = \sigma((1, 3))$.
+
+If $\{p, q\}$ is disjoint from $\{1, 2\}$ then the HLS is equal to $(a, b_2)$ which violates the injectivity of $\sigma$. Similarly $\{p, q\}$ cannot have two elements in common with $\{a, b_2\}$; hence it has exactly one element in common.
+
+A similar proof shows that $\sigma$ preserves transposition overlap count (if $a, b, c$ are distinct, then $\sigma((a, b))$ and $\sigma((b, c))$ are transpositions $(p, q), (r, s)$ with exactly one element in common, i.e. $|\{p, q, r, s\}| = 3$).
+
+Hence, if $\sigma((1, 2)) = (p, q)$, then $\sigma(1, k)$ has exactly one element in common with $\{p, q\}$ (except for $k=2$). It suffices to show that this is the same element for all $k$. Supposing otherwise, assume WLOG $\sigma((1, 3)) = (p, q')$ and $\sigma((1, 4)) = (p', q)$. Now $(1, 3) and (1, 4)$ have 1 element in common, but $(p, q'), (p', q)$ do not.
+
+\section*{4.4.18d}
+
+For arbitrary $1 \le p < q \le n$ we have $(1, q)(1, p)(1, q) = (p, q)$. Hence the given set generates all transpositions, hence all of $S_n$.
+
+Hence any $\sigma \in \Aut(S_n)$ is uniquely determined by its action on $(1, 2), \ldots (1, n)$, hence by the distinct values $a, b_2, \ldots b_n$. There are at most $n!$ such possible values.
+
+The map $f : S_n \to \Aut(S_n)$ which maps $\tau$ to conjugation by $\tau$ is injective since $Z(S_n) = 1$ if $n \ge 3$. Hence there are $n!$ inner automorphisms, which accounts for all $n!$ possible automorphisms.
+
+\end{document}
