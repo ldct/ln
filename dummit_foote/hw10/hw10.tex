@@ -39,6 +39,7 @@
 \def\Stab{\textrm{Stab}}
 \def\Dic{\textrm{Dic}}
 \def\Aut{\textrm{Aut}}
+\def\Inn{\textrm{Inn}}
 
 
 \usepackage[a4paper,margin=1in]{geometry}
@@ -52,7 +53,7 @@
 \begin{document}
 \maketitle
 
-% 2. Do Exercise 4.4.18 on p. 138. [In part (b), D&F refer you to an earlier exercise which we didn't do, but I don't think it's actually necessary to do that whole exercise --- you can probably count the sizes of these conjugacy classes by hand.]
+% qns. why G/Z abelian is not enough?
 
 % 3. Do Exercise 4.4.19 on p. 138.
 
@@ -66,7 +67,7 @@
 
 $G$ is partitioned into conjugacy classes where each class has size 1, 7 or 29. The class equation is $203 = |Z(G)| + 7x + 29y$ where $x$ is the number of conjugacy classes of size 7 and $y$ is the number of conjugacy classes of size 29. Since $H$ is a union of conjugacy classes, $H$ cannot contain any element $g$ which belongs in a size-7 class, since then $|H| \ge 8$ (since it contains all the conjugates of $g$ as well as $e$). Similarly it cannot contain any element which belongs in a size-29 class. Hence $H \le Z(G)$.
 
-Now $|Z(G)| \ge 7$, and by Lagrange's theorem $|Z(G)|$ is one of $7, 29, 203$. If $|Z(G)| = 7$ then $G / Z(G)$ is order 29, hence cyclic, hence $Z(G) = G$, a contradiction. Similarly $|Z(G)| \ne 29$. Hence $Z(G) = 203$ and $G$ is abelian.
+Now $|Z(G)| \ge 7$, and by Lagrange's theorem $|Z(G)|$ is one of $7, 29, 203$. If $|Z(G)| = 7$ then $G / Z(G)$ is order 29, hence cyclic, hence $Z(G) = G$ (by 3.1.36), a contradiction. Similarly $|Z(G)| \ne 29$. Hence $Z(G) = 203$ and $G$ is abelian.
 
 \section*{4.4.18a}
 
@@ -96,9 +97,9 @@ This completes the proof for $n \le 6$. The general formula is displayed in the 
 
 Going from one cell to the one on the right, we multiply by $\frac{1}{2}{n-2 \choose 2}, \frac{1}{3}{n-4 \choose 2}$, etc. This sequence of factors is decreasing, hence a table row is weakly increasing then decreasing (since once a factor becomes less than 1, it will never exceed 1). Hence it suffices to check that $\#(2)$ is less than $\#(2+2)$ and also less than the rightmost nonzero entry in the table.
 
-The first inequalityfollows since $\frac{1}{2}{n \choose 2}$ is a strictly increasing function for $n > 2$.
+The first inequality follows since $\frac{1}{2}{n \choose 2}$ is a strictly increasing function for $n > 2$.
 
-For the second inequality, we form a set-embedding $f$ (an injective function) for the two sets in question. Let $f((1, 2)) = (1 2)(3 4)(5 6), f(1 x) = (1 2)(x x+1), f(2 y) = (1 2)(y y+1), f(p q) = (1 2)(p q)$, where $x, y, p, q \not\in \{1, 2\}$.
+For the second inequality, the rightmost nonzero entry is $\frac{n!}{\frac{n}{2}! 2^\frac{n}{2}}$ where the division. The ratio of this to $\#(2)$ is $\frac{(n-2)!}{\frac{n}{2}! 2^{\frac{n}{2} - 1}} = \frac{(n-2)(n-3) \ldots (\frac{n}{2} + 1)}{2^{\frac{n}{2}-1}}$. The number of factors in the top is $\ceil{\frac{n}{2}}-2$ and the number of factors at the bottom is $\floor{\frac{n}{2}} - 1$; these differ by at most 1. For $n \ge 6$, we can thus group them as $\frac{n-2}{p} \frac{n-3}{2} \frac{n-4}{2} \ldots$ where $p$ is 2 or 4. Each factor is greater than 1 for $n \ge 6$.
 
 For $\sigma \in \Aut(S_n)$ since $\sigma(K)$ must be a conjugacy class of size $|K|$, and furthermore $\sigma$ preserves orders, we have $\sigma(K) = K$.
 
@@ -112,7 +113,7 @@ If $\{p, q\}$ is disjoint from $\{1, 2\}$ then the HLS is equal to $(a, b_2)$ wh
 
 A similar proof shows that $\sigma$ preserves transposition overlap count (if $a, b, c$ are distinct, then $\sigma((a, b))$ and $\sigma((b, c))$ are transpositions $(p, q), (r, s)$ with exactly one element in common, i.e. $|\{p, q, r, s\}| = 3$).
 
-Hence, if $\sigma((1, 2)) = (p, q)$, then $\sigma(1, k)$ has exactly one element in common with $\{p, q\}$ (except for $k=2$). It suffices to show that this is the same element for all $k$. Supposing otherwise, assume WLOG $\sigma((1, 3)) = (p, q')$ and $\sigma((1, 4)) = (p', q)$. Now $(1, 3) and (1, 4)$ have 1 element in common, but $(p, q'), (p', q)$ do not.
+Hence, if $\sigma((1, 2)) = (p, q)$, then $\sigma(1, k)$ has exactly one element in common with $\{p, q\}$ (except for $k=2$). It suffices to show that this is the same element for all $k$. Supposing otherwise, assume WLOG $\sigma((1, 3)) = (p, q')$ and $\sigma((1, 4)) = (p', q)$. Now $(1, 3)$ and $(1, 4)$ have 1 element in common, so $(p, q'), (p', q)$ have one element in common, hence $p' = q'$, so $\sigma((1, 3)) = (p, p'), \sigma((1, 4)) = (q, p')$. Now by a similar overlap-counting argument, $(3, 4)$ must be mapped to $(p, q)$, but this violates the injectivity of $\sigma$.
 
 \section*{4.4.18d}
 
@@ -121,5 +122,16 @@ For arbitrary $1 \le p < q \le n$ we have $(1, q)(1, p)(1, q) = (p, q)$. Hence t
 Hence any $\sigma \in \Aut(S_n)$ is uniquely determined by its action on $(1, 2), \ldots (1, n)$, hence by the distinct values $a, b_2, \ldots b_n$. There are at most $n!$ such possible values.
 
 The map $f : S_n \to \Aut(S_n)$ which maps $\tau$ to conjugation by $\tau$ is injective since $Z(S_n) = 1$ if $n \ge 3$. Hence there are $n!$ inner automorphisms, which accounts for all $n!$ possible automorphisms.
+
+\section*{4.4.19a}
+
+$|K| \ne |K'|$: this follows by reading off the table in 4.4.18b. Now let $H \le \Aut(S_6)$ be defined as $H = \{\sigma \in \Aut(S_6) : \sigma(K) = K\}$. Let $t_1, \ldots t_{15}$ be the transpositions in $S_6$, and $p_1 \ldots p_{15}$ be the triple transpositions, and let $\sigma \in \Aut(S_6)$. If $\sigma(t_1) = t_k$ for some $k$, then $\sigma \in H$. Otherwise $\sigma(t_1) = p_k$ for some $k$, and hence $\sigma(K) = K'$, and furthermore $\sigma(K') = K$.
+
+If $H$ is equal to $\Aut(S_6)$ then $H$ is index 1. Hence it suffices to show that if there exists some $\tau \in \Aut(S_6) - H$, then $H$ is index 2. For all $\sigma \in \Aut(S_6)$ either $\sigma(K) = K$ in which case $\sigma \in H$ or $\sigma(K) = K'$ in which case $\tau\sigma \in H$. Hence $\Aut(S_6) = H \sqcup \tau H$ and $H$ is of index 2.
+
+\section*{4.4.19b}
+
+By repeating 4.4.18c-d, $|H| = 6!$ and $H = \Inn(S_6)$ (since every inner automorphism belongs to $H$, and there are $n!$ inner automorphisms).
+
 
 \end{document}
