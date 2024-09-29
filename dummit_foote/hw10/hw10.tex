@@ -55,8 +55,6 @@
 
 % qns. why G/Z abelian is not enough?
 
-% 3. Do Exercise 4.4.19 on p. 138.
-
 % 4. Do Exercise 5.1.12 on p. 157.
 
 % 5. Do Exercise 5.2.14 on p. 167.
@@ -133,5 +131,31 @@ If $H$ is equal to $\Aut(S_6)$ then $H$ is index 1. Hence it suffices to show th
 
 By repeating 4.4.18c-d, $|H| = 6!$ and $H = \Inn(S_6)$ (since every inner automorphism belongs to $H$, and there are $n!$ inner automorphisms).
 
+\section*{5.1.12a}
+
+The image of $A$ in $A \times B$ is $\{(a, e) : a \in a\}$ and the image of $A$ in $A * B$ is $A' = \{(a, e)Z : a \in A\}$. Let $f : A \to A'$ be given by $f(a) = (a, e)Z$. This is a homomorphism since $f(a)f(b) = (a, e)(b, e)Z = (ab, e)Z = f(ab)$. This is surjective by definition.
+
+This is injective. Suppose $f(a) = f(b)$, then $(a, e)Z = (b, e)Z$, then $(a, e)\{x_i, y_i^\inv : x_i \in Z_1\} = (b, e)\{x_i, y_i^\inv : x_i : Z_1\}$, then $\{(ax_i, y_i^\inv): x_i : Z_1\} = \{(bx_i, y_i^\inv): x_i : Z_1\}$. There is only a single tuple in both the LHS and the RHS with $e$ as the second argument, with $y_i = x_i = e$. Hence by comparing the first element of that tuple, $ae = be$, hence $a = b$.
+
+The proof that the image of $B$ is isomorphic to $B$ is similar.
+
+The intersection is $I = \{(ax_i, y_i^\inv)Z: a \in A, x_i \in Z_1\} \cap \{(x_i, by_i^\inv)Z: b \in B, x_i \in Z_1\}$. An element of this intersection is of the form $(ax_i, y_i^\inv)Z = (x_j, bx_j^\inv)Z$ for some $a \in A, b \in B, x_i, \in Z_1, y_j \in Z_2$. This means $(ax_i x_j^\inv, y_i^\inv x_jb^\inv) \in Z$; in particular, $a \in Z_1, b \in Z_2$. Hence $I = \{(ax_i, y_i^\inv)Z: a \in Z_1, x_i \in Z_1\} \cap \{(x_i, by_i^\inv)Z: b \in Z_2, x_i \in Z_1\}$, which is central. This is isomorphic to the intersection of the image of $Z_1$ and $Z_2$ in the group $I' = (Z_1 \times Z_2) / Z$ (here $Z$ is understood as a subgroup of $Z_1 \times Z_2$). Hence it suffices to show that the image of $Z_1$ is the entire group. Let $z_1 \in Z_1, z_2 \in Z_2$ be arbitrary; it is required to show that $(z_1, z_2)Z = (a, e)Z$ for some $a \in Z_1$, or equivalently $(az_1^\inv, z_2^\inv) \in Z$. Here we can take $a = z_2' z_1$ where $z_2'$ is the image of $z_2$ under the isomorphism $Z_1 \cong Z_2$.
+
+$|A * B| = |(A \times B) / Z| = |A||B| / |Z_1|$ since $|Z| = |Z_1|$.
+
+\section*{5.1.12b}
+
+In $Z_4 * Q_8$ let $X = xZ, I = iZ, j = jZ, k = kZ$. Let $\phi$ be the set-function $\phi : Z_4 * Q_8 \to Z_4 * Q_8$ be given by $\phi(X) = (x, e)Z, \phi(I) = (e, r)Z, \phi(J) = (x, rs)Z$ where the $Z$'s on the RHS should be understood as the appropriate subgroup of $Z_4 * D_8$. 
+
+Since $\{X, I, J\}$ is a generating set, and the image of these forms a generating set of the RHS as well, it suffices to show that this is a group homomorphism.
+
+By considering $Z_4 * Q_8$ as a subgroup of the direct product, it suffices to check the identities $X^4 = I^4 = J^4 = (IJ)^4 = eZ, IJK = X^2$ under the map. First, note that $\phi(K) = (x, r^2s)$.
+
+This becomes $x^4 = e, r^4 = e, (x, rs)^4 = e, (x, r^2s)^4 = e$ and $(x^2, e) = (x^2, rrsr^2s)$.
+\section*{5.1.14}
+
+Let $B = B_1 \times \ldots B_n = \{(b_1 \ldots b_n) : b_i \in B_i\}, g \in G$. Then $g = (g_1, \ldots g_n)$ where $g_i \in A_i$. We have $gB = \{(g_1, \ldots g_n)(b_1, \ldots b_n) : b_i \in B_i\} = \{(g_1b_1, \ldots g_nb_n) : b_i \in B_i\} = \{(b_1'g, \ldots b_n'g) : b_i' \in B_i\} \subseteq Bg$ where in the last equality we have used the fact that $B_i$ is normal in $A_i$. Hence $gB \subseteq Bg$ for all $g$, which implies $B$ is normal in $G$.
+
+Let $\phi : G / B \to (A_1/B_1) \times \ldots (A_n/B_n)$ be given by $\phi((g_1, \ldots g_n)B) = (g_1B_1, \ldots g_nB_n)$. This is well-defined since if $gB = hB$ then comparing elementwise, $g_iB_i = h_iB_i$. 
 
 \end{document}
