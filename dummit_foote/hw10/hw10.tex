@@ -156,6 +156,12 @@ This becomes $x^4 = e, r^4 = e, (x, rs)^4 = e, (x, r^2s)^4 = e$ and $(x^2, e) = 
 
 Let $B = B_1 \times \ldots B_n = \{(b_1 \ldots b_n) : b_i \in B_i\}, g \in G$. Then $g = (g_1, \ldots g_n)$ where $g_i \in A_i$. We have $gB = \{(g_1, \ldots g_n)(b_1, \ldots b_n) : b_i \in B_i\} = \{(g_1b_1, \ldots g_nb_n) : b_i \in B_i\} = \{(b_1'g, \ldots b_n'g) : b_i' \in B_i\} \subseteq Bg$ where in the last equality we have used the fact that $B_i$ is normal in $A_i$. Hence $gB \subseteq Bg$ for all $g$, which implies $B$ is normal in $G$.
 
-Let $\phi : G / B \to (A_1/B_1) \times \ldots (A_n/B_n)$ be given by $\phi((g_1, \ldots g_n)B) = (g_1B_1, \ldots g_nB_n)$. This is well-defined since if $gB = hB$ then comparing elementwise, $g_iB_i = h_iB_i$. 
+Let $\phi : G / B \to (A_1/B_1) \times \ldots (A_n/B_n)$ be the set-function given by $\phi((g_1, \ldots g_n)B) = (g_1B_1, \ldots g_nB_n)$. This is well-defined since if $gB = hB$ then comparing elementwise, $g_iB_i = h_iB_i$. We will prove that $\phi$ is a group isomorphism.
+
+$\phi$ is a group homomorphism: $\phi$ maps the identity $(e_1, \ldots e_n)B$ to $(e_1B_1, \ldots e_nB_n)$, which is the identity in $(A_1/B_1) \times \ldots (A_n/B_n)$. Now $\phi((g_1, \ldots g_n)B(g_1', \ldots g_n')B) = \phi((g_1g_1', \ldots g_ng_n')B) = (g_1g_1'B_1, \ldots g_ng_n'B_n) = (g_1B_1, \ldots g_nB_n)(g_1'B_1, \ldots g_n'B_n) = \phi((g_1, \ldots g_n)B)\phi((g_1', \ldots g_n')B)$. The proof for inverse is similar.
+
+$\phi$ is surjective: for any element in the codomain $y = (a_1B_1, \ldots a_nB_n)$, we can take $g = (a_1, \ldots a_n)$ and $\phi(gB) = y$.
+
+$\phi$ is injective: if $(g_1B_1, \ldots g_nB_n) = (h_1B_1, \ldots h_nB_n)$ then comparing elementwise, $g_iB_i = h_iB_i$. In the domain it is required to prove that $(g_1, \ldots g_n)B = (h_1, \ldots h_n)B$, equivalently $(g_1^\inv, h_1 \ldots g_n^\inv, h_n) \in B$, equivalently $g_i^\inv h_i \in B_i$, which follows from $g_iB_i = h_iB_i$.
 
 \end{document}
