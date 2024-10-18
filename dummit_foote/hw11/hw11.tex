@@ -1,0 +1,89 @@
+\listfiles
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage[all,pdf]{xy}
+\usepackage{lmodern,amssymb}
+\usepackage{multirow}
+
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\E}{E}
+\def\Z{\mathbb{Z}}
+\def\N{\mathbb{N}}
+\def\R{\mathbb{R}}
+\def\C{\mathbb{C}}
+\def\Q{\mathbb{Q}}
+\def\K{\mathbb{K}}
+\def\T{\mathbb{T}}
+\def\B{\mathcal{B}}
+\def\XX{\mathfrak{X}}
+\def\YY{\mathfrak{Y}}
+\def\AA{\mathfrak{A}}
+\def\ZZ{\mathfrak{Z}}
+\def\BB{\mathcal{B}}
+\def\UU{\mathcal{U}}
+\def\MM{\mathcal{M}}
+\def\M{\mathfrak{M}}
+\def\l{\lambda}
+\def\L{\Lambda}
+\def\<{\langle}
+\def\>{\rangle}
+\def\f12{\frac{1}{2}}
+\def\inv{{-1}}
+\def\im{\textrm{im}}
+\def\Stab{\textrm{Stab}}
+\def\Dic{\textrm{Dic}}
+\def\Aut{\textrm{Aut}}
+\def\Inn{\textrm{Inn}}
+
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{1em}
+
+\title{HW 11}
+\date{}
+
+\begin{document}
+\maketitle
+
+% [From the last problem set.]
+
+% 1. Do Exercise 5.2.14 on p. 167.
+
+% 2. Do Exercise 5.2.15 on p. 167.
+
+% [New problems.]
+
+% 3. Do Exercise 5.4.4 on p. 174.   
+
+% 4. Do Exercise 5.4.5 on p. 174.
+
+% 5. Do Exercise 5.4.14 on p. 174.
+
+% 6. Do Exercise 5.4.18 on p. 174.
+
+\section*{5.2.14a}
+
+The group operation is associative: it is required to prove that for $\alpha, \beta, \gamma \in \hat{G}, (\alpha\beta)\gamma = \alpha(\beta\gamma)$. This follows because $(\alpha(z)\beta(z))\gamma(z) = \alpha(z)(\beta(z)\gamma(z))$ as an equation in $\C$. Similarly, commutativity of multiplication in $\C$ implies commutativity of the group operation in $\hat{G}$.
+
+The identity element is the constant function $\epsilon(z) = 1$ for all $z \in G$, because for any $\alpha \in \hat{G}$, $\alpha(z)\epsilon(z) = \alpha(z)$.
+
+Given $\alpha \in \hat{G}$, the inverse $\alpha^\inv$ is given by $\alpha^\inv(z) = \alpha(z)^\inv$ for all $z \in G$. This is well-defined because $\alpha(z) \neq 0$ for all $z \in G$ (0 is not a root of unity), and $\alpha(z)\alpha(z)^\inv = \alpha(z) \alpha(z)^\inv = 1$, hence $\alpha \alpha^\inv = \epsilon$.
+
+\section*{5.2.14b}
+
+Let $\C'$ be the group of roots of unity in $\C$. Let $j$ be the square root of $-1$ in $\C$.
+
+Write $G = \<x_1\> \times \<x_2\> \ldots \<x_r\>$ and let $n_i$ be the order of $x_i$, and let $\chi_i \in \hat{G}$ be as in the hint. Let $F$ be the function from $G \to \hat{G}$ given by $F(x_1^{e_1}, x_2^{e_2} \ldots x_n^{e_n}) = \chi_1^{e_1} \chi_2^{e_2} \ldots \chi_n^{e_n}$. It is easy to check that $F$ is an injective homomorphism.
+
+We prove that $F$ is surjective. Let $\phi \in \hat{G}$, in other words $\phi : \<x_1\> \times \<x_2\> \ldots \<x_r\> \to \C'$ is a homomorphism. Since the $x_i$ generate $G, \phi$ is uniquely determined by its action on each $x_i$. $\phi(x_i)$ is a root of unity of order dividing $n_i$, so we can write $\phi(x_i) = \chi_i^{e_i}$ for some $e_i$ since $\chi_i(x_i) = e^\frac{2\pi j}{n_i}$ is a primitive $n_i$-th root of unity. Hence $\phi = F(x_1^{e_1}, x_2^{e_2} \ldots x_n^{e_n})$.
+
+\end{document}
