@@ -56,9 +56,10 @@
 
 \section*{5.4.14}
 
-We show that $G = D \times U$ as an internal direct product. $D$ and $U$ are both contained in $G$, and every element of $d$ commutes with every element of $u$. Given $g \in G$ whose diagonal elements are $g_0$ we can divide by $d = g_0I \in D$ to write $g = d u$ where $d \in D, u \in U$.
+We show that $G = D \times U$ as an internal direct product. $D$ and $U$ are both contained in $G$, and every element of $d$ commutes with every element of $u$. Given $g \in G$ whose diagonal elements are $g_0$, we have $g_0 > 0$ since otherwise, the determinant (which is the product of the diagonal elements for an upper triangular matrix) is 0, which contractis $G \subseteq GL_n(F)$. We can write $g = d u$ where $d = g_0 I \in D, u \in U$.
 
-Claim: this decomposition is unique. Suppose $g = d_1 u_1 = d_2 u_2$; taking determinants, $|d_1| = |d_2|$ hence they have equal diagonal elements, hence $d_1 = d_2$, hence $u_1 = u_2$.
+Claim: this decomposition is unique. Suppose $g = d_1 u_1 = d_2 u_2$. Let $d_i = k_i I$ for some scalars $k_i$. Then $k_1 u_1 = k_2 u_2$. The upper left element of the LHS is $k_1$ and that of the RHS is $k_2$, hence $k_1 = k_2$, hence $d_1 = d_2$ and $u_1 = u_2$.
+ taking determinants, $|d_1| = |d_2|$ hence they have equal diagonal elements, hence $d_1 = d_2$, hence $u_1 = u_2$.
 
 The map $\phi: H \times K \to G$ given by $(h, k) \mapsto h k$ is a homomorphism. It maps $(e, e)$ to $e$, it maps $(h, k)^\inv = (h^\inv, k^\inv)$ to to $(hk)^\inv = h^\inv k^\inv$, and it maps $(h, k)(h', k') = (hh', kk')$ to $hh'kk' = (hk)(h'k')$. There is a map $G \to H \times K$ given by the unique decomposition. This is an inverse map since the composed map maps $hk \to (h, k) \to hk$, hence $\phi$ is an isomorphism.
 
@@ -101,6 +102,27 @@ Multiplication by 5: let $u, v$ be generators of $C_2$ and $C_8$; similar to the
 
 Let $H$ be a group; by Cayley's theorem it is a subgroup of $S_H$, namely the subgroup of permutations $P = \{ \pi_h: h' \mapsto hh' \mid h \in H\}$. Take $G = N_{S_H}(H)$; then $H$ is a normal subgroup of $G$ by construction. Let $\sigma$ be an automorphism of $H$; in particular $\sigma$ is a permutation of $H$ so we can treat $\sigma$ as an element of $S_H$. The conjugation $\pi_h^\sigma$ is the map $\sigma \circ \pi_h \circ \sigma^\inv$ which maps $h'$ to $\sigma(h\sigma^\inv(h')) = \sigma(h) h'$ hence it is the map $\pi_{\sigma(h)}$. Hence conjugation by $\sigma$ is an automorphism of $P$ (this also shows $\sigma \in G$).
 
+\section*{5.5.22a}
+
+We apply the recognition theorem (theorem 12):
+
+$U \trianglelefteq G$: not sure how to prove this
+
+$U \cap D = \{I\}$: let $\mathcal{M}$ be in the intersection. $\mathcal{M}$ is a diagonal matrix, and all of its diagonal elements are 1, hence it is the identity matrix.
+
+$UD = G$: note that diagonal matrices in $GL_n(F)$ are invertible, with
+
+\[ 
+\begin{pmatrix} a & 0 & \ldots \\ 0 & b & \ldots \\ & & \ddots \end{pmatrix}^\inv =
+\begin{pmatrix} a^\inv & 0 & \ldots \\ 0 & b^\inv & \ldots \\ & & \ddots \end{pmatrix}
+\]
+
+where every diagonal element is nonzero, since otherwise the determinant would be 0. Given an arbitrary matrix $\mathcal{G} = \begin{pmatrix} a & \ldots & \ldots \\ 0 & b & \ldots \\ & & \ddots \end{pmatrix}$ let $\mathcal{D} = \begin{pmatrix} a & 0 & \ldots \\ 0 & b & \ldots \\ & & \ddots \end{pmatrix}$; we have $\mathcal{G} \mathcal{D}^\inv$ is an upper triangular matrix with diagonal elements 1; call this matrix $\mathcal{U}$. Then $\mathcal{G} = \mathcal{U} \mathcal{D}$.
+\section*{5.5.22b}
+
+Elements of $U$ are of the form $\mathcal{U} = \begin{pmatrix} 1 & x \\ 0 & 1 \end{pmatrix}$ where we can take $x \in F$ to be the image of the isomorphism. Similarly elements of $D$ are of the form $\mathcal{D} = \begin{pmatrix} a & 0 \\ 0 & b \end{pmatrix}$ where $a, b \in F^\times$.
+
+The action is given by conjugation of $\mathcal{U}$ by $\mathcal{D}$; we have $\mathcal{D} \mathcal{U} \mathcal{D}^\inv = \begin{pmatrix} 1 & a^\inv x b \\ 0 & 1 \end{pmatrix}$. Hence the action is given by $(a, b) \circ x =  a^\inv b x$.
 
 
 \end{document}

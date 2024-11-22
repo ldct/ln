@@ -1,6 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1731176551 "/Users/xuanji/gits/ln/dummit_foote/hw12/hw12.tex" "hw12.pdf" "hw12" 1731176551 0
-  "/Users/xuanji/gits/ln/dummit_foote/hw12/hw12.tex" 1731176551 6633 352610811e6edef18e0f35259b01b4e0 ""
+["pdflatex"] 1732252987 "/Users/xuanji/gits/ln/dummit_foote/hw12/hw12.tex" "hw12.pdf" "hw12" 1732252987 0
+  "/Users/xuanji/gits/ln/dummit_foote/hw12/hw12.tex" 1732252987 8554 cef008b7f3d83328dec68d6e1e18d435 ""
+  "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1202520719 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1202520719 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc" 1202520719 2840 216e6e45ad352e2456e1149f28885bee ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc" 1202520719 2327 9d6df24f9c4f7368395224341a95523a ""
@@ -40,8 +41,10 @@
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/xypic/xydash10.tfm" 1381187214 984 5c01c46b93e3ba8369f3f8edc6e62aef ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/xypic/xyluat10.tfm" 1381187214 608 a3a3bc08980c5126ff2a7a68fb5a64ff ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/xypic/xylubt10.tfm" 1381187214 608 a3a3bc08980c5126ff2a7a68fb5a64ff ""
+  "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1248133631 31764 459c573c03a4949a528c2cc7f557e217 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx12.pfb" 1255129361 116908 1fca96723793882c2e0160350c192fc8 ""
+  "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmex10.pfb" 1254269338 23055 2e5b42921de910eaa97b85df04ca4891 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi10.pfb" 1254269338 30388 702fae6a5f0e6e9c48a1d872b442ffcf ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi5.pfb" 1254269338 31443 ba2241b179aa231f73e052863720cb42 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi7.pfb" 1254269338 30789 be3ebdf20b6442cc4aaf81a81e17daf4 ""
@@ -141,9 +144,9 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1682690123 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1682690097 7883453 4a76af47382d8e05ab046bf848df43ed ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "hw12.aux" 1731176551 554 04ae3964aa57b78538b565d0454a3de2 "pdflatex"
-  "hw12.out" 1731176551 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "hw12.tex" 1731176551 6633 352610811e6edef18e0f35259b01b4e0 ""
+  "hw12.aux" 1732252987 554 dd2b48f1aba1e3b725040b4d3abf7fbe "pdflatex"
+  "hw12.out" 1732252987 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "hw12.tex" 1732252987 8554 cef008b7f3d83328dec68d6e1e18d435 ""
   (generated)
   "hw12.aux"
   "hw12.log"
