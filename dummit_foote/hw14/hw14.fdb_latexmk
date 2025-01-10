@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1734400487 "/Users/xuanji/gits/ln/dummit_foote/hw14/hw14.tex" "hw14.pdf" "hw14" 1734400488 0
-  "/Users/xuanji/gits/ln/dummit_foote/hw14/hw14.tex" 1734400487 1865 69e9c16dd78a1ff546b6b508494ca550 ""
+["pdflatex"] 1735791036 "/Users/xuanji/gits/ln/dummit_foote/hw14/hw14.tex" "hw14.pdf" "hw14" 1735791037 0
+  "/Users/xuanji/gits/ln/dummit_foote/hw14/hw14.tex" 1735791036 1777 bf153fb12d2a6db295ae7adeeb4df771 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1202520719 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc" 1202520719 2840 216e6e45ad352e2456e1149f28885bee ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc" 1202520719 2327 9d6df24f9c4f7368395224341a95523a ""
@@ -40,7 +40,6 @@
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/xypic/xydash10.tfm" 1381187214 984 5c01c46b93e3ba8369f3f8edc6e62aef ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/xypic/xyluat10.tfm" 1381187214 608 a3a3bc08980c5126ff2a7a68fb5a64ff ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/xypic/xylubt10.tfm" 1381187214 608 a3a3bc08980c5126ff2a7a68fb5a64ff ""
-  "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx12.pfb" 1255129361 116908 1fca96723793882c2e0160350c192fc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi10.pfb" 1254269338 30388 702fae6a5f0e6e9c48a1d872b442ffcf ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi7.pfb" 1254269338 30789 be3ebdf20b6442cc4aaf81a81e17daf4 ""
@@ -138,9 +137,9 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1682690123 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1682690097 7883453 4a76af47382d8e05ab046bf848df43ed ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "hw14.aux" 1734400488 554 e6f85c6f44bbe194532b4fa1fd8ca02c "pdflatex"
-  "hw14.out" 1734400488 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "hw14.tex" 1734400487 1865 69e9c16dd78a1ff546b6b508494ca550 ""
+  "hw14.aux" 1735791037 554 e6f85c6f44bbe194532b4fa1fd8ca02c "pdflatex"
+  "hw14.out" 1735791037 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "hw14.tex" 1735791036 1777 bf153fb12d2a6db295ae7adeeb4df771 ""
   (generated)
   "hw14.aux"
   "hw14.log"
